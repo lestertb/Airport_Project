@@ -1,10 +1,10 @@
-class Users:
-    def __init__(self,name, age, email, password,id, role):
+class User:
+    def __init__(self,name, age, email,id , password, role):
         self.name = name
         self.age = age
         self.email = email
-        self.password = password
         self.id = id
+        self.password = password
         self.role = role
         self.adminList = []
         self.guestList = []
