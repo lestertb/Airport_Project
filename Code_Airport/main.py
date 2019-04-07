@@ -5,6 +5,7 @@ import getpass
 import os
 
 usersList = []
+trackList = []
 
 def addUser(name, age, email, id, password, role):
     newUser = User(name, age, email, id, password, role)
@@ -24,23 +25,35 @@ def showInfoUser():
 
 
 def logIn(id, password):
-    print("hola1")
     if usersList == []:
         return "User not found"
     else:
-        print("hola2")
         for user in usersList:
-            print("hola3")
             if user.id == id and user.password == password:
-               print("hola4")
                for admin in user.adminList:
-                   print("hola5")
                    if admin.id == id and admin.password == password:
-                       print("hola6")
                        role = 1
                        return role
             else:
                 return "User not found"
+
+def addTracks (number, state):
+    trackList.append(number, state)
+    
+
+
+def maintenanceTracks ():
+    print("Maintenence of Tracks.\n",
+          "1)Create Tracks.\n",
+          "2)See Tracks.\n",
+          "3)Modify Tracks.\n",
+          "4)Eliminate Tracks.")
+    option = int(input("Enter the action you want to do:"))
+    if option == "1":
+        number =input("Enter number of the track:")
+        state =input("Enter state of track:")
+        addTracks(number,state)
+
 
 
 
@@ -54,7 +67,6 @@ def Menu():
         id = input("Enter id:")
         password = input("Enter password:")
         print(logIn(id, password))
-
 
     elif option == "2":
         name = input("Enter name:")
@@ -86,7 +98,9 @@ def mainMenu():
     option = input("Enter the action you want to do:")
 
     if option == "1":
-        return
+        maintenanceTracks()
+
 
     else:
         return
+
