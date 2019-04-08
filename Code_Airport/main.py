@@ -1,106 +1,279 @@
 from User import *
-from Admin import *
-from Guest import *
-import getpass
-import os
+from TrackMaintenance import *
 
 usersList = []
 trackList = []
+
+
+'------------------------------------------#Fuctions---------------------------------------'
+
 
 def addUser(name, age, email, id, password, role):
     newUser = User(name, age, email, id, password, role)
     usersList.append(newUser)
 
-def addAdmin(name, id, password):
-    for user in usersList:
-        if user.name == name:
-            newAdmin = Admin(id,password)
-            user.addAdmin(newAdmin)
-
 
 def showInfoUser():
+    if usersList != []:
+        for user in usersList:
+            print("Name: ", user.name, "Age: ", user.age,
+                  "Email: ", user.email, "ID: ", user.id,
+                  "Password:", user.password, "Role:", user.role)
+    else:
+        print("\nNo users found\n")
+
+def verifyID(id):
     for user in usersList:
-        print("Name: ", user.name, "Age: ", user.age, "Email: ", user.email,
-              "Password", "ID: ", user.id, "Role:", user.role)
+        if id == user.id:
+            return True
+        else:
+            return False
+
+def verifyEmail(email):
+    for user in usersList:
+        if email == user.email:
+            return True
+        else:
+            return False
 
 
 def logIn(id, password):
-    if usersList == []:
-        return "User not found"
-    else:
+    while usersList != []:
         for user in usersList:
             if user.id == id and user.password == password:
-               for admin in user.adminList:
-                   if admin.id == id and admin.password == password:
-                       role = 1
-                       return role
+                role = user.role
+                if role == 1:
+                    return role
+                else:
+                    return role
             else:
-                return "User not found"
+                return "\n User not found, Please Sign up\n"
+    return "\n User not found, Please Sign up\n"
 
-def addTracks (number, state):
-    trackList.append(number, state)
-    
+def addTrack(number, status):
+    newTrack = MaintenenceTracks(number, status)
+    trackList.append(newTrack)
+
+def verifyTrack(number):
+    for track in trackList:
+        if number == track.number:
+            return True
+        else:
+            return False
+
+def showTracks():
+    if trackList != []:
+        for track in trackList:
+            print("Track Number: ", track.number, "Stat: ", track.status)
+    else:
+        print("\nNo tracks found\n")
+
+def modifyTrack(number,status):
+    for track in trackList:
+        if number == track.number:
+            track.status = status
+            return "\nSuccessful modification\n"
+        else:
+            return "\nTrack no found\n"
+
+def deleteTrack(number):
+    for track in trackList:
+        if number == track.number:
+            trackList.remove(track)
+            return "\nSuccessful delete\n"
+        else:
+            return "\nTrack no found\n"
 
 
-def maintenanceTracks ():
-    print("Maintenence of Tracks.\n",
-          "1)Create Tracks.\n",
-          "2)See Tracks.\n",
-          "3)Modify Tracks.\n",
-          "4)Eliminate Tracks.")
-    option = int(input("Enter the action you want to do:"))
+'------------------------------------------#Menus---------------------------------------'
+
+
+def trackStatusMenu():
+    print("Select the track status.\n"
+          "1)Available.\n"
+          "2)Not Available.\n"
+          "3)In maintenance.\n")
+    option = input("Enter the option to the status:")
     if option == "1":
-        number =input("Enter number of the track:")
-        state =input("Enter state of track:")
-        addTracks(number,state)
+        return "Available"
+
+    elif option == "2":
+        return "Not Available"
+
+    elif option == "3":
+        return "In maintenance"
+
+    else:
+        print("Invalid option")
+        return trackStatusMenu()
 
 
+def maintenanceTracks(role):
+    if role == 1:
+        role = 1
+        print("Maintenance of Tracks.\n",
+              "1)Create Tracks.\n",
+              "2)See Tracks.\n",
+              "3)Modify Tracks.\n",
+              "4)Delete Tracks.\n",
+              "5)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            i=1
+            x = int(input("Enter the number of tracks you are going to add:"))
+            while i <= x:
+                number = input("Enter number of the track:")
+                if verifyTrack(number) == True:
+                    while verifyTrack(number) == True:
+                        print("Track already exists, try again")
+                        number = input("Enter number of the track:")
+                        if verifyTrack(number) == False:
+                            break
+                status = trackStatusMenu()
+                addTrack(number, status)
+                i = i +1
+
+        elif option == "2":
+            showTracks()
+
+        elif option == "3":
+            showTracks()
+            number = input("Enter the Track number to modify:")
+            status = trackStatusMenu()
+            print(modifyTrack(number, status))
+
+        elif option == "4":
+            showTracks()
+            number = input("Enter number of the track to delete")
+            print(deleteTrack(number))
+
+        elif option == "5":
+            mainMenu(role)
+
+        else:
+            return
+        maintenanceTracks(role)
+    else:
+        role = 2
+        print("\nYou are in guest mode, You can only see the tracks\n")
+        print("\nMaintenance of Tracks.\n",
+              "1)See Tracks.\n",
+              "2)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            showTracks()
+        elif option == "2":
+            mainMenu(role)
+        else:
+            return
+        maintenanceTracks(role)
 
 
-def Menu():
+def mainMenu(role):
+    if role == 1:
+        print("\nYou are in admin mode\n"
+              "\nAero-TEC\n",
+              "1)Maintenance of tracks.\n",
+              "2)Maintenance of doors of boarding.\n",
+              "3)Airline maintenance.\n",
+              "4)Crew maintenance\n",
+              "5)Aircraft maintenance.\n",
+              "6)Airport maintenance.\n",
+              "7)Flight maintenance.\n",
+              "8)Log out\n")
+        option = input("Enter the action you want to do:")
+
+        if option == "1":
+            role = 1
+            maintenanceTracks(role)
+
+        elif option == "8":
+            menu()
+
+        else:
+            return
+    else:
+        print("\nYou are in guest mode, Only read\n"
+              "\nAero-TEC\n",
+              "1)Maintenance of tracks.\n",
+              "2)Maintenance of doors of boarding.\n",
+              "3)Airline maintenance.\n",
+              "4)Crew maintenance\n",
+              "5)Aircraft maintenance.\n",
+              "6)Airport maintenance.\n",
+              "7)Flight maintenance.\n",
+              "8)Log out\n")
+        option = input("Enter the action you want to do:")
+
+        if option == "1":
+            role = 2
+            maintenanceTracks(role)
+
+        elif option == "8":
+            menu()
+
+        else:
+            return
+
+def menu():
     print("Aero-TEC\n",
           "1)Log in.\n",
-          "2)Sign up.\n",)
+          "2)Sign up.\n",
+          "3)Show Info.\n")
     option = input("Enter the action you want to do:")
 
     if option == "1":
         id = input("Enter id:")
         password = input("Enter password:")
-        print(logIn(id, password))
+        role = logIn(id, password)
+        if role == 1:
+            mainMenu(role)
+        elif role == 2:
+            mainMenu(role)
+        else:
+            print(role)
 
     elif option == "2":
         name = input("Enter name:")
-        age = int(input("Enter age:"))
+        while True:
+            try:
+                age = int(input("Enter age:"))
+                break
+            except ValueError:
+                print("Oops!  That was no valid number.  Try again...")
         email = input("Enter email:")
-        password = getpass.getpass("Enter password:")
+        if verifyEmail(email) == True:
+            while verifyEmail(email) == True:
+                print("Email already exists, try again")
+                email = input("Enter email:")
+                if verifyEmail(email) == False:
+                    break
         id = input("Enter identification card:")
+        if verifyID(id) == True:
+            while verifyID(id) == True:
+                print("ID already exists, try again")
+                id = input("Enter id:")
+                if verifyID(id) == False:
+                    break
+        password = input("Enter password:")
         role = int(input("Enter 1 to admin or 2 to guest:"))
-        if role == 1:
-            addAdmin(name, id, password)
+        if role != 1 and role != 2:
+            while role != 1 and role != 2:
+                print("Error please enter 1 or 2")
+                role = int(input("Enter 1 to admin or 2 to guest:"))
+                if role == 1 or role == 2:
+                    break
         addUser(name, age, email, id, password, role)
-    else:
-        "Invalid option"
-        return
-    Menu()
-Menu()
 
-
-def mainMenu():
-    print("Aero-TEC\n",
-          "1)Maintenance of tracks.\n",
-          "2)Maintenance of doors of boarding.\n",
-          "3)Airline maintenance.\n",
-          "4)Crew maintenance\n",
-          "5)Aircraft maintenance.\n",
-          "6)Airport maintenance.\n",
-          "7)Flight maintenance.\n",
-          "8)Log out\n")
-    option = input("Enter the action you want to do:")
-
-    if option == "1":
-        maintenanceTracks()
-
+    elif option == "3":
+        showInfoUser()
 
     else:
+        print("Invalid option")
         return
+    menu()
+menu()
+
+
+
 
