@@ -1,8 +1,10 @@
 from User import *
 from TrackMaintenance import *
+from GateMaintenance import *
 
 usersList = []
 trackList = []
+gateList = []
 
 
 '------------------------------------------#Fuctions---------------------------------------'
@@ -84,6 +86,41 @@ def deleteTrack(number):
         else:
             return "\nTrack no found\n"
 
+def addGate(number, status):
+    newGate = MaintenanceGates(number, status)
+    gateList.append(newGate)
+
+def verifyGate(number):
+    for gate in gateList:
+        if number == gate.number:
+            return True
+        else:
+            return False
+
+def showGates():
+    if gateList != []:
+     for gate in gateList:
+         print("Gate number:",gate.number, "Gate status:", gate.status)
+     else:
+         print("\nNo gates found\n")
+
+def modifyGate(number,status):
+    for gate in gateList:
+        if number == gate.number:
+            gate.status = status
+            return "\nSuccessful modification\n"
+        else:
+            return "\nGate no found\n"
+
+def deleteGate(number):
+    if gateList != []:
+        for gate in gateList:
+            if number == gate.number:
+                gateList.remove(gate)
+                return "\nSuccesful delete\n"
+            else:
+                return "\nGate not found\n"
+
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -131,7 +168,7 @@ def maintenanceTracks(role):
                             break
                 status = trackStatusMenu()
                 addTrack(number, status)
-                i = i +1
+                i = i + 1
 
         elif option == "2":
             showTracks()
@@ -168,6 +205,82 @@ def maintenanceTracks(role):
             return
         maintenanceTracks(role)
 
+def maintenanceGates(role):
+    if role == 1:
+        role = 1
+        print("Maintenance of boarding gates.\n",
+              "1)Create Gates.\n",
+              "2)See Gates.\n",
+              "3)Modify Gates.\n",
+              "4)Delete Gates.\n",
+              "5)Back.\n")
+        option = int(input("Enter the action you want to do:"))
+        if option == "1":
+            i = 1
+            x = int(input("Enter the number of tracks you are going to add:"))
+            while i <= x:
+                number = input("Enter number of the gate:")
+                if verifyGate(number) == True:
+                    while verifyGate(number)== True:
+                        print("This gate already exist, try again")
+                        number = input("Enter number of the gate")
+                        if verifyGate(number)== False:
+                            break
+                status = gateStatusMenu()
+                addGate(number, status)
+                i += 1
+
+        elif option == "2":
+            showGates()
+
+        elif option == "3":
+            showGates()
+            number = input("Enter the Gate number to modify:")
+            status = gateStatusMenu()
+            print(modifyGate(number, status))
+        elif option == "4":
+            showGates()
+            number = input("Enter number of the gate to delete")
+            print(deleteGate(number))
+        elif option ==  "5":
+            mainMenu(role)
+        else:
+            return maintenanceGates(role)
+    else:
+        role = 2
+        print("\nYou are in guest mode, You can only see the Gates\n")
+        print("\nMaintenance of Gates.\n",
+              "1)See Gates.\n",
+              "2)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            showGates()
+        elif option == "2":
+            mainMenu(role)
+        else:
+            return
+        maintenanceGates(role)
+
+
+def gateStatusMenu():
+    print("Select the gate status.\n"
+          "1)Available.\n"
+          "2)Not Available.\n"
+          "3)In maintenance.\n")
+    option = input("Enter the option to the status:")
+    if option == "1":
+        return "Available"
+
+    elif option == "2":
+        return "Not Available"
+
+    elif option == "3":
+        return "In maintenance"
+
+    else:
+        print("Invalid option")
+        return gateStatusMenu()
+
 
 def mainMenu(role):
     if role == 1:
@@ -186,9 +299,12 @@ def mainMenu(role):
         if option == "1":
             role = 1
             maintenanceTracks(role)
+        elif option == "2":
+            role = 1
+            maintenanceGates(role)
 
         elif option == "8":
-            menu()
+            loginMenu()
 
         else:
             return
@@ -210,12 +326,12 @@ def mainMenu(role):
             maintenanceTracks(role)
 
         elif option == "8":
-            menu()
+            loginMenu()
 
         else:
             return
 
-def menu():
+def loginMenu():
     print("Aero-TEC\n",
           "1)Log in.\n",
           "2)Sign up.\n",
@@ -271,8 +387,8 @@ def menu():
     else:
         print("Invalid option")
         return
-    menu()
-menu()
+    loginMenu()
+loginMenu()
 
 
 
