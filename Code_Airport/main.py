@@ -1,10 +1,13 @@
 from User import *
 from TrackMaintenance import *
 from GateMaintenance import *
+from random import random
 
 usersList = []
 trackList = []
 gateList = []
+crewList = []
+airportList = []
 
 
 '------------------------------------------#Fuctions---------------------------------------'
@@ -111,6 +114,14 @@ def modifyGate(number,status):
             return "\nSuccessful modification\n"
         else:
             return "\nGate no found\n"
+def addGateByNumber(num):
+    i = 1
+    while i < num:
+        for _ in range(num):
+            value = random()
+            newGate = MaintenanceGates(value, "Available")
+            gateList.append(newGate)
+        i += 1
 
 def deleteGate(number):
     if gateList != []:
@@ -120,7 +131,6 @@ def deleteGate(number):
                 return "\nSuccesful delete\n"
             else:
                 return "\nGate not found\n"
-
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -156,7 +166,7 @@ def maintenanceTracks(role):
               "5)Back.\n")
         option = input("Enter the action you want to do:")
         if option == "1":
-            i=1
+            i = 1
             x = int(input("Enter the number of tracks you are going to add:"))
             while i <= x:
                 number = input("Enter number of the track:")
@@ -213,7 +223,8 @@ def maintenanceGates(role):
               "2)See Gates.\n",
               "3)Modify Gates.\n",
               "4)Delete Gates.\n",
-              "5)Back.\n")
+              "5)Add Gates by cuantity.\n",
+              "6)Back.\n")
         option = int(input("Enter the action you want to do:"))
         if option == "1":
             i = 1
@@ -229,7 +240,6 @@ def maintenanceGates(role):
                 status = gateStatusMenu()
                 addGate(number, status)
                 i += 1
-
         elif option == "2":
             showGates()
 
@@ -242,7 +252,10 @@ def maintenanceGates(role):
             showGates()
             number = input("Enter number of the gate to delete")
             print(deleteGate(number))
-        elif option ==  "5":
+        elif option == "5":
+            num = int(input("Enter the number of gates you want to add:"))
+            addGateByNumber(num)
+        elif option == "6":
             mainMenu(role)
         else:
             return maintenanceGates(role)
@@ -265,17 +278,14 @@ def maintenanceGates(role):
 def gateStatusMenu():
     print("Select the gate status.\n"
           "1)Available.\n"
-          "2)Not Available.\n"
-          "3)In maintenance.\n")
+          "2)In use.\n"
+          )
     option = input("Enter the option to the status:")
     if option == "1":
         return "Available"
 
     elif option == "2":
-        return "Not Available"
-
-    elif option == "3":
-        return "In maintenance"
+        return "In use"
 
     else:
         print("Invalid option")
