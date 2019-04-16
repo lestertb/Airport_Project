@@ -1,7 +1,6 @@
 from User import *
 from TrackMaintenance import *
 from GateMaintenance import *
-from random import random
 
 usersList = []
 trackList = []
@@ -73,7 +72,7 @@ def showTracks():
     else:
         print("\nNo tracks found\n")
 
-def modifyTrack(number,status):
+def modifyTrack(number, status):
     for track in trackList:
         if number == track.number:
             track.status = status
@@ -89,8 +88,8 @@ def deleteTrack(number):
         else:
             return "\nTrack no found\n"
 
-def addGate(number, status):
-    newGate = MaintenanceGates(number, status)
+def addGate(number,state):
+    newGate = MaintenanceGates(number, state)
     gateList.append(newGate)
 
 def verifyGate(number):
@@ -102,34 +101,35 @@ def verifyGate(number):
 
 def showGates():
     if gateList != []:
-     for gate in gateList:
-         print("Gate number:", gate.number, "Gate status:", gate.state)
-     else:
-         print("\nNo gates found\n")
+        for gate in gateList:
+            print("Gate number:", gate.number, "Gate status:", gate.state)
+    else:
+        print("\nNo gates found\n")
 
-def modifyGate(number,status):
+def modifyGate(number,state):
     for gate in gateList:
         if number == gate.number:
-            gate.status = status
+            gate.state = state
             return "\nSuccessful modification\n"
         else:
-            return "\nGate no found\n"
-def addGateByNumber(num):
-    i = 1
-    while i <= num:
-        d = gateStatusMenu()
-        newGate = MaintenanceGates(i, d)
-        gateList.append(newGate)
-        i += 1
+            return "\nGate not found\n"
 
 def deleteGate(number):
-    if gateList != []:
-        for gate in gateList:
-            if number == gate.number:
-                gateList.remove(gate)
-                return "\nSuccesful delete\n"
-            else:
-                return "\nGate not found\n"
+    for gate in gateList:
+        if number == gate.number:
+            gateList.remove(gate)
+            return "\nSuccesful delete\n"
+        else:
+            return "\nGate not found\n"
+#def addGateByNumber(num):
+ #   i = 1
+  #  while i <= num:
+   #     d = gateStatusMenu()
+    #    newGate = MaintenanceGates(i, d)
+     #   gateList.append(newGate)
+      #  i += 1
+
+
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -222,8 +222,7 @@ def maintenanceGates(role):
               "2)See Gates.\n",
               "3)Modify Gates.\n",
               "4)Delete Gates.\n",
-              "5)Add Gates by cuantity.\n",
-              "6)Back.\n")
+              "5)Back.\n")
         option = input("Enter the action you want to do:")
         if option == "1":
             i = 1
@@ -236,8 +235,8 @@ def maintenanceGates(role):
                         number = input("Enter number of the gate")
                         if verifyGate(number)== False:
                             break
-                status = gateStatusMenu()
-                addGate(number, status)
+                state = gateStatusMenu()
+                addGate(number, state)
                 i += 1
         elif option == "2":
             showGates()
@@ -245,16 +244,15 @@ def maintenanceGates(role):
         elif option == "3":
             showGates()
             number = input("Enter the Gate number to modify:")
-            status = gateStatusMenu()
-            print(modifyGate(number, status))
+            state = gateStatusMenu()
+            print(modifyGate(number, state))
+
         elif option == "4":
             showGates()
             number = input("Enter number of the gate to delete")
             print(deleteGate(number))
+
         elif option == "5":
-            num = int(input("Enter the number of gates you want to add:"))
-            addGateByNumber(num)
-        elif option == "6":
             mainMenu(role)
         else:
             return
