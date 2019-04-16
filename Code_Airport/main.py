@@ -103,7 +103,7 @@ def verifyGate(number):
 def showGates():
     if gateList != []:
      for gate in gateList:
-         print("Gate number:",gate.number, "Gate status:", gate.status)
+         print("Gate number:", gate.number, "Gate status:", gate.state)
      else:
          print("\nNo gates found\n")
 
@@ -116,11 +116,10 @@ def modifyGate(number,status):
             return "\nGate no found\n"
 def addGateByNumber(num):
     i = 1
-    while i < num:
-        for _ in range(num):
-            value = random()
-            newGate = MaintenanceGates(value, "Available")
-            gateList.append(newGate)
+    while i <= num:
+        d = gateStatusMenu()
+        newGate = MaintenanceGates(i, d)
+        gateList.append(newGate)
         i += 1
 
 def deleteGate(number):
@@ -225,10 +224,10 @@ def maintenanceGates(role):
               "4)Delete Gates.\n",
               "5)Add Gates by cuantity.\n",
               "6)Back.\n")
-        option = int(input("Enter the action you want to do:"))
+        option = input("Enter the action you want to do:")
         if option == "1":
             i = 1
-            x = int(input("Enter the number of tracks you are going to add:"))
+            x = int(input("Enter the number of the gate you are going to add:"))
             while i <= x:
                 number = input("Enter number of the gate:")
                 if verifyGate(number) == True:
@@ -258,7 +257,8 @@ def maintenanceGates(role):
         elif option == "6":
             mainMenu(role)
         else:
-            return maintenanceGates(role)
+            return
+        maintenanceGates(role)
     else:
         role = 2
         print("\nYou are in guest mode, You can only see the Gates\n")
