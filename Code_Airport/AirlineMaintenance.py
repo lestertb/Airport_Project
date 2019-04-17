@@ -4,4 +4,4 @@ class AirlineMaintenance:
         self.foundationYear = foundationYear
         self.type = type
         self.operationCountries = operationCountries
-        
+        self.crewmembersList = []

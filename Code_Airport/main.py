@@ -6,6 +6,8 @@ from User import *
 from TrackMaintenance import *
 from GateMaintenance import *
 from AirlineMaintenance import *
+from crewMaintenance import *
+from PlaneMaintenance import *
 
 
 '------------------------------------------#Lists---------------------------------------'
@@ -17,6 +19,8 @@ gateList = []
 airlineList = []
 crewList = []
 airportList = []
+aircraftList = []
+
 
 
 '------------------------------------------#Rules or Variables---------------------------------------'
@@ -186,6 +190,86 @@ def deleteAirline(name):
     else:
         return "\nAirline not found\n"
 
+def addCrewmember (name, age, id, airline, type,status):
+    newCrewmbember = CrewMaintenance(name, age, id, airline, type, status)
+    crewList.append(newCrewmbember)
+
+def verifyCrewmember(id):
+    for member in crewList:
+        if id == member.id:
+            return True
+    else:
+        return False
+
+def showCrew():
+    if crewList != []:
+        for crew in crewList:
+            print("Name: ", crew.name, "Age: ", crew.age, "Identification card: ", crew.id,
+                  "Airline: ", crew.airline, "Type: ", crew.type, "Status: ", crew.status)
+    else:
+        print("\nCrew not found\n")
+
+def deleteCrew(id):
+    for crew in crewList:
+        if id == crew.id:
+            crewList.remove(crew)
+            return "\nSuccesful delete\n"
+    else:
+        return "\nCrewmember not found\n"
+
+def modifyCrew(id,name,age,airline,type,status):
+    for crew in crewList:
+        if id == crew.id:
+            crew.age = age
+            crew.name = name
+            crew.airline = airline
+            crew.type = type
+            crew.status = status
+
+            return "\nSuccessful modification\n"
+    else:
+        return "\nCrewmember not found\n"
+
+def addAircraft(model,creationyear,id,airline,capacity,status):
+    newAircraft = PlaneMaintenance(model, creationyear, id, airline, capacity, status)
+    aircraftList.append(newAircraft)
+
+def verifyAircraft(id):
+    for aircraf in aircraftList:
+        if id == aircraf.id:
+            return True
+    else:
+        return False
+
+def showAircraft():
+    if aircraftList != []:
+        for aircraft in aircraftList:
+            print("Model:", aircraft.model, "Creation year:", aircraft.creationyear,
+                  "ID:", aircraft.id, "Airline:", aircraft.airline, "Capacity:", aircraft.capacity,
+                  "Status:", aircraft.status)
+    else:
+        print("\nAircraft not found\n")
+
+def deleteAircraft(id):
+    for aircraft in aircraftList:
+        if id == aircraft.id:
+            aircraftList.remove(aircraft)
+            return "\nSuccesful delete\n"
+    else:
+        return "\nAircraft not found\n"
+
+def modifyAircraft(id,model,creationyear,airline,capacity,status):
+    for aircraft in aircraftList:
+        if id == aircraft.id:
+            aircraft.model = model
+            aircraft.creationyear = creationyear
+            aircraft.airline = airline
+            aircraft.capacity = capacity
+            aircraft.status = status
+            return "\nSuccesful modification\n"
+    else:
+        return "\nAircraft not found\n"
+
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -208,8 +292,6 @@ def trackStatusMenu():
     else:
         print("Invalid option")
         return trackStatusMenu()
-
-
 
 def gateStatusMenu():
     print("Select the gate status.\n"
@@ -242,6 +324,65 @@ def typeAirlineMenu():
     else:
         print("Invalid option")
         return typeAirlineMenu()
+
+def crewRoleMenu():
+    print("Select the role of the crewmember.\n"
+          "1)Pilot.\n"
+          "2)Costumer service.\n")
+    option = input("Enter the option for the role:")
+    if option == "1":
+        return "Pilot"
+
+    elif option == "2":
+        return "Costumer service"
+
+    else:
+        print("Invalid option")
+        return crewRoleMenu()
+
+def crewStatusMenu():
+    print("Select the status of the crewmember.\n"
+          "1)Available.\n"
+          "2)In service.\n")
+    option = input("Enter the option for the status:")
+    if option == "1":
+        return "Available"
+
+    elif option == "2":
+        return "In service"
+
+    else:
+        print("Invalid option")
+        return crewStatusMenu()
+
+def crewAirlineMenu():
+    i = 0
+    x = 1
+    while i < len(airlineList):
+        print(x, ")", airlineList[i].name)
+        x += 1
+        i += 1
+def aircraftAirlineMenu():
+    i = 0
+    x = 1
+    while i < len(airlineList):
+        print(x, ")", airlineList[i].name)
+        x += 1
+        i += 1
+def aircraftStatusMenu():
+    print("Select the status of the aircraft.\n"
+          "1)Available.\n"
+          "2)In service.\n")
+    option = input("Enter the option for the status:")
+    if option == "1":
+        return "Available"
+
+    elif option == "2":
+        return "In service"
+
+    else:
+        print("Invalid option")
+        return aircraftStatusMenu()
 
 
 def maintenanceTracks(role):
@@ -438,6 +579,182 @@ def airlineMaintenance(role):
             print("Invalid option")
         airlineMaintenance(role)
 
+def crewMaintenance(role):
+    if role == 1:
+        role = 1
+        print("Crew Maintenance.\n",
+              "1)Create Crewmember.\n",
+              "2)See Crewmembers.\n",
+              "3)Modify Crewmember.\n",
+              "4)Delete Crewmember.\n",
+              "5)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            i = 1
+            x = int(input("Enter the number of persons you are going to add:"))
+            while i <= x:
+                name = input("Enter name of the person:")
+                age = int(input("Enter age of the person:"))
+                id = input("Enter identification card:")
+                if verifyCrewmember(id) == True:
+                    while verifyCrewmember(id) == True:
+                        print("This person already exists, try again")
+                        id = input("Enter identification card of the person:")
+                        if verifyCrewmember(id) == False:
+                            break
+                crewAirlineMenu()
+                airline = input("Enter the name of the airline which it belongs:")
+                if verifyAirline(airline) == False:
+                    while verifyAirline(airline) == False:
+                        print("This airline doesn't exist, try again")
+                        airline = input("Enter the name of the airline which it belongs:")
+                        if verifyAirline(airline) == True:
+                            break
+                type = crewRoleMenu()
+                status = crewStatusMenu()
+                addCrewmember(name, age, id, airline, type, status)
+                i += 1
+        elif option == "2":
+            showCrew()
+        elif option == "3":
+            showCrew()
+            id = input("Enter the identification card of the crewmember to modify:")
+            name = input("Enter the name of the crewmember:")
+            age = input("Enter the age of the crewmember:")
+            crewAirlineMenu()
+            airline = input("Enter the name of the airline which it belongs:")
+            if verifyAirline(airline) == False:
+                while verifyAirline(airline) == False:
+                    print("This airline doesn't exist, try again")
+                    airline = input("Enter the name of the airline which it belongs:")
+                    if verifyAirline(airline) == True:
+                        break
+            type = crewRoleMenu()
+            status = crewStatusMenu()
+            print(modifyCrew(id, name, age, airline, type, status))
+
+        elif option == "4":
+            showCrew()
+            id = input("Enter the identification card of the crewmember to delete:")
+            print(deleteCrew(id))
+
+        elif option == "5":
+            mainMenu(role)
+
+        else:
+            print("Invalid option")
+        crewMaintenance(role)
+    else:
+        role = 2
+        print("\nYou are in guest mode, You can only see the crew\n")
+        print("\nMaintenance of Crew.\n",
+              "1)See Crew.\n",
+              "2)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            showCrew()
+        elif option == "2":
+            mainMenu(role)
+        else:
+            print("Invalid option")
+        crewMaintenance(role)
+
+def planeMaintenance(role):
+    if role == 1:
+        role = 1
+        print("Aircraft Maintenance.\n",
+              "1)Create Aircraft.\n",
+              "2)See Aircrafts.\n",
+              "3)Modify Aircraft.\n",
+              "4)Delete Aircraft.\n",
+              "5)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            i = 1
+            x = int(input("Enter the number of Aircrafts you are going to add:"))
+            while i <= x:
+                model = input("Enter model of the Aircraft:")
+                print("Example: 2019 ")
+                creationYear = input("Enter the foundation year:")
+                id = input("Enter ID of the aircraft:")
+                if verifyAircraft(id) == True:
+                    while verifyAircraft(id) == True:
+                        print("Aircraft already exists, try again")
+                        id = input("Enter id of the Aircraft:")
+                        if verifyAircraft(id) == False:
+                            break
+                aircraftAirlineMenu()
+                airline = input("Enter the name of the airline which it belongs:")
+                if verifyAirline(airline) == False:
+                    while verifyAirline(airline) == False:
+                        print("This airline doesn't exist, try again")
+                        airline = input("Enter the name of the airline which it belongs:")
+                        if verifyAirline(airline) == True:
+                            break
+                while True:
+                    try:
+                        capacity = int(input("Enter the capacity of the Aircraft:"))
+                        break
+                    except ValueError:
+                        print("Oops!  That was no valid number.  Try again...")
+                status = aircraftStatusMenu()
+                addAircraft(model, creationYear, id, airline, capacity, status)
+                i = i + 1
+
+        elif option == "2":
+            showAircraft()
+
+        elif option == "3":
+            showAircraft()
+            id = input("Enter the Aircraft id to modify:")
+            model = input("Enter the new model year or the same:")
+            print("Example: 2019 ")
+            creationYear = input("Enter the creation year:")
+            aircraftAirlineMenu()
+            airline = input("Enter the name of the airline which it belongs:")
+            if verifyAirline(airline) == False:
+                while verifyAirline(airline) == False:
+                    print("This airline doesn't exist, try again")
+                    airline = input("Enter the name of the airline which it belongs:")
+                    if verifyAirline(airline) == True:
+                        break
+            while True:
+                try:
+                    capacity = int(input("Enter the capacity of the Aircraft:"))
+                    break
+                except ValueError:
+                    print("Oops!  That was no valid number.  Try again...")
+
+            status = aircraftStatusMenu()
+
+
+            print(modifyAircraft(id, model, creationYear, airline, capacity,status))
+
+        elif option == "4":
+            showAircraft()
+            id = input("Enter the ID of the aircraft to delete:")
+            print(deleteAircraft(id))
+
+        elif option == "5":
+            mainMenu(role)
+
+        else:
+            print("Invalid option")
+        planeMaintenance(role)
+    else:
+        role = 2
+        print("\nYou are in guest mode, You can only see the aircrafts\n")
+        print("\nMaintenance of Aircraft.\n",
+              "1)See Aircrafts.\n",
+              "2)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            showAircraft()
+        elif option == "2":
+            mainMenu(role)
+        else:
+            print("Invalid option")
+        planeMaintenance(role)
 
 def mainMenu(role):
     if role == 1:
@@ -462,9 +779,14 @@ def mainMenu(role):
         elif option == "3":
             airlineMaintenance(role)
 
+        elif option == "4":
+            crewMaintenance(role)
+
+        elif option == "5":
+            planeMaintenance(role)
+
         elif option == "8":
             loginMenu()
-
         else:
             print("Invalid option")
         mainMenu(role)
@@ -502,7 +824,7 @@ def loginMenu():
     print("Aero-TEC\n",
           "1)Log in.\n",
           "2)Sign up.\n",
-          "3)Show Info.\n")
+          "3)Show Info.\n" )
     option = input("Enter the action you want to do:")
 
     if option == "1":
@@ -555,7 +877,6 @@ def loginMenu():
 
     elif option == "3":
         showInfoUser()
-
     else:
         print("Invalid option")
     loginMenu()
