@@ -8,7 +8,7 @@ from GateMaintenance import *
 from AirlineMaintenance import *
 from crewMaintenance import *
 from PlaneMaintenance import *
-
+from AirportMaintenance import  *
 
 '------------------------------------------#Lists---------------------------------------'
 
@@ -20,7 +20,6 @@ airlineList = []
 crewList = []
 airportList = []
 aircraftList = []
-
 
 
 '------------------------------------------#Rules or Variables---------------------------------------'
@@ -270,6 +269,40 @@ def modifyAircraft(id,model,creationyear,airline,capacity,status):
     else:
         return "\nAircraft not found\n"
 
+def addAirport(name, city, country):
+    newAirport = AirportMaintenance(name, city, country)
+    airportList.append(newAirport)
+
+def showAirport():
+    if airportList != []:
+        for airport in airportList:
+            print("Name:", airport.name, "City:", airport.city, "Country:", airport.country)
+    else:
+        print("\nAircraft not found\n")
+
+def verifyAirport(name):
+    for airport in airportList:
+        if name == airport.name:
+            return True
+    else:
+        return False
+
+def deleteAirport(name):
+    for airport in airportList:
+        if name == airport.name:
+            airportList.remove(airport)
+            return "\nSuccesful delete\n"
+    else:
+        return "\nAirport not found\n"
+
+def modifyAirport(name, city, country):
+    for airport in airportList:
+        if name == airport.name:
+            airport.city = city
+            airport.country = country
+            return "\nSuccesful modification\n"
+    else:
+        return "\nAirport not found\n"
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -756,6 +789,81 @@ def planeMaintenance(role):
             print("Invalid option")
         planeMaintenance(role)
 
+def airportMaintenance(role):
+    if role == 1:
+        role = 1
+        print("Maintenance of Airports.\n",
+              "1)Create Airports.\n",
+              "2)See Airports.\n",
+              "3)Modify Airports.\n",
+              "4)Delete Airports.\n",
+              "5)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            i = 1
+            x = int(input("Enter the number of airports you are going to add:"))
+            while i <= x:
+                name = input("Enter the name of the airport:")
+                if verifyAirport(name) == True:
+                    while verifyAirport(name) == True:
+                        print("Airport already exists, try again")
+                        name = input("Enter name of the airport:")
+                        if verifyAirport(name) == False:
+                            break
+                city = input("Enter the name of the city where the airport is:")
+                country = input("Enter the name of the country where the airport is:")
+                addAirport(name, city, country)
+                i = i + 1
+
+        elif option == "2":
+            showAirport()
+
+        elif option == "3":
+            showAirport()
+            name = input("Enter the Airport name to modify:")
+            if verifyAirport(name) == False:
+                while verifyAirport(name) == False:
+                    print("Airport doesn't exist, try again")
+                    name = input("Enter name of the airport:")
+                    if verifyAirport(name) == True:
+                        break
+            city = input("Enter the name of the city where the airport is:")
+            country = input("Enter the name of the country where the airport is:")
+            print(modifyAirport(name, city, country))
+
+        elif option == "4":
+            showAirport()
+            name = input("Enter the Airport name to delete:")
+            if verifyAirport(name) == False:
+                while verifyAirport(name) == False:
+                    print("Airport doesn't exist, try again")
+                    name = input("Enter name of the airport:")
+                    if verifyAirport(name) == True:
+                        break
+            print(deleteAirport(name))
+
+        elif option == "5":
+            mainMenu(role)
+
+        else:
+            print("Invalid option")
+        airportMaintenance(role)
+    else:
+        role = 2
+        print("\nYou are in guest mode, You can only see the airports\n")
+        print("\nMaintenance of airports.\n",
+              "1)See Airports.\n",
+              "2)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            showAirport()
+        elif option == "2":
+            mainMenu(role)
+        else:
+            print("Invalid option")
+        airportMaintenance(role)
+
+
 def mainMenu(role):
     if role == 1:
         role = 1
@@ -785,6 +893,8 @@ def mainMenu(role):
         elif option == "5":
             planeMaintenance(role)
 
+        elif option == "6":
+            airportMaintenance(role)
         elif option == "8":
             loginMenu()
         else:
