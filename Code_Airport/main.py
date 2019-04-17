@@ -1,13 +1,32 @@
+""""------------------------------------------#Imports---------------------------------------"""
+
+
+from datetime import datetime
 from User import *
 from TrackMaintenance import *
 from GateMaintenance import *
+from AirlineMaintenance import *
+
+
+'------------------------------------------#Lists---------------------------------------'
+
 
 usersList = []
 trackList = []
 gateList = []
+airlineList = []
 crewList = []
 airportList = []
 
+
+'------------------------------------------#Rules or Variables---------------------------------------'
+"""strDate = '2/4/18'
+objDate = datetime.strptime(strDate, '%m/%d/%y')
+objDate
+datetime.datetime(2018, 2, 4, 0, 0)
+datetime.strftime(objDate,'%b %d, %Y')
+'Feb 04, 2018'
+datetime.strftime(objDate,'%Y')"""
 
 '------------------------------------------#Fuctions---------------------------------------'
 
@@ -30,28 +49,29 @@ def verifyID(id):
     for user in usersList:
         if id == user.id:
             return True
-        else:
-            return False
+    else:
+        return False
 
 def verifyEmail(email):
     for user in usersList:
         if email == user.email:
             return True
-        else:
-            return False
+    else:
+        return False
 
 
 def logIn(id, password):
+    listausers = usersList
     while usersList != []:
-        for user in usersList:
+        for user in listausers:
             if user.id == id and user.password == password:
                 role = user.role
                 if role == 1:
                     return role
                 else:
                     return role
-            else:
-                return "\n User not found, Please Sign up\n"
+        else:
+            return "\n User not found, Please Sign up\n"
     return "\n User not found, Please Sign up\n"
 
 def addTrack(number, status):
@@ -62,31 +82,32 @@ def verifyTrack(number):
     for track in trackList:
         if number == track.number:
             return True
-        else:
-            return False
+    else:
+        return False
 
 def showTracks():
     if trackList != []:
         for track in trackList:
-            print("Track Number: ", track.number, "Stat: ", track.status)
+            print("Track Number: ", track.number, "Status: ", track.status)
     else:
         print("\nNo tracks found\n")
 
 def modifyTrack(number, status):
     for track in trackList:
-        if number == track.number:
+        if track.number == number:
             track.status = status
             return "\nSuccessful modification\n"
-        else:
-            return "\nTrack no found\n"
+    else:
+        return "\nTrack not found\n"
+
 
 def deleteTrack(number):
     for track in trackList:
         if number == track.number:
             trackList.remove(track)
             return "\nSuccessful delete\n"
-        else:
-            return "\nTrack no found\n"
+    else:
+        return "\nTrack no found\n"
 
 def addGate(number,state):
     newGate = MaintenanceGates(number, state)
@@ -96,8 +117,8 @@ def verifyGate(number):
     for gate in gateList:
         if number == gate.number:
             return True
-        else:
-            return False
+    else:
+        return False
 
 def showGates():
     if gateList != []:
@@ -111,24 +132,59 @@ def modifyGate(number,state):
         if number == gate.number:
             gate.state = state
             return "\nSuccessful modification\n"
-        else:
-            return "\nGate not found\n"
+    else:
+        return "\nGate not found\n"
+
 
 def deleteGate(number):
     for gate in gateList:
         if number == gate.number:
             gateList.remove(gate)
             return "\nSuccesful delete\n"
-        else:
-            return "\nGate not found\n"
-#def addGateByNumber(num):
- #   i = 1
-  #  while i <= num:
-   #     d = gateStatusMenu()
-    #    newGate = MaintenanceGates(i, d)
-     #   gateList.append(newGate)
-      #  i += 1
+    else:
+        return "\nGate not found\n"
 
+
+def addAirline(name, foundationYear, type, operationCountries):
+    newAirline = AirlineMaintenance(name, foundationYear, type, operationCountries)
+    airlineList.append(newAirline)
+
+
+def verifyAirline(name):
+    for airline in airlineList:
+        if name == airline.name:
+            return True
+    else:
+        return False
+
+
+def showAirlines():
+    if airlineList != []:
+        for airline in airlineList:
+            print("Name: ", airline.name, "Foundation Year: ", airline.foundationYear,
+                  "Type: ", airline.type, "Number of countries where it operates: ", airline.operationCountries)
+    else:
+        print("\nNo airlines found\n")
+
+
+def modifyAirline(name, foundationYear, type, operationCountries):
+    for airline in airlineList:
+        if name == airline.name:
+            airline.foundationYear = foundationYear
+            airline.type = type
+            airline.operationCountries = operationCountries
+            return "\nSuccessful modification\n"
+    else:
+        return "\nAirline not found\n"
+
+
+def deleteAirline(name):
+    for airline in airlineList:
+        if name == airline.name:
+            airlineList.remove(airline)
+            return "\nSuccesful delete\n"
+    else:
+        return "\nAirline not found\n"
 
 
 '------------------------------------------#Menus---------------------------------------'
@@ -152,6 +208,40 @@ def trackStatusMenu():
     else:
         print("Invalid option")
         return trackStatusMenu()
+
+
+
+def gateStatusMenu():
+    print("Select the gate status.\n"
+          "1)Available.\n"
+          "2)In use.\n"
+          )
+    option = input("Enter the option to the status:")
+    if option == "1":
+        return "Available"
+
+    elif option == "2":
+        return "In use"
+
+    else:
+        print("Invalid option")
+        return gateStatusMenu()
+
+
+def typeAirlineMenu():
+    print("Select the type of airline.\n"
+          "1)International.\n"
+          "2)Local.\n")
+    option = input("Enter the option to the type:")
+    if option == "1":
+        return "International"
+
+    elif option == "2":
+        return "Local"
+
+    else:
+        print("Invalid option")
+        return typeAirlineMenu()
 
 
 def maintenanceTracks(role):
@@ -197,7 +287,7 @@ def maintenanceTracks(role):
             mainMenu(role)
 
         else:
-            return
+            print("Invalid option")
         maintenanceTracks(role)
     else:
         role = 2
@@ -211,7 +301,7 @@ def maintenanceTracks(role):
         elif option == "2":
             mainMenu(role)
         else:
-            return
+            print("Invalid option")
         maintenanceTracks(role)
 
 def maintenanceGates(role):
@@ -255,7 +345,7 @@ def maintenanceGates(role):
         elif option == "5":
             mainMenu(role)
         else:
-            return
+            print("Invalid option")
         maintenanceGates(role)
     else:
         role = 2
@@ -269,29 +359,89 @@ def maintenanceGates(role):
         elif option == "2":
             mainMenu(role)
         else:
-            return
+            print("Invalid option")
         maintenanceGates(role)
 
 
-def gateStatusMenu():
-    print("Select the gate status.\n"
-          "1)Available.\n"
-          "2)In use.\n"
-          )
-    option = input("Enter the option to the status:")
-    if option == "1":
-        return "Available"
+def airlineMaintenance(role):
+    if role == 1:
+        role = 1
+        print("Airline Maintenance.\n",
+              "1)Create Airline.\n",
+              "2)See Airline.\n",
+              "3)Modify Airline.\n",
+              "4)Delete Airline.\n",
+              "5)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            i = 1
+            x = int(input("Enter the number of Airline you are going to add:"))
+            while i <= x:
+                name = input("Enter name of the Airline:")
+                if verifyAirline(name) == True:
+                    while verifyAirline(name) == True:
+                        print("Airline already exists, try again")
+                        name = input("Enter name of the Airline:")
+                        if verifyAirline(name) == False:
+                            break
+                print("Example: 2019 ")
+                foundationYear = input("Enter the foundation year:")
+                type = typeAirlineMenu()
+                while True:
+                    try:
+                        operationCountries = int(input("Enter the number of countries where it operates:"))
+                        break
+                    except ValueError:
+                        print("Oops!  That was no valid number.  Try again...")
+                addAirline(name, foundationYear, type, operationCountries)
+                i = i + 1
 
-    elif option == "2":
-        return "In use"
+        elif option == "2":
+            showAirlines()
 
+        elif option == "3":
+            showAirlines()
+            name = input("Enter the Airline name to modify:")
+            foundationYear = input("Enter the new foundation year or the same:")
+            type = typeAirlineMenu()
+            while True:
+                try:
+                    operationCountries = int(input("Enter the number of countries where it operates"))
+                    break
+                except ValueError:
+                    print("Oops!  That was no valid number.  Try again...")
+            print(modifyAirline(name, foundationYear, type, operationCountries))
+
+        elif option == "4":
+            showAirlines()
+            name = input("Enter the name of the airline to delete:")
+            print(deleteAirline(name))
+
+        elif option == "5":
+            mainMenu(role)
+
+        else:
+            print("Invalid option")
+        airlineMaintenance(role)
     else:
-        print("Invalid option")
-        return gateStatusMenu()
+        role = 2
+        print("\nYou are in guest mode, You can only see the airlines\n")
+        print("\nMaintenance of Airlines.\n",
+              "1)See Airlines.\n",
+              "2)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            showAirlines()
+        elif option == "2":
+            mainMenu(role)
+        else:
+            print("Invalid option")
+        airlineMaintenance(role)
 
 
 def mainMenu(role):
     if role == 1:
+        role = 1
         print("\nYou are in admin mode\n"
               "\nAero-TEC\n",
               "1)Maintenance of tracks.\n",
@@ -305,18 +455,21 @@ def mainMenu(role):
         option = input("Enter the action you want to do:")
 
         if option == "1":
-            role = 1
             maintenanceTracks(role)
         elif option == "2":
-            role = 1
             maintenanceGates(role)
+
+        elif option == "3":
+            airlineMaintenance(role)
 
         elif option == "8":
             loginMenu()
 
         else:
-            return
+            print("Invalid option")
+        mainMenu(role)
     else:
+        role = 2
         print("\nYou are in guest mode, Only read\n"
               "\nAero-TEC\n",
               "1)Maintenance of tracks.\n",
@@ -330,14 +483,20 @@ def mainMenu(role):
         option = input("Enter the action you want to do:")
 
         if option == "1":
-            role = 2
             maintenanceTracks(role)
+
+        elif option == "2":
+            maintenanceGates(role)
+
+        elif option == "3":
+            airlineMaintenance(role)
 
         elif option == "8":
             loginMenu()
 
         else:
-            return
+            print("Invalid option")
+        mainMenu(role)
 
 def loginMenu():
     print("Aero-TEC\n",
@@ -380,7 +539,12 @@ def loginMenu():
                 if verifyID(id) == False:
                     break
         password = input("Enter password:")
-        role = int(input("Enter 1 to admin or 2 to guest:"))
+        while True:
+            try:
+                role = int(input("Enter 1 to admin or 2 to guest:"))
+                break
+            except ValueError:
+                print("Oops!  That was no valid number.  Try again...")
         if role != 1 and role != 2:
             while role != 1 and role != 2:
                 print("Error please enter 1 or 2")
@@ -394,7 +558,6 @@ def loginMenu():
 
     else:
         print("Invalid option")
-        return
     loginMenu()
 loginMenu()
 
