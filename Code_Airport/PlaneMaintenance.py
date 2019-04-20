@@ -1,5 +1,5 @@
 class PlaneMaintenance:
-    def __init__(self, model, creationyear, id, airline, capacity,status):
+    def __init__(self, model, creationyear, id, airline, capacity, status):
         self.model = model
         self.creationyear = creationyear
         self.id = id

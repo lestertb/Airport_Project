@@ -1,4 +1,4 @@
 class MaintenanceGates:
-    def __init__(self, number, state):
+    def __init__(self, number, status):
         self.number = number
-        self.state = state
+        self.status = status
