@@ -24,6 +24,9 @@ airportList = []
 aircraftList = []
 flightList = []
 
+
+#userTest = User("Luis Hernandez", 29, "luishernandez@gmail.com", 123, 123, 1)
+#usersList.append(userTest)
 '------------------------------------------#Rules or Variables---------------------------------------'
 """strDate = '2/4/18'
 objDate = datetime.strptime(strDate, '%m/%d/%y')
@@ -381,7 +384,25 @@ def showFlights():
     else:
         print("\nFlights not found\n")
 
+def deleteFlight (departureDate,departureTime,departureAirport):
+    for flight in flightList:
+        if flight.departureDate == departureDate:
+            if flight.departureTime == departureTime:
+                if flight.departureAirport == departureAirport:
+                    flightList.remove(flight)
+                    return "\nSuccesful delete\n"
+    else:
+        return "\nFlight not found\n"
 
+def modifyFlight(departureDate,departureTime,timeFlight,departureAirport,arrivalAirport):
+    for flight in flightList:
+        if flight.departureDate == departureDate and flight.departureTime == departureTime:
+            flight.timeFlight = timeFlight
+            flight.departureAirport = departureAirport
+            flight.arrivalAirport = arrivalAirport
+            return "\nSuccesful modification\n"
+    else:
+        return "\nFlight not found\n"
 '------------------------------------------#Menus---------------------------------------'
 
 
@@ -1027,6 +1048,7 @@ def flightMaintenance(role):
                 flightMaintenance(role)
             if automaticGate() != False:
                 gate = automaticGate()
+                
             else:
                 print("No gates available, try later")
                 flightMaintenance(role)
@@ -1044,15 +1066,74 @@ def flightMaintenance(role):
             showFlights()
 
         elif option == "3":
-            showTracks()
-            number = input("Enter the Track number to modify:")
-            status = trackStatusMenu()
-            print(modifyTrack(number, status))
+            showFlights()
+            while True:
+                try:
+                    departuredate = input('\n Enter the departure date ==> Example: "10/01/2000"')
+                    datetime.strptime(departuredate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date")
+            while True:
+                try:
+                    departuretime = input('\n Enter the departure time ==> Example: "10:30"')
+                    datetime.strptime(departuretime, '%H:%M')
+                    break
+                except:
+                    print("\n You have not entered a correct date")
+            while True:
+                try:
+                    timeflight = input('\n Enter the time of flight ==> Example: "2:30" ==> Its two and a half hours')
+                    datetime.strptime(timeflight, '%H:%M')
+                    break
+                except:
+                    print("\n You have not entered a correct date")
+            airportMenu()
+            departureairport = input("Enter the name of the airport which it belongs for the departure airport:")
+            if verifyAirport(departureairport) == False:
+                while verifyAirport(departureairport) == False:
+                    print("Airport doesn't exist, try again")
+                    departureairport = input(
+                        "Enter the name of the airport which it belongs for the departure airport:")
+                    if verifyAirport(departureairport) == True:
+                        break
+            airportMenu()
+            arrivalairport = input("Enter the correct name of the airport which it belongs for the arrival airport:")
+            if verifyAirport(arrivalairport) == False:
+                while verifyAirport(arrivalairport) == False:
+                    print("Airport doesn't exist, try again")
+                    arrivalairport = input("Enter the correct name of the airport which it belongs for the arrival airport:")
+                    if verifyAirport(arrivalairport) == True and arrivalairport != departureairport:
+                        break
+            print(modifyFlight(departuredate, departuretime, timeflight, departureairport, arrivalairport))
 
         elif option == "4":
-            showTracks()
-            number = input("Enter number of the track to delete")
-            print(deleteTrack(number))
+            showFlights()
+            print("Enter the departure date of flight you want to delete below:")
+            while True:
+                try:
+                    departuredate = input('\n Enter the departure date ==> Example: "10/01/2000"')
+                    datetime.strptime(departuredate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date")
+
+            while True:
+                try:
+                    departuretime = input('\n Enter the departure time ==> Example: "10:30"')
+                    datetime.strptime(departuretime, '%H:%M')
+                    break
+                except:
+                    print("\n You have not entered a correct date")
+            departureairport = input("Enter the name of the airport which it belongs for the departure airport:")
+            if verifyAirport(departureairport) == False:
+                while verifyAirport(departureairport) == False:
+                    print("Airport doesn't exist, try again")
+                    departureairport = input(
+                        "Enter the name of the airport which it belongs for the departure airport:")
+                    if verifyAirport(departureairport) == True:
+                        break
+            print(deleteFlight(departuredate, departuretime, departureairport))
 
         elif option == "5":
             mainMenu(role)
