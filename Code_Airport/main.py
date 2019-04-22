@@ -16,6 +16,7 @@ import random
 '------------------------------------------#Lists---------------------------------------'
 
 
+
 usersList = []
 trackList = []
 gateList = []
@@ -391,6 +392,17 @@ def verifyAirport(name):
             return True
     else:
         return False
+
+
+def verifyDepartureDate(departureDate):
+    minimum = datetime.today()
+    date = datetime.strftime(minimum, '%d/%m/%Y')
+    if departureDate < date:
+        return False
+    else:
+        return True
+
+
 
 
 def deleteAirport(name):
@@ -1279,6 +1291,12 @@ def flightMaintenance(role):
                         break
                     except:
                         print("\n You have not entered a correct date")
+                if verifyDepartureDate(departureDate) == False:
+                    while verifyDepartureDate(departureDate) == False:
+                        print("You have not entered a correct date, try again")
+                        departureDate = input('\n Enter the departure date ==> Example: "10/01/2000"')
+                        if verifyDepartureDate(departureDate) == True:
+                            break
                 while True:
                     try:
                         departureTime = input('\n Enter the departure time ==> Example: "10:30"')
