@@ -10,6 +10,7 @@ from crewMaintenance import *
 from PlaneMaintenance import *
 from AirportMaintenance import *
 from FlightMaintenance import *
+from collections import Counter
 import random
 
 '------------------------------------------#Lists---------------------------------------'
@@ -403,22 +404,45 @@ def automaticGate(departureTime):
             return False
 
 
-def dailyFlight(departureTime):
-    hour = '24'
-    hour = datetime.strptime(hour, '%H')
-    hour2 = '0'
-    hour2 = datetime.strptime(hour2, '%H')
-    hour3 = hour - hour2
-    h1 = datetime.strptime(departureTime, '%H:%M')
-    result = h1 + hour3
-    result2 = result - hour2
-    return ("hola: ", result2)
-    """while result != None:
-        for gate in gateList:
-            if gate.status == "Available":
-                return gate.number
-        else:
-            return False"""
+def dailyFlight(departureDate):
+    i = 0
+    departureDate2 = datetime.strptime(departureDate, '%d/%m/%Y')
+    day = timedelta(days=1)
+    oneDayLater = departureDate2 + day
+    pilot1 = pilotsList[i].name
+    pilot2 = pilotsList[i+1].name
+    costumersServer1 = costumersServerList[i].name
+    costumersServer2 = costumersServerList[i+1].name
+    costumersServer3 = costumersServerList[i+2].name
+    while departureDate2 < oneDayLater:
+        for crew in crewList:
+            if crew.name == pilot1:
+                crew.status = "In service"
+            elif crew.name == pilot2:
+                crew.status = "In service"
+            elif crew.name == costumersServer1:
+                crew.status = "In service"
+            elif crew.name == costumersServer2:
+                crew.status = "In service"
+            elif crew.name == costumersServer3:
+                crew.status = "In service"
+            else:
+                return False
+    else:
+        for crew in crewList:
+            if crew.name == pilot1:
+                crew.status = "Available"
+            elif crew.name == pilot2:
+                crew.status = "Available"
+            elif crew.name == costumersServer1:
+                crew.status = "Available"
+            elif crew.name == costumersServer2:
+                crew.status = "Available"
+            elif crew.name == costumersServer3:
+                crew.status = "Available"
+
+
+
 
 
 def aircraftUse(departureTime, timeFlight, plane):
@@ -446,8 +470,7 @@ def aircraftUse(departureTime, timeFlight, plane):
 def automaticTrack():
     for track in trackList:
         if track.status == "Available":
-            return ("Number", track.number,
-                    "Status", track.status)
+            return track.number
     else:
         return False
 
@@ -456,18 +479,22 @@ def automaticCrewPilots(airline):
     for crew in crewList:
         if crew.airline == airline and crew.status == "Available" and crew.type == "Pilot":
             pilotsList.append(crew)
+            crew.status = "In service"
+
 
 
 def automaticCrewCostumerService(airline):
     for crew in crewList:
         if crew.airline == airline and crew.status == "Available" and crew.type == "Costumer service":
-                costumersServerList.append(crew)
+            costumersServerList.append(crew)
+            crew.status = "In service"
 
 
 def getPilots():
     i = 0
     if pilotsList != []:
-            return "Name of the Pilotos: ", pilotsList[i].name + " and " + pilotsList[i+1].name
+            x = "Names: {0} {1}".format(pilotsList[i].name, pilotsList[i+1].name)
+            return x
     else:
         return False
 
@@ -475,7 +502,7 @@ def getPilots():
 def getCostumersServer():
     i = 0
     if costumersServerList != []:
-            return "Name of the Costumer services: ", costumersServerList[i].name + ", " + costumersServerList[i+1].name\
+            return costumersServerList[i].name + ", " + costumersServerList[i+1].name\
                    + " and " + costumersServerList[i+2].name
     else:
         return False
@@ -1247,7 +1274,7 @@ def flightMaintenance(role):
                         addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
                                   plane, gate, track, x, y)
                         modifyStatusGate(gate)
-                        print("Hola", dailyFlight(departureTime))
+                        dailyFlight(departureDate)
                         if aircraftUse(departureTime, timeFlight, plane) == True:
                             flightMaintenance(role)
                         else:
