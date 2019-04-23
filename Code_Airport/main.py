@@ -29,53 +29,96 @@ pilotsList = []
 costumersServerList = []
 gateListFlight = []
 aircraftListFlight = []
+listDates = []
+listgates = []
 
-
-userTest = User("lester",18,"lestertb","123","111", 1)
+userTest = User("lester", 18, "lestertb", "123", "111", 1)
 usersList.append(userTest)
 
-trackTest = MaintenenceTracks("10","Available")
+trackTest = MaintenenceTracks("10", "Available")
 trackList.append(trackTest)
 
-gateTest = MaintenenceTracks("10","Available")
+trackTest1 = MaintenenceTracks("11", "Available")
+trackList.append(trackTest1)
+
+gateTest1 = MaintenanceGates("10", "Available")
+gateList.append(gateTest1)
+
+gateTest = MaintenanceGates("11", "Available")
 gateList.append(gateTest)
 
-airlineTest = AirlineMaintenance("primera",2019,"Local",10)
+airlineTest = AirlineMaintenance("primera", 2019, "Local", 10)
 airlineList.append(airlineTest)
 
-crewTest1 = CrewMaintenance("leo1",18,11,"primera","Pilot","Available")
+crewTest1 = CrewMaintenance("leo1", 18, 11, "primera", "Pilot", "Available")
 crewList.append(crewTest1)
 
-crewTest2 = CrewMaintenance("leo2",18,12,"primera","Pilot","Available")
+crewTest2 = CrewMaintenance("leo2", 18, 12, "primera", "Pilot", "Available")
 crewList.append(crewTest2)
 
-crewTest3 = CrewMaintenance("leo3",18,13,"primera","Pilot","Available")
+crewTest3 = CrewMaintenance("leo3", 18, 13, "primera", "Pilot", "Available")
 crewList.append(crewTest3)
 
-crewTest4 = CrewMaintenance("leo4",18,14,"primera","Costumer service","Available")
+crewTest4 = CrewMaintenance("leo4", 18, 14, "primera", "Costumer service", "Available")
 crewList.append(crewTest4)
 
-crewTest5 = CrewMaintenance("leo5",18,15,"primera","Costumer service","Available")
+crewTest5 = CrewMaintenance("leo5", 18, 15, "primera", "Costumer service", "Available")
 crewList.append(crewTest5)
 
-crewTest6 = CrewMaintenance("leo6",18,16,"primera","Costumer service","Available")
+crewTest6 = CrewMaintenance("leo6", 18, 16, "primera", "Costumer service", "Available")
 crewList.append(crewTest6)
 
-crewTest7 = CrewMaintenance("leo7",18,17,"primera","Costumer service","Available")
+crewTest7 = CrewMaintenance("leo7", 18, 17, "primera", "Costumer service", "Available")
 crewList.append(crewTest7)
 
-airportTest1 = AirportMaintenance("ppp","pppp","ppppp")
+crewTest8 = CrewMaintenance("leo8", 18, 18, "primera", "Costumer service", "Available")
+crewList.append(crewTest8)
+
+crewTest9 = CrewMaintenance("leo9", 18, 19, "primera", "Costumer service", "Available")
+crewList.append(crewTest9)
+
+crewTest10 = CrewMaintenance("leo10", 18, 20, "primera", "Costumer service", "Available")
+crewList.append(crewTest10)
+
+crewTest11 = CrewMaintenance("leo11", 18, 20, "primera", "Costumer service", "Available")
+crewList.append(crewTest11)
+
+crewTest12 = CrewMaintenance("leo12", 18, 21, "primera", "Pilot", "Available")
+crewList.append(crewTest12)
+
+crewTest13 = CrewMaintenance("leo13", 18, 21, "primera", "Costumer service", "Available")
+crewList.append(crewTest13)
+
+crewTest14 = CrewMaintenance("leo14", 18, 22, "primera", "Costumer service", "Available")
+crewList.append(crewTest14)
+
+crewTest15 = CrewMaintenance("leo15", 18, 23, "primera", "Costumer service", "Available")
+crewList.append(crewTest15)
+
+crewTest16 = CrewMaintenance("leo16", 18, 24, "primera", "Pilot", "Available")
+crewList.append(crewTest16)
+
+crewTest17 = CrewMaintenance("leo17", 18, 25, "primera", "Pilot", "Available")
+crewList.append(crewTest17)
+
+crewTest18 = CrewMaintenance("leo18", 18, 26, "primera", "Costumer service", "Available")
+crewList.append(crewTest18)
+
+airportTest1 = AirportMaintenance("ppp", "pppp", "ppppp")
+
 airportList.append(airportTest1)
 
-airportTest2 = AirportMaintenance("sss","ssss","sssss")
+airportTest2 = AirportMaintenance("sss", "ssss", "sssss")
 airportList.append(airportTest2)
 
-aircraftTest = PlaneMaintenance("first",2019,"1","primera",10,"Available")
+aircraftTest = PlaneMaintenance("first", 2019, "1", "primera", 10, "Available")
 aircraftList.append(aircraftTest)
 
+aircraftTest1 = PlaneMaintenance("second", 2019, "2", "primera", 10, "Available")
+aircraftList.append(aircraftTest1)
 
-
-
+aircraftTest2 = PlaneMaintenance("third", 2019, "3", "primera", 10, "Available")
+aircraftList.append(aircraftTest2)
 
 
 '------------------------------------------#Rules or Variables---------------------------------------'
@@ -403,8 +446,6 @@ def verifyDepartureDate(departureDate):
         return True
 
 
-
-
 def deleteAirport(name):
     for airport in airportList:
         if name == airport.name:
@@ -432,17 +473,12 @@ def automaticPlane():
         return False
 
 
-def automaticGate(departureTime):
-    hour = '1'
-    hour = datetime.strptime(hour, '%H')
-    h1 = datetime.strptime(departureTime, '%H:%M')
-    result = h1 - hour
-    while result != None:
-        for gate in gateList:
-            if gate.status == "Available":
-                return gate.number
-        else:
-            return False
+def automaticGate():
+    for gate in gateList:
+        if gate.status == "Available":
+            return gate.number
+    else:
+        return False
 
 
 def dailyFlight(departureDate):
@@ -481,10 +517,6 @@ def dailyFlight(departureDate):
                 crew.status = "Available"
             elif crew.name == costumersServer3:
                 crew.status = "Available"
-
-
-
-
 
 def aircraftUse(departureTime, timeFlight, plane):
     hour = '1'
@@ -564,10 +596,17 @@ def addFlight(airline, departureDate, departureTime, timeFlight, departureAirpor
     flightList.append(newFlight)
 
 
-def modifyStatusGate(gate1):
-    for gate in gateList:
-        if gate.number == gate1:
-            gate.status = "In use"
+def modifyStatusGate(gate1, departureTime):
+    hour = '1'
+    hour = datetime.strptime(hour, '%H')
+    h1 = datetime.strptime(departureTime, '%H:%M')
+    result = h1 - hour
+    while result != None:
+        for gate in gateList:
+            if gate.number == gate1:
+                gate.status = "In use"
+        else:
+            return False
 
 
 def showFlights():
@@ -633,7 +672,80 @@ def modifyFlight(departureDate,departureTime,departureDate2,departureTime2,timeF
     else:
         return "\nFlight not found\n"
 
+def firstReport(date1, date2):
+    datetime.strptime(date1, '%d/%m/%Y')
+    datetime.strptime(date2, '%d/%m/%Y')
+    for dateflight in listDates:
+        datetime.strptime(dateflight, '%d/%m/%Y')
+        if date1 < dateflight and dateflight < date2:
+            for flight in flightList:
+                if flight.departureDate == dateflight:
+                    print("\nInfo Flight\n"
+                          "\nAirline:", flight.airline,
+                          "\nDeparture Date:", flight.departureDate,
+                          "\nDeparture Time:", flight.departureTime,
+                          "\nTime of flight:", flight.timeFlight,
+                          "\nDeparture Airport:", flight.departureAirport,
+                          "\nArrival Airport:", flight.arrivalAirport,
+                          "\nAircraft:", flight.plane,
+                          "\nGate:", flight.gate,
+                          "\nTrack:", flight.track,
+                          "\nCrewPilots:", flight.crewPilot,
+                          "\nCrewCustomerService:", flight.crewCustomerService)
+    else:
+        print("No flights were found between those dates")
 
+def secondReport(gate):#This function looks for the number of flights that have a specific door
+    for flight in flightList:
+        if flight.gate == gate:
+            print("\nInfo Flight\n"
+                 "\nAirline:", flight.airline,
+                 "\nDeparture Date:", flight.departureDate,
+                 "\nDeparture Time:", flight.departureTime,
+                 "\nTime of flight:", flight.timeFlight,
+                 "\nDeparture Airport:", flight.departureAirport,
+                 "\nArrival Airport:", flight.arrivalAirport,
+                 "\nAircraft:", flight.plane,
+                 "\nGate:", flight.gate,
+                 "\nTrack:", flight.track,
+                 "\nCrewPilots:", flight.crewPilot,
+                 "\nCrewCustomerService:", flight.crewCustomerService)
+    else:
+       print("\nNot boarding gates found\n")
+
+def thirdReport():
+    i = 0
+    cont = 0
+    while i < len(airportList):
+        for flight in flightList:
+            if flight.departureAirport == airportList[i].name:
+                cont += 1
+        print("Name:", airportList[i].name, "Cuantity: ", cont)
+        i += 1
+
+def fourthReport():
+    cont = 0
+    cont2 = 0
+    for crew in crewList:
+        for costumer in costumersServerList:
+            if costumer == crew.name:
+                cont = cont + 1
+        else:
+            for pilot in pilotsList:
+                if pilot == crew.name:
+                    cont2 = cont2 + 1
+        if crew.type == "Pilot":
+            print(crew.name, cont2)
+        if crew.type == "Costumer service":
+            print(crew.name, cont)
+
+def verifyDates(firstDate, secondDate):
+    firstDate = datetime.strptime(firstDate, '%d/%m/%Y')
+    secondDate = datetime.strptime(secondDate, '%d/%m/%Y')
+    if firstDate < secondDate:
+        return True
+    else:
+        return False
 '------------------------------------------#Menus---------------------------------------'
 
 
@@ -1288,9 +1400,10 @@ def flightMaintenance(role):
                     try:
                         departureDate = input('\n Enter the departure date ==> Example: "10/01/2000"')
                         datetime.strptime(departureDate, '%d/%m/%Y')
+                        listDates.append(departureDate)
                         break
                     except:
-                        print("\n You have not entered a correct date")
+                        print("\n You have not entered a correct date, try again")
                 if verifyDepartureDate(departureDate) == False:
                     while verifyDepartureDate(departureDate) == False:
                         print("You have not entered a correct date, try again")
@@ -1303,7 +1416,7 @@ def flightMaintenance(role):
                         datetime.strptime(departureTime, '%H:%M')
                         break
                     except:
-                        print("\n You have not entered a correct date")
+                        print("\n You have not entered a correct time, try again")
                 while True:
                     try:
                         timeFlight = input('\n Enter the time of flight ==> Example: "2:30" ==> Its two and a half hours')
@@ -1332,8 +1445,8 @@ def flightMaintenance(role):
                 else:
                     print("No aircrafts available, try later")
                     flightMaintenance(role)
-                if automaticGate(departureTime) != False:
-                    gate = automaticGate(departureTime)
+                if automaticGate() != False:
+                    gate = automaticGate()
                 else:
                     print("No gates available, try later")
                     flightMaintenance(role)
@@ -1354,7 +1467,7 @@ def flightMaintenance(role):
                     if x != False and y != False:
                         addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
                                   plane, gate, track, x, y)
-                        modifyStatusGate(gate)
+                        modifyStatusGate(gate, departureTime)
                         dailyFlight(departureDate)
                         if aircraftUse(departureTime, timeFlight, plane) == True:
                             flightMaintenance(role)
@@ -1366,6 +1479,10 @@ def flightMaintenance(role):
                 else:
                     print("\nMissing data can not create the flight")
                     flightMaintenance(role)
+                pilotsList = []
+                costumersServerList = []
+                gateListFlight = []
+                aircraftListFlight = []
             elif option == "2":
                 showFlights()
 
@@ -1492,8 +1609,152 @@ def flightMaintenance(role):
             mainMenu(role)
         else:
             print("Invalid option")
-        maintenanceTracks(role)
+        flightMaintenance(role)
 
+def reports(role):
+    if role == 1:
+        if trackList != [] and gateList != [] and airlineList != [] and crewList != [] and airportList != [] \
+                and aircraftList != []:
+            role = 1
+            print("\nReports\n",
+                  "1)See the list of flights made in a range of dates.\n",
+                  "2)See the list of flights made at a boarding gate.\n",
+                  "3)See the ranking of airports with the most registered flights.\n",
+                  "4)See the ranking of crew members with the most flights made.\n",
+                  "5)Back.\n")
+            option = input("Enter the action you want to do:")
+
+            if option == "1":
+                while True:
+                    try:
+                        firstDate = input('\n Enter the first date,remember that the first date must be less than the '
+                                          'second:')
+                        datetime.strptime(firstDate, '%d/%m/%Y')
+                        break
+                    except:
+                        print("\n You have not entered a correct date, try again")
+                while True:
+                    try:
+                        secondDate = input('\n Enter the second date,remember that the second date must be greater '
+                                           'than the first')
+                        datetime.strptime(secondDate, '%d/%m/%Y')
+                        break
+                    except:
+                        print("\n You have not entered a correct date, try again")
+                if verifyDates(firstDate, secondDate) == False:
+                    while verifyDates(firstDate, secondDate)== False:
+                        print("Incorrect dates, try again")
+                        while True:
+                            try:
+                                firstDate = input(
+                                    '\n Enter the first date,remember that the first date must be less than the '
+                                    'second:')
+                                datetime.strptime(firstDate, '%d/%m/%Y')
+                                break
+                            except:
+                                print("\n You have not entered a correct date, try again")
+                        while True:
+                            try:
+                                secondDate = input(
+                                    '\n Enter the second date,remember that the second date must be greater '
+                                    'than the first' )
+                                datetime.strptime(secondDate, '%d/%m/%Y')
+                                break
+                            except:
+                                print("\n You have not entered a correct date, try again")
+                        if verifyDates(firstDate, secondDate) == True:
+                            break
+                firstReport(firstDate, secondDate)
+            elif option == "2":
+                gate = input("Enter number of the gate of the flight:")
+                if verifyGateFlight(gate) == False:
+                    while verifyGateFlight(gate) == False:
+                        print("This gate not found, try again")
+                        gate = input("Enter number of the gate of the flight:")
+                        if verifyGateFlight(gate) == True:
+                            break
+                secondReport(gate)
+
+            elif option == "3":
+                thirdReport()
+
+            elif option == "4":
+                fourthReport()
+            elif option == "5":
+                mainMenu(role)
+            else:
+                print("Invalid option")
+            reports(role)
+    else:
+        role = 2
+        print("\nYou are in guest mode\n")
+        print("\nReports.\n",
+              "1)See the list of flights made in a range of dates.\n",
+              "2)See the list of flights made at a boarding gate.\n",
+              "3)See the ranking of airports with the most registered flights.\n",
+              "4)See the ranking of crew members with the most flights made.\n",
+              "5)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            while True:
+                try:
+                    firstDate = input('\n Enter the first date,remember that the first date must be less than the '
+                                      'second:')
+                    datetime.strptime(firstDate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date, try again")
+            while True:
+                try:
+                    secondDate = input('\n Enter the second date,remember that the second date must be greater '
+                                       'than the first')
+                    datetime.strptime(secondDate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date, try again")
+            if verifyDates(firstDate, secondDate) == False:
+                while verifyDates(firstDate, secondDate) == False:
+                    print("Incorrect dates, try again")
+                    while True:
+                        try:
+                            firstDate = input(
+                                '\n Enter the first date,remember that the first date must be less than the '
+                                'second:')
+                            datetime.strptime(firstDate, '%d/%m/%Y')
+                            break
+                        except:
+                            print("\n You have not entered a correct date, try again")
+                    while True:
+                        try:
+                            secondDate = input(
+                                '\n Enter the second date,remember that the second date must be greater '
+                                'than the first')
+                            datetime.strptime(secondDate, '%d/%m/%Y')
+                            break
+                        except:
+                            print("\n You have not entered a correct date, try again")
+                    if verifyDates(firstDate, secondDate) == True:
+                        break
+            firstReport(firstDate, secondDate)
+
+        elif option == "2":
+            gate = input("Enter number of the gate of the flight:")
+            if verifyGateFlight(gate) == False:
+                while verifyGateFlight(gate) == False:
+                    print("This gate not found, try again")
+                    gate = input("Enter number of the gate of the flight:")
+                    if verifyGateFlight(gate) == True:
+                        break
+            secondReport(gate)
+        elif option == "3":
+            thirdReport()
+        elif option == "4":
+            fourthReport()
+        elif option == "5":
+            mainMenu(role)
+        else:
+            print("Invalid option")
+        reports(role)
 
 def mainMenu(role):
     if role == 1:
@@ -1507,7 +1768,8 @@ def mainMenu(role):
               "5)Aircraft maintenance.\n",
               "6)Airport maintenance.\n",
               "7)Flight maintenance.\n",
-              "8)Log out\n")
+              "8)Reports.\n",
+              "9)Log out\n")
         option = input("Enter the action you want to do:")
 
         if option == "1":
@@ -1531,6 +1793,9 @@ def mainMenu(role):
             flightMaintenance(role)
 
         elif option == "8":
+            reports(role)
+
+        elif option == "9":
             loginMenu()
         else:
             print("Invalid option")
@@ -1546,7 +1811,8 @@ def mainMenu(role):
               "5)Aircraft maintenance.\n",
               "6)Airport maintenance.\n",
               "7)Flight maintenance.\n",
-              "8)Log out\n")
+              "8)Reports.\n",
+              "9)Log out\n")
         option = input("Enter the action you want to do:")
 
         if option == "1":
@@ -1571,6 +1837,9 @@ def mainMenu(role):
             flightMaintenance(role)
 
         elif option == "8":
+            reports(role)
+
+        elif option == "9":
             loginMenu()
 
         else:
