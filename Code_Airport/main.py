@@ -15,8 +15,7 @@ import random
 
 '------------------------------------------#Lists---------------------------------------'
 
-
-
+#Declaration of global lists
 usersList = []
 trackList = []
 gateList = []
@@ -32,6 +31,9 @@ aircraftListFlight = []
 listDates = []
 listgates = []
 
+
+
+"""#Data to inject
 userTest = User("lester", 18, "lestertb", "123", "111", 1)
 usersList.append(userTest)
 
@@ -118,7 +120,7 @@ aircraftTest1 = PlaneMaintenance("second", 2019, "2", "primera", 10, "Available"
 aircraftList.append(aircraftTest1)
 
 aircraftTest2 = PlaneMaintenance("third", 2019, "3", "primera", 10, "Available")
-aircraftList.append(aircraftTest2)
+aircraftList.append(aircraftTest2)"""
 
 
 '------------------------------------------#Rules or Variables---------------------------------------'
@@ -132,12 +134,12 @@ datetime.strftime(objDate,'%Y')"""
 
 '------------------------------------------#Fuctions---------------------------------------'
 
-
+#Procedure to add Users in the User object
 def addUser(name, age, email, id, password, role):
     newUser = User(name, age, email, id, password, role)
     usersList.append(newUser)
 
-
+#Procedure to show the info of user
 def showInfoUser():
     if usersList != []:
         for user in usersList:
@@ -147,7 +149,7 @@ def showInfoUser():
     else:
         print("\nNo users found\n")
 
-
+#Procedure to verify the id is not repeated
 def verifyID(id):
     for user in usersList:
         if id == user.id:
@@ -155,7 +157,7 @@ def verifyID(id):
     else:
         return False
 
-
+#Procedure to verify the Email is not repeated
 def verifyEmail(email):
     for user in usersList:
         if email == user.email:
@@ -163,7 +165,7 @@ def verifyEmail(email):
     else:
         return False
 
-
+#Procedure to validate the login
 def logIn(id, password):
     listausers = usersList
     while usersList != []:
@@ -178,12 +180,12 @@ def logIn(id, password):
             return "\n User not found, Please Sign up\n"
     return "\n User not found, Please Sign up\n"
 
-
+#Procedure to add a track in the Track object
 def addTrack(number, status):
     newTrack = MaintenenceTracks(number, status)
     trackList.append(newTrack)
 
-
+#Procedure to verify the track is not repeated
 def verifyTrack(number):
     for track in trackList:
         if number == track.number:
@@ -191,7 +193,7 @@ def verifyTrack(number):
     else:
         return False
 
-
+#Procedure to show the tracks
 def showTracks():
     if trackList != []:
         for track in trackList:
@@ -199,7 +201,7 @@ def showTracks():
     else:
         print("\nNo tracks found\n")
 
-
+#Procedure to modify the track
 def modifyTrack(number, status):
     for track in trackList:
         if track.number == number:
@@ -208,7 +210,7 @@ def modifyTrack(number, status):
     else:
         return "\nTrack not found\n"
 
-
+#Procedure to delete a Track
 def deleteTrack(number):
     for track in trackList:
         if number == track.number:
@@ -217,12 +219,12 @@ def deleteTrack(number):
     else:
         return "\nTrack no found\n"
 
-
+#Procedure to add a gate in the Gate object
 def addGate(number,status):
     newGate = MaintenanceGates(number, status)
     gateList.append(newGate)
 
-
+#Procedure to verify the gate is not repeated
 def verifyGate(number):
     for gate in gateList:
         if number == gate.number:
@@ -230,6 +232,7 @@ def verifyGate(number):
     else:
         return False
 
+#Procedure to verify the gate of the flight exist
 def verifyGateFlight(number):
     for gate in gateListFlight:
         if number == gate.number:
@@ -237,13 +240,13 @@ def verifyGateFlight(number):
     else:
         return False
 
-
+#Procedure to push in listGateFlight
 def pushListGateFlight(number):
     for gate in gateList:
         if number == gate.number:
             gateListFlight.append(gate)
 
-
+#Procedure to verify the plaen of the flight exist
 def verifyPlaneFlight(model):
     for aircraft in aircraftListFlight:
         if model == aircraft.model:
@@ -251,13 +254,13 @@ def verifyPlaneFlight(model):
     else:
         return False
 
-
+#Procedure to push in listPlaneFlight
 def pushListPlaneFlight(model):
     for aircraft in aircraftList:
         if model == aircraft.model:
             aircraftListFlight.append(aircraft)
 
-
+#Procedure to show the Gate info
 def showGates():
     if gateList != []:
         for gate in gateList:
@@ -265,7 +268,7 @@ def showGates():
     else:
         print("\nNo gates found\n")
 
-
+#Procedure to modify a gate
 def modifyGate(number,status):
     for gate in gateList:
         if number == gate.number:
@@ -274,7 +277,7 @@ def modifyGate(number,status):
     else:
         return "\nGate not found\n"
 
-
+#Procedure to delete a gate
 def deleteGate(number):
     for gate in gateList:
         if number == gate.number:
@@ -283,12 +286,12 @@ def deleteGate(number):
     else:
         return "\nGate not found\n"
 
-
+#Procedure to add a airline
 def addAirline(name, foundationYear, type, operationCountries):
     newAirline = AirlineMaintenance(name, foundationYear, type, operationCountries)
     airlineList.append(newAirline)
 
-
+#Procedure to verify a airline name is unique
 def verifyAirline(name):
     for airline in airlineList:
         if name == airline.name:
@@ -296,7 +299,7 @@ def verifyAirline(name):
     else:
         return False
 
-
+#Procedure to show airline info
 def showAirlines():
     if airlineList != []:
         for airline in airlineList:
@@ -305,7 +308,7 @@ def showAirlines():
     else:
         print("\nNo airlines found\n")
 
-
+#Procedure to modify a airline
 def modifyAirline(name, foundationYear, type, operationCountries):
     for airline in airlineList:
         if name == airline.name:
@@ -316,7 +319,7 @@ def modifyAirline(name, foundationYear, type, operationCountries):
     else:
         return "\nAirline not found\n"
 
-
+#Procedure to delete a airline
 def deleteAirline(name):
     for airline in airlineList:
         if name == airline.name:
@@ -325,12 +328,12 @@ def deleteAirline(name):
     else:
         return "\nAirline not found\n"
 
-
+#Procedure to add a crew
 def addCrewmember (name, age, id, airline, type,status):
     newCrewmbember = CrewMaintenance(name, age, id, airline, type, status)
     crewList.append(newCrewmbember)
 
-
+#Procedure to verify the crew
 def verifyCrewmember(id):
     for member in crewList:
         if id == member.id:
@@ -338,7 +341,7 @@ def verifyCrewmember(id):
     else:
         return False
 
-
+#Procedure to show the crew info
 def showCrew():
     if crewList != []:
         for crew in crewList:
@@ -347,7 +350,7 @@ def showCrew():
     else:
         print("\nCrew not found\n")
 
-
+#Procedure to delete a crew
 def deleteCrew(id):
     for crew in crewList:
         if id == crew.id:
@@ -356,7 +359,7 @@ def deleteCrew(id):
     else:
         return "\nCrewmember not found\n"
 
-
+#Procedure to modify
 def modifyCrew(id,name,age,airline,type,status):
     for crew in crewList:
         if id == crew.id:
@@ -370,12 +373,12 @@ def modifyCrew(id,name,age,airline,type,status):
     else:
         return "\nCrewmember not found\n"
 
-
+#Procedure to add
 def addAircraft(model,creationyear,id,airline,capacity,status):
     newAircraft = PlaneMaintenance(model, creationyear, id, airline, capacity, status)
     aircraftList.append(newAircraft)
 
-
+#Procedure to verify
 def verifyAircraft(id):
     for aircraf in aircraftList:
         if id == aircraf.id:
@@ -383,7 +386,7 @@ def verifyAircraft(id):
     else:
         return False
 
-
+#Procedure to show info
 def showAircraft():
     if aircraftList != []:
         for aircraft in aircraftList:
@@ -393,7 +396,7 @@ def showAircraft():
     else:
         print("\nAircraft not found\n")
 
-
+#Procedure to delete
 def deleteAircraft(id):
     for aircraft in aircraftList:
         if id == aircraft.id:
