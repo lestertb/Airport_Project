@@ -10,6 +10,7 @@ from crewMaintenance import *
 from PlaneMaintenance import *
 from AirportMaintenance import *
 from FlightMaintenance import *
+from FileManager import *
 from collections import Counter
 import random
 
@@ -594,8 +595,10 @@ def getCostumersServer():
         return False
 
 
-def addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport, plane, gate, track, crewPilot, crewCustomerService):
-    newFlight = FlightMaintenance(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport, plane, gate, track, crewPilot, crewCustomerService)
+def addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport, plane, gate, track,
+              crewPilot, crewCustomerService, price):
+    newFlight = FlightMaintenance(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
+                                  plane, gate, track, crewPilot, crewCustomerService, price)
     flightList.append(newFlight)
 
 
@@ -1462,14 +1465,15 @@ def flightMaintenance(role):
                 pushListPlaneFlight(plane)
                 automaticCrewPilots(airline)
                 automaticCrewCostumerService(airline)
+                price = int(input("Enter the price of the flight below"))
                 if airline != None and departureDate != None and departureTime != None and timeFlight != None and\
                         departureAirport != None and arrivalAirport != None and plane != None and gate != None and\
-                        track != None:
+                        track != None and price != None:
                     x = getPilots()
                     y = getCostumersServer()
                     if x != False and y != False:
                         addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
-                                  plane, gate, track, x, y)
+                                  plane, gate, track, x, y, price)
                         modifyStatusGate(gate, departureTime)
                         dailyFlight(departureDate)
                         if aircraftUse(departureTime, timeFlight, plane) == True:
@@ -1688,8 +1692,7 @@ def reports(role):
             else:
                 print("Invalid option")
             reports(role)
-    else:
-        role = 2
+    elif role == 2:
         print("\nYou are in guest mode\n")
         print("\nReports.\n",
               "1)See the list of flights made in a range of dates.\n",
@@ -1758,7 +1761,94 @@ def reports(role):
         else:
             print("Invalid option")
         reports(role)
+    elif role == 3:
+        print("\nYou are in passenger mode\n")
+        print("\nReports.\n",
+              "1)See the list of flights made in a range of dates.\n",
+              "2)See the list of flights made at a boarding gate.\n",
+              "3)See the ranking of airports with the most registered flights.\n",
+              "4)See the ranking of crew members with the most flights made.\n",
+              "5)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            while True:
+                try:
+                    firstDate = input('\n Enter the first date,remember that the first date must be less than the '
+                                      'second:')
+                    datetime.strptime(firstDate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date, try again")
+            while True:
+                try:
+                    secondDate = input('\n Enter the second date,remember that the second date must be greater '
+                                       'than the first')
+                    datetime.strptime(secondDate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date, try again")
+            if verifyDates(firstDate, secondDate) == False:
+                while verifyDates(firstDate, secondDate) == False:
+                    print("Incorrect dates, try again")
+                    while True:
+                        try:
+                            firstDate = input(
+                                '\n Enter the first date,remember that the first date must be less than the '
+                                'second:')
+                            datetime.strptime(firstDate, '%d/%m/%Y')
+                            break
+                        except:
+                            print("\n You have not entered a correct date, try again")
+                    while True:
+                        try:
+                            secondDate = input(
+                                '\n Enter the second date,remember that the second date must be greater '
+                                'than the first')
+                            datetime.strptime(secondDate, '%d/%m/%Y')
+                            break
+                        except:
+                            print("\n You have not entered a correct date, try again")
+                    if verifyDates(firstDate, secondDate) == True:
+                        break
+            firstReport(firstDate, secondDate)
 
+        elif option == "2":
+            gate = input("Enter number of the gate of the flight:")
+            if verifyGateFlight(gate) == False:
+                while verifyGateFlight(gate) == False:
+                    print("This gate not found, try again")
+                    gate = input("Enter number of the gate of the flight:")
+                    if verifyGateFlight(gate) == True:
+                        break
+            secondReport(gate)
+        elif option == "3":
+            thirdReport()
+        elif option == "4":
+            fourthReport()
+        elif option == "5":
+            mainMenu(role)
+        else:
+            print("Invalid option")
+        reports(role)
+
+def flights(role):
+    return
+
+def passengerMenu(role):
+    if role == 3:
+        role = 3
+        print("\nYou are in passenger mode\n"
+              "\nAero-TEC\n",
+              "1)Flights.\n",
+              "2)Log out.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            flights(role)
+        elif option == "2":
+            loginMenu()
+        else:
+            print("Invalid option")
+        passengerMenu(role)
 def mainMenu(role):
     if role == 1:
         role = 1
@@ -1803,9 +1893,29 @@ def mainMenu(role):
         else:
             print("Invalid option")
         mainMenu(role)
-    else:
-        role = 2
+    elif role == 2:
         print("\nYou are in guest mode, Only read\n"
+                "\nAero-TEC\n",
+                "1)Flights.\n",
+                "2)Reports.\n",
+                "3)Log out\n")
+        option = input("Enter the action you want to do:")
+
+        if option == "1":
+            flightMaintenance(role)
+
+        elif option == "2":
+            reports(role)
+
+        elif option == "3":
+             loginMenu()
+
+        else:
+            print("Invalid option")
+        mainMenu(role)
+
+    elif role == 3:
+        print("\nYou are in passenger mode\n"
               "\nAero-TEC\n",
               "1)Maintenance of tracks.\n",
               "2)Maintenance of doors of boarding.\n",
@@ -1844,10 +1954,10 @@ def mainMenu(role):
 
         elif option == "9":
             loginMenu()
-
         else:
             print("Invalid option")
         mainMenu(role)
+
 
 
 def loginMenu():
@@ -1865,6 +1975,8 @@ def loginMenu():
             mainMenu(role)
         elif role == 2:
             mainMenu(role)
+        elif role == 3:
+            passengerMenu(role)
         else:
             print(role)
 
@@ -1893,15 +2005,15 @@ def loginMenu():
         password = input("Enter password:")
         while True:
             try:
-                role = int(input("Enter 1 to admin or 2 to guest:"))
+                role = int(input("Enter 1 to admin or 2 to guest or 3 to passenger:"))
                 break
             except ValueError:
                 print("Oops!  That was no valid number.  Try again...")
-        if role != 1 and role != 2:
-            while role != 1 and role != 2:
-                print("Error please enter 1 or 2")
-                role = int(input("Enter 1 to admin or 2 to guest:"))
-                if role == 1 or role == 2:
+        if role != 1 and role != 2 and role != 3:
+            while role != 1 and role != 2 and role != 3:
+                print("Error please enter 1 or 2 or 3")
+                role = int(input("Enter 1 to admin or 2 to guest or 3 for passenger"))
+                if role == 1 or role == 2 or role == 3:
                     break
         addUser(name, age, email, id, password, role)
 
@@ -1910,8 +2022,12 @@ def loginMenu():
     else:
         print("Invalid option")
     loginMenu()
-loginMenu()
 
 
+def start():
+    global flightList
+    flightList = charge()
+    loginMenu()
 
+start()
 
