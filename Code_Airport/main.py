@@ -1,6 +1,5 @@
 """"------------------------------------------#Imports---------------------------------------"""
 
-
 from datetime import (date, datetime, timedelta)
 from User import *
 from TrackMaintenance import *
@@ -12,10 +11,11 @@ from AirportMaintenance import *
 from FileManager import *
 from collections import Counter
 import random
+import sys
 
 '------------------------------------------#Lists---------------------------------------'
 
-#Declaration of global lists
+# Declaration of global lists
 usersList = []
 trackList = []
 gateList = []
@@ -31,26 +31,321 @@ aircraftListFlight = []
 listDates = []
 listgates = []
 
-
-
-#Data to inject
+# Data to inject
 userTest = User("lester", 18, "lestertb", "123", "111", 1)
 usersList.append(userTest)
 
-trackTest = MaintenenceTracks("10", "Available")
-trackList.append(trackTest)
+userTest1 = User("lestertb", 18, "lester", "1234", "1111", 3)
+usersList.append(userTest1)
 
-trackTest1 = MaintenenceTracks("11", "Available")
+trackTest1 = MaintenenceTracks("10", "Available")
 trackList.append(trackTest1)
+
+trackTest2 = MaintenenceTracks("12", "Available")
+trackList.append(trackTest2)
+
+trackTest3 = MaintenenceTracks("13", "Available")
+trackList.append(trackTest3)
+
+trackTest4 = MaintenenceTracks("14", "Available")
+trackList.append(trackTest4)
+
+trackTest5 = MaintenenceTracks("15", "Available")
+trackList.append(trackTest5)
+
+trackTest6 = MaintenenceTracks("16", "Available")
+trackList.append(trackTest6)
+
+trackTest7 = MaintenenceTracks("17", "Available")
+trackList.append(trackTest7)
+
+trackTest8 = MaintenenceTracks("18", "Available")
+trackList.append(trackTest8)
+
+trackTest9 = MaintenenceTracks("19", "Available")
+trackList.append(trackTest9)
+
+trackTest10 = MaintenenceTracks("20", "Available")
+trackList.append(trackTest10)
+
+trackTest11 = MaintenenceTracks("21", "Available")
+trackList.append(trackTest11)
+
+trackTest12 = MaintenenceTracks("22", "Available")
+trackList.append(trackTest12)
+
+trackTest13 = MaintenenceTracks("23", "Available")
+trackList.append(trackTest13)
+
+trackTest14 = MaintenenceTracks("24", "Available")
+trackList.append(trackTest14)
+
+trackTest15 = MaintenenceTracks("25", "Available")
+trackList.append(trackTest15)
+
+trackTest16 = MaintenenceTracks("26", "Available")
+trackList.append(trackTest16)
+
+trackTest17 = MaintenenceTracks("27", "Available")
+trackList.append(trackTest17)
+
+trackTest18 = MaintenenceTracks("28", "Available")
+trackList.append(trackTest18)
+
+trackTest19 = MaintenenceTracks("29", "Available")
+trackList.append(trackTest19)
+
+trackTest20 = MaintenenceTracks("30", "Available")
+trackList.append(trackTest20)
+
+trackTest21 = MaintenenceTracks("31", "Available")
+trackList.append(trackTest21)
+
+trackTest22 = MaintenenceTracks("32", "Available")
+trackList.append(trackTest22)
+
+trackTest23 = MaintenenceTracks("33", "Available")
+trackList.append(trackTest23)
+
+trackTest24 = MaintenenceTracks("34", "Available")
+trackList.append(trackTest24)
+
+trackTest25 = MaintenenceTracks("35", "Available")
+trackList.append(trackTest25)
+
+trackTest26 = MaintenenceTracks("36", "Available")
+trackList.append(trackTest26)
+
+trackTest27 = MaintenenceTracks("37", "Available")
+trackList.append(trackTest27)
+
+trackTest28 = MaintenenceTracks("38", "Available")
+trackList.append(trackTest28)
+
+trackTest29 = MaintenenceTracks("39", "Available")
+trackList.append(trackTest29)
+
+trackTest30 = MaintenenceTracks("40", "Available")
+trackList.append(trackTest30)
+
+trackTest31 = MaintenenceTracks("41", "Available")
+trackList.append(trackTest31)
+
+trackTest32 = MaintenenceTracks("42", "Available")
+trackList.append(trackTest32)
+
+trackTest33 = MaintenenceTracks("43", "Available")
+trackList.append(trackTest33)
+
+trackTest34 = MaintenenceTracks("44", "Available")
+trackList.append(trackTest34)
+
+trackTest35 = MaintenenceTracks("45", "Available")
+trackList.append(trackTest35)
+
+trackTest36 = MaintenenceTracks("46", "Available")
+trackList.append(trackTest36)
+
+trackTest37 = MaintenenceTracks("47", "Available")
+trackList.append(trackTest37)
+
+trackTest38 = MaintenenceTracks("48", "Available")
+trackList.append(trackTest38)
+
+trackTest39 = MaintenenceTracks("49", "Available")
+trackList.append(trackTest39)
+
+trackTest40 = MaintenenceTracks("50", "Available")
+trackList.append(trackTest40)
+
+trackTest41 = MaintenenceTracks("51", "Available")
+trackList.append(trackTest41)
+
+trackTest42 = MaintenenceTracks("52", "Available")
+trackList.append(trackTest42)
+
+trackTest43 = MaintenenceTracks("53", "Available")
+trackList.append(trackTest43)
+
+trackTest44 = MaintenenceTracks("54", "Available")
+trackList.append(trackTest44)
+
+trackTest45 = MaintenenceTracks("55", "Available")
+trackList.append(trackTest45)
+
+trackTest46 = MaintenenceTracks("56", "Available")
+trackList.append(trackTest46)
+
+trackTest47 = MaintenenceTracks("57", "Available")
+trackList.append(trackTest47)
+
+trackTest48 = MaintenenceTracks("58", "Available")
+trackList.append(trackTest48)
+
+trackTest49 = MaintenenceTracks("59", "Available")
+trackList.append(trackTest49)
+
+trackTest50 = MaintenenceTracks("60", "Available")
+trackList.append(trackTest50)
+
+gateTest = MaintenanceGates("9", "Available")
+gateList.append(gateTest)
 
 gateTest1 = MaintenanceGates("10", "Available")
 gateList.append(gateTest1)
 
-gateTest = MaintenanceGates("11", "Available")
-gateList.append(gateTest)
+gateTest2 = MaintenanceGates("11", "Available")
+gateList.append(gateTest2)
+
+gateTest3 = MaintenanceGates("12", "Available")
+gateList.append(gateTest3)
+
+gateTest4 = MaintenanceGates("13", "Available")
+gateList.append(gateTest4)
+
+gateTest5 = MaintenanceGates("14", "Available")
+gateList.append(gateTest5)
+
+gateTest6 = MaintenanceGates("15", "Available")
+gateList.append(gateTest6)
+
+gateTest7 = MaintenanceGates("16", "Available")
+gateList.append(gateTest7)
+
+gateTest8 = MaintenanceGates("17", "Available")
+gateList.append(gateTest8)
+
+gateTest9 = MaintenanceGates("18", "Available")
+gateList.append(gateTest9)
+
+gateTest10 = MaintenanceGates("19", "Available")
+gateList.append(gateTest10)
+
+gateTest11 = MaintenanceGates("20", "Available")
+gateList.append(gateTest11)
+
+gateTest12 = MaintenanceGates("21", "Available")
+gateList.append(gateTest12)
+
+gateTest13 = MaintenanceGates("22", "Available")
+gateList.append(gateTest13)
+
+gateTest14 = MaintenanceGates("23", "Available")
+gateList.append(gateTest14)
+
+gateTest15 = MaintenanceGates("24", "Available")
+gateList.append(gateTest15)
+
+gateTest16 = MaintenanceGates("25", "Available")
+gateList.append(gateTest16)
+
+gateTest17 = MaintenanceGates("26", "Available")
+gateList.append(gateTest17)
+
+gateTest18 = MaintenanceGates("27", "Available")
+gateList.append(gateTest18)
+
+gateTest19 = MaintenanceGates("28", "Available")
+gateList.append(gateTest19)
+
+gateTest20 = MaintenanceGates("29", "Available")
+gateList.append(gateTest20)
+
+gateTest21 = MaintenanceGates("30", "Available")
+gateList.append(gateTest21)
+
+gateTest22 = MaintenanceGates("31", "Available")
+gateList.append(gateTest22)
+
+gateTest23 = MaintenanceGates("32", "Available")
+gateList.append(gateTest23)
+
+gateTest24 = MaintenanceGates("33", "Available")
+gateList.append(gateTest24)
+
+gateTest25 = MaintenanceGates("34", "Available")
+gateList.append(gateTest25)
+
+gateTest26 = MaintenanceGates("35", "Available")
+gateList.append(gateTest26)
+
+gateTest27 = MaintenanceGates("36", "Available")
+gateList.append(gateTest27)
+
+gateTest28 = MaintenanceGates("37", "Available")
+gateList.append(gateTest28)
+
+gateTest29 = MaintenanceGates("38", "Available")
+gateList.append(gateTest29)
+
+gateTest30 = MaintenanceGates("39", "Available")
+gateList.append(gateTest30)
+
+gateTest31 = MaintenanceGates("40", "Available")
+gateList.append(gateTest31)
+
+gateTest32 = MaintenanceGates("41", "Available")
+gateList.append(gateTest32)
+
+gateTest33 = MaintenanceGates("42", "Available")
+gateList.append(gateTest33)
+
+gateTest34 = MaintenanceGates("43", "Available")
+gateList.append(gateTest34)
+
+gateTest35 = MaintenanceGates("44", "Available")
+gateList.append(gateTest35)
+
+gateTest36 = MaintenanceGates("45", "Available")
+gateList.append(gateTest36)
+
+gateTest37 = MaintenanceGates("46", "Available")
+gateList.append(gateTest37)
+
+gateTest38 = MaintenanceGates("47", "Available")
+gateList.append(gateTest38)
+
+gateTest39 = MaintenanceGates("48", "Available")
+gateList.append(gateTest39)
+
+gateTest40 = MaintenanceGates("49", "Available")
+gateList.append(gateTest40)
+
+gateTest41 = MaintenanceGates("50", "Available")
+gateList.append(gateTest41)
+
+gateTest42 = MaintenanceGates("51", "Available")
+gateList.append(gateTest42)
+
+gateTest43 = MaintenanceGates("52", "Available")
+gateList.append(gateTest43)
+
+gateTest44 = MaintenanceGates("53", "Available")
+gateList.append(gateTest44)
+
+gateTest45 = MaintenanceGates("54", "Available")
+gateList.append(gateTest45)
+
+gateTest46 = MaintenanceGates("55", "Available")
+gateList.append(gateTest46)
+
+gateTest47 = MaintenanceGates("56", "Available")
+gateList.append(gateTest47)
+
+gateTest48 = MaintenanceGates("57", "Available")
+gateList.append(gateTest48)
+
+gateTest49 = MaintenanceGates("58", "Available")
+gateList.append(gateTest49)
+
+gateTest50 = MaintenanceGates("59", "Available")
+gateList.append(gateTest50)
 
 airlineTest = AirlineMaintenance("primera", 2019, "Local", 10)
 airlineList.append(airlineTest)
+
+airlineTest1 = AirlineMaintenance("segunda", 2019, "Local", 10)
+airlineList.append(airlineTest1)
 
 crewTest1 = CrewMaintenance("leo1", 18, 11, "primera", "Pilot", "Available")
 crewList.append(crewTest1)
@@ -82,13 +377,13 @@ crewList.append(crewTest9)
 crewTest10 = CrewMaintenance("leo10", 18, 20, "primera", "Costumer service", "Available")
 crewList.append(crewTest10)
 
-crewTest11 = CrewMaintenance("leo11", 18, 20, "primera", "Costumer service", "Available")
+crewTest11 = CrewMaintenance("leo11", 18, 9, "primera", "Costumer service", "Available")
 crewList.append(crewTest11)
 
 crewTest12 = CrewMaintenance("leo12", 18, 21, "primera", "Pilot", "Available")
 crewList.append(crewTest12)
 
-crewTest13 = CrewMaintenance("leo13", 18, 21, "primera", "Costumer service", "Available")
+crewTest13 = CrewMaintenance("leo13", 18, 10, "primera", "Costumer service", "Available")
 crewList.append(crewTest13)
 
 crewTest14 = CrewMaintenance("leo14", 18, 22, "primera", "Costumer service", "Available")
@@ -106,22 +401,923 @@ crewList.append(crewTest17)
 crewTest18 = CrewMaintenance("leo18", 18, 26, "primera", "Costumer service", "Available")
 crewList.append(crewTest18)
 
-airportTest1 = AirportMaintenance("ppp", "pppp", "ppppp")
+crewTest19 = CrewMaintenance("leo19", 18, 27, "primera", "Pilot", "Available")
+crewList.append(crewTest19)
 
+crewTest20 = CrewMaintenance("leo20", 18, 28, "primera", "Pilot", "Available")
+crewList.append(crewTest20)
+
+crewTest21 = CrewMaintenance("leo21", 18, 29, "primera", "Pilot", "Available")
+crewList.append(crewTest21)
+
+crewTest22 = CrewMaintenance("leo22", 18, 30, "primera", "Costumer service", "Available")
+crewList.append(crewTest22)
+
+crewTest23 = CrewMaintenance("leo23", 18, 31, "primera", "Costumer service", "Available")
+crewList.append(crewTest23)
+
+crewTest24 = CrewMaintenance("leo24", 18, 32, "primera", "Costumer service", "Available")
+crewList.append(crewTest24)
+
+crewTest25 = CrewMaintenance("leo25", 18, 33, "primera", "Costumer service", "Available")
+crewList.append(crewTest25)
+
+crewTest26 = CrewMaintenance("leo26", 18, 34, "primera", "Costumer service", "Available")
+crewList.append(crewTest26)
+
+crewTest27 = CrewMaintenance("leo27", 18, 35, "primera", "Costumer service", "Available")
+crewList.append(crewTest27)
+
+crewTest28 = CrewMaintenance("leo28", 18, 36, "primera", "Costumer service", "Available")
+crewList.append(crewTest28)
+
+crewTest29 = CrewMaintenance("leo29", 18, 37, "primera", "Costumer service", "Available")
+crewList.append(crewTest29)
+
+crewTest30 = CrewMaintenance("leo30", 18, 38, "primera", "Pilot", "Available")
+crewList.append(crewTest30)
+
+crewTest31 = CrewMaintenance("leo31", 18, 39, "primera", "Costumer service", "Available")
+crewList.append(crewTest31)
+
+crewTest32 = CrewMaintenance("leo32", 18, 40, "primera", "Costumer service", "Available")
+crewList.append(crewTest32)
+
+crewTest33 = CrewMaintenance("leo33", 18, 41, "primera", "Costumer service", "Available")
+crewList.append(crewTest33)
+
+crewTest34 = CrewMaintenance("leo34", 18, 42, "primera", "Pilot", "Available")
+crewList.append(crewTest34)
+
+crewTest35 = CrewMaintenance("leo35", 18, 43, "primera", "Pilot", "Available")
+crewList.append(crewTest35)
+
+crewTest36 = CrewMaintenance("leo36", 18, 44, "primera", "Costumer service", "Available")
+crewList.append(crewTest36)
+
+crewTest37 = CrewMaintenance("leo37", 18, 45, "primera", "Pilot", "Available")
+crewList.append(crewTest37)
+
+crewTest38 = CrewMaintenance("leo38", 18, 46, "primera", "Pilot", "Available")
+crewList.append(crewTest38)
+
+crewTest39 = CrewMaintenance("leo39", 18, 47, "primera", "Pilot", "Available")
+crewList.append(crewTest39)
+
+crewTest40 = CrewMaintenance("leo40", 18, 48, "primera", "Costumer service", "Available")
+crewList.append(crewTest40)
+
+crewTest41 = CrewMaintenance("leo41", 18, 49, "primera", "Costumer service", "Available")
+crewList.append(crewTest41)
+
+crewTest42 = CrewMaintenance("leo42", 18, 50, "primera", "Costumer service", "Available")
+crewList.append(crewTest42)
+
+crewTest43 = CrewMaintenance("leo43", 18, 51, "primera", "Costumer service", "Available")
+crewList.append(crewTest43)
+
+crewTest44 = CrewMaintenance("leo44", 18, 52, "primera", "Costumer service", "Available")
+crewList.append(crewTest44)
+
+crewTest45 = CrewMaintenance("leo45", 18, 53, "primera", "Costumer service", "Available")
+crewList.append(crewTest45)
+
+crewTest46 = CrewMaintenance("leo46", 18, 54, "primera", "Costumer service", "Available")
+crewList.append(crewTest46)
+
+crewTest47 = CrewMaintenance("leo47", 18, 55, "primera", "Costumer service", "Available")
+crewList.append(crewTest47)
+
+crewTest48 = CrewMaintenance("leo48", 18, 56, "primera", "Pilot", "Available")
+crewList.append(crewTest48)
+
+crewTest49 = CrewMaintenance("leo49", 18, 57, "primera", "Costumer service", "Available")
+crewList.append(crewTest49)
+
+crewTest50 = CrewMaintenance("leo50", 18, 58, "primera", "Costumer service", "Available")
+crewList.append(crewTest50)
+
+crewTest51 = CrewMaintenance("leo51", 18, 59, "primera", "Costumer service", "Available")
+crewList.append(crewTest51)
+
+crewTest52 = CrewMaintenance("leo52", 18, 60, "primera", "Pilot", "Available")
+crewList.append(crewTest52)
+
+crewTest53 = CrewMaintenance("leo53", 18, 61, "primera", "Pilot", "Available")
+crewList.append(crewTest53)
+
+crewTest54 = CrewMaintenance("leo54", 18, 62, "primera", "Costumer service", "Available")
+crewList.append(crewTest54)
+
+crewTest55 = CrewMaintenance("leo55", 18, 63, "primera", "Pilot", "Available")
+crewList.append(crewTest55)
+
+crewTest56 = CrewMaintenance("leo56", 18, 64, "primera", "Pilot", "Available")
+crewList.append(crewTest56)
+
+crewTest57 = CrewMaintenance("leo57", 18, 65, "primera", "Pilot", "Available")
+crewList.append(crewTest57)
+
+crewTest58 = CrewMaintenance("leo58", 18, 66, "primera", "Costumer service", "Available")
+crewList.append(crewTest58)
+
+crewTest59 = CrewMaintenance("leo59", 18, 67, "primera", "Costumer service", "Available")
+crewList.append(crewTest59)
+
+crewTest60 = CrewMaintenance("leo60", 18, 68, "primera", "Costumer service", "Available")
+crewList.append(crewTest60)
+
+crewTest61 = CrewMaintenance("leo61", 18, 69, "primera", "Costumer service", "Available")
+crewList.append(crewTest61)
+
+crewTest62 = CrewMaintenance("leo62", 18, 70, "primera", "Costumer service", "Available")
+crewList.append(crewTest62)
+
+crewTest63 = CrewMaintenance("leo63", 18, 71, "primera", "Costumer service", "Available")
+crewList.append(crewTest63)
+
+crewTest64 = CrewMaintenance("leo64", 18, 72, "primera", "Costumer service", "Available")
+crewList.append(crewTest64)
+
+crewTest65 = CrewMaintenance("leo65", 18, 73, "primera", "Costumer service", "Available")
+crewList.append(crewTest65)
+
+crewTest66 = CrewMaintenance("leo66", 18, 74, "primera", "Pilot", "Available")
+crewList.append(crewTest66)
+
+crewTest67 = CrewMaintenance("leo67", 18, 75, "primera", "Costumer service", "Available")
+crewList.append(crewTest67)
+
+crewTest68 = CrewMaintenance("leo68", 18, 76, "primera", "Costumer service", "Available")
+crewList.append(crewTest68)
+
+crewTest69 = CrewMaintenance("leo69", 18, 77, "primera", "Costumer service", "Available")
+crewList.append(crewTest69)
+
+crewTest70 = CrewMaintenance("leo70", 18, 78, "primera", "Pilot", "Available")
+crewList.append(crewTest70)
+
+crewTest71 = CrewMaintenance("leo71", 18, 79, "primera", "Pilot", "Available")
+crewList.append(crewTest71)
+
+crewTest72 = CrewMaintenance("leo72", 18, 80, "primera", "Costumer service", "Available")
+crewList.append(crewTest72)
+
+crewTest73 = CrewMaintenance("leo73", 18, 81, "primera", "Pilot", "Available")
+crewList.append(crewTest73)
+
+crewTest74 = CrewMaintenance("leo74", 18, 82, "primera", "Pilot", "Available")
+crewList.append(crewTest74)
+
+crewTest75 = CrewMaintenance("leo75", 18, 83, "primera", "Pilot", "Available")
+crewList.append(crewTest75)
+
+crewTest76 = CrewMaintenance("leo76", 18, 84, "primera", "Costumer service", "Available")
+crewList.append(crewTest76)
+
+crewTest77 = CrewMaintenance("leo77", 18, 85, "primera", "Costumer service", "Available")
+crewList.append(crewTest77)
+
+crewTest78 = CrewMaintenance("leo78", 18, 86, "primera", "Costumer service", "Available")
+crewList.append(crewTest78)
+
+crewTest79 = CrewMaintenance("leo79", 18, 87, "primera", "Costumer service", "Available")
+crewList.append(crewTest79)
+
+crewTest80 = CrewMaintenance("leo80", 18, 88, "primera", "Costumer service", "Available")
+crewList.append(crewTest80)
+
+crewTest81 = CrewMaintenance("leo81", 18, 89, "primera", "Costumer service", "Available")
+crewList.append(crewTest81)
+
+crewTest82 = CrewMaintenance("leo82", 18, 90, "primera", "Costumer service", "Available")
+crewList.append(crewTest82)
+
+crewTest83 = CrewMaintenance("leo83", 18, 91, "primera", "Costumer service", "Available")
+crewList.append(crewTest83)
+
+crewTest84 = CrewMaintenance("leo84", 18, 92, "primera", "Pilot", "Available")
+crewList.append(crewTest84)
+
+crewTest85 = CrewMaintenance("leo85", 18, 93, "primera", "Costumer service", "Available")
+crewList.append(crewTest85)
+
+crewTest86 = CrewMaintenance("leo86", 18, 94, "primera", "Costumer service", "Available")
+crewList.append(crewTest86)
+
+crewTest87 = CrewMaintenance("leo87", 18, 95, "primera", "Costumer service", "Available")
+crewList.append(crewTest87)
+
+crewTest88 = CrewMaintenance("leo88", 18, 96, "primera", "Pilot", "Available")
+crewList.append(crewTest88)
+
+crewTest89 = CrewMaintenance("leo89", 18, 97, "primera", "Pilot", "Available")
+crewList.append(crewTest89)
+
+crewTest90 = CrewMaintenance("leo90", 18, 98, "primera", "Costumer service", "Available")
+crewList.append(crewTest90)
+
+crewTest91 = CrewMaintenance("leo91", 18, 99, "primera", "Pilot", "Available")
+crewList.append(crewTest91)
+
+crewTest92 = CrewMaintenance("leo92", 18, 100, "primera", "Pilot", "Available")
+crewList.append(crewTest92)
+
+crewTest93 = CrewMaintenance("leo93", 18, 101, "primera", "Pilot", "Available")
+crewList.append(crewTest93)
+
+crewTest94 = CrewMaintenance("leo94", 18, 102, "primera", "Costumer service", "Available")
+crewList.append(crewTest94)
+
+crewTest95 = CrewMaintenance("leo95", 18, 103, "primera", "Costumer service", "Available")
+crewList.append(crewTest95)
+
+crewTest96 = CrewMaintenance("leo96", 18, 104, "primera", "Costumer service", "Available")
+crewList.append(crewTest96)
+
+crewTest97 = CrewMaintenance("leo97", 18, 105, "primera", "Costumer service", "Available")
+crewList.append(crewTest97)
+
+crewTest98 = CrewMaintenance("leo98", 18, 106, "primera", "Costumer service", "Available")
+crewList.append(crewTest98)
+
+crewTest99 = CrewMaintenance("leo99", 18, 107, "primera", "Costumer service", "Available")
+crewList.append(crewTest99)
+
+crewTest100 = CrewMaintenance("leo100", 18, 108, "primera", "Costumer service", "Available")
+crewList.append(crewTest100)
+
+crewTest101 = CrewMaintenance("leo101", 18, 109, "primera", "Costumer service", "Available")
+crewList.append(crewTest101)
+
+crewTest102 = CrewMaintenance("leo102", 18, 110, "primera", "Pilot", "Available")
+crewList.append(crewTest102)
+
+crewTest103 = CrewMaintenance("leo103", 18, 111, "primera", "Costumer service", "Available")
+crewList.append(crewTest103)
+
+crewTest104 = CrewMaintenance("leo104", 18, 112, "primera", "Costumer service", "Available")
+crewList.append(crewTest104)
+
+crewTest105 = CrewMaintenance("leo105", 18, 113, "primera", "Costumer service", "Available")
+crewList.append(crewTest105)
+
+crewTest106 = CrewMaintenance("leo106", 18, 114, "primera", "Pilot", "Available")
+crewList.append(crewTest106)
+
+crewTest107 = CrewMaintenance("leo107", 18, 115, "primera", "Pilot", "Available")
+crewList.append(crewTest107)
+
+crewTest108 = CrewMaintenance("leo108", 18, 116, "primera", "Costumer service", "Available")
+crewList.append(crewTest108)
+
+crewTest109 = CrewMaintenance("leo109", 18, 118, "primera", "Pilot", "Available")
+crewList.append(crewTest109)
+
+crewTest110 = CrewMaintenance("leo110", 18, 119, "primera", "Pilot", "Available")
+crewList.append(crewTest110)
+
+crewTest111 = CrewMaintenance("leo111", 18, 120, "primera", "Costumer service", "Available")
+crewList.append(crewTest111)
+
+crewTest112 = CrewMaintenance("leo112", 18, 121, "primera", "Costumer service", "Available")
+crewList.append(crewTest112)
+
+crewTest113 = CrewMaintenance("leo113", 18, 122, "primera", "Costumer service", "Available")
+crewList.append(crewTest113)
+
+crewTest114 = CrewMaintenance("leo114", 18, 123, "primera", "Costumer service", "Available")
+crewList.append(crewTest114)
+
+crewTest115 = CrewMaintenance("leo115", 18, 124, "primera", "Costumer service", "Available")
+crewList.append(crewTest115)
+
+crewTest116 = CrewMaintenance("leo116", 18, 125, "primera", "Costumer service", "Available")
+crewList.append(crewTest116)
+
+crewTest117 = CrewMaintenance("leo117", 18, 126, "primera", "Costumer service", "Available")
+crewList.append(crewTest117)
+
+crewTest118 = CrewMaintenance("leo118", 18, 127, "primera", "Costumer service", "Available")
+crewList.append(crewTest118)
+
+crewTest119 = CrewMaintenance("leo119", 18, 128, "primera", "Pilot", "Available")
+crewList.append(crewTest119)
+
+crewTest120 = CrewMaintenance("leo120", 18, 129, "primera", "Costumer service", "Available")
+crewList.append(crewTest120)
+
+crewTest121 = CrewMaintenance("leo121", 18, 130, "primera", "Costumer service", "Available")
+crewList.append(crewTest121)
+
+crewTest122 = CrewMaintenance("leo122", 18, 131, "primera", "Costumer service", "Available")
+crewList.append(crewTest122)
+
+crewTest123 = CrewMaintenance("leo123", 18, 132, "primera", "Pilot", "Available")
+crewList.append(crewTest123)
+
+crewTest124 = CrewMaintenance("leo124", 18, 133, "primera", "Pilot", "Available")
+crewList.append(crewTest124)
+
+crewTest125 = CrewMaintenance("leo125", 18, 134, "primera", "Costumer service", "Available")
+crewList.append(crewTest125)
+
+crewTest126 = CrewMaintenance("leo126", 18, 135, "segunda", "Pilot", "Available")
+crewList.append(crewTest126)
+
+crewTest127 = CrewMaintenance("leo127", 18, 136, "segunda", "Pilot", "Available")
+crewList.append(crewTest127)
+
+crewTest128 = CrewMaintenance("leo128", 18, 137, "segunda", "Pilot", "Available")
+crewList.append(crewTest128)
+
+crewTest129 = CrewMaintenance("leo129", 18, 138, "segunda", "Costumer service", "Available")
+crewList.append(crewTest129)
+
+crewTest130 = CrewMaintenance("leo130", 18, 139, "segunda", "Costumer service", "Available")
+crewList.append(crewTest130)
+
+crewTest131 = CrewMaintenance("leo131", 18, 140, "segunda", "Costumer service", "Available")
+crewList.append(crewTest131)
+
+crewTest132 = CrewMaintenance("leo132", 18, 141, "segunda", "Costumer service", "Available")
+crewList.append(crewTest132)
+
+crewTest133 = CrewMaintenance("leo133", 18, 142, "segunda", "Costumer service", "Available")
+crewList.append(crewTest133)
+
+crewTest134 = CrewMaintenance("leo134", 18, 143, "segunda", "Costumer service", "Available")
+crewList.append(crewTest134)
+
+crewTest135 = CrewMaintenance("leo135", 18, 144, "segunda", "Costumer service", "Available")
+crewList.append(crewTest135)
+
+crewTest136 = CrewMaintenance("leo136", 18, 145, "segunda", "Costumer service", "Available")
+crewList.append(crewTest136)
+
+crewTest137 = CrewMaintenance("leo137", 18, 146, "segunda", "Pilot", "Available")
+crewList.append(crewTest137)
+
+crewTest138 = CrewMaintenance("leo138", 18, 147, "segunda", "Costumer service", "Available")
+crewList.append(crewTest138)
+
+crewTest139 = CrewMaintenance("leo139", 18, 148, "segunda", "Costumer service", "Available")
+crewList.append(crewTest139)
+
+crewTest140 = CrewMaintenance("leo140", 18, 149, "segunda", "Costumer service", "Available")
+crewList.append(crewTest140)
+
+crewTest141 = CrewMaintenance("leo141", 18, 150, "segunda", "Pilot", "Available")
+crewList.append(crewTest141)
+
+crewTest142 = CrewMaintenance("leo142", 18, 151, "segunda", "Pilot", "Available")
+crewList.append(crewTest142)
+
+crewTest143 = CrewMaintenance("leo143", 18, 152, "segunda", "Costumer service", "Available")
+crewList.append(crewTest143)
+
+crewTest144 = CrewMaintenance("leo144", 18, 153, "segunda", "Pilot", "Available")
+crewList.append(crewTest144)
+
+crewTest145 = CrewMaintenance("leo145", 18, 154, "segunda", "Pilot", "Available")
+crewList.append(crewTest145)
+
+crewTest146 = CrewMaintenance("leo146", 18, 155, "segunda", "Pilot", "Available")
+crewList.append(crewTest146)
+
+crewTest147 = CrewMaintenance("leo147", 18, 156, "segunda", "Costumer service", "Available")
+crewList.append(crewTest147)
+
+crewTest148 = CrewMaintenance("leo148", 18, 157, "segunda", "Costumer service", "Available")
+crewList.append(crewTest148)
+
+crewTest149 = CrewMaintenance("leo149", 18, 158, "segunda", "Costumer service", "Available")
+crewList.append(crewTest148)
+
+crewTest150 = CrewMaintenance("leo150", 18, 159, "segunda", "Costumer service", "Available")
+crewList.append(crewTest150)
+
+crewTest151 = CrewMaintenance("leo151", 18, 160, "segunda", "Costumer service", "Available")
+crewList.append(crewTest151)
+
+crewTest152 = CrewMaintenance("leo152", 18, 161, "segunda", "Costumer service", "Available")
+crewList.append(crewTest152)
+
+crewTest153 = CrewMaintenance("leo153", 18, 162, "segunda", "Costumer service", "Available")
+crewList.append(crewTest153)
+
+crewTest154 = CrewMaintenance("leo154", 18, 163, "segunda", "Costumer service", "Available")
+crewList.append(crewTest154)
+
+crewTest155 = CrewMaintenance("leo155", 18, 164, "segunda", "Pilot", "Available")
+crewList.append(crewTest155)
+
+crewTest156 = CrewMaintenance("leo156", 18, 165, "segunda", "Costumer service", "Available")
+crewList.append(crewTest156)
+
+crewTest157 = CrewMaintenance("leo157", 18, 166, "segunda", "Costumer service", "Available")
+crewList.append(crewTest157)
+
+crewTest158 = CrewMaintenance("leo158", 18, 167, "segunda", "Costumer service", "Available")
+crewList.append(crewTest158)
+
+crewTest159 = CrewMaintenance("leo159", 18, 168, "segunda", "Pilot", "Available")
+crewList.append(crewTest159)
+
+crewTest160 = CrewMaintenance("leo160", 18, 169, "segunda", "Pilot", "Available")
+crewList.append(crewTest160)
+
+crewTest161 = CrewMaintenance("leo161", 18, 170, "segunda", "Costumer service", "Available")
+crewList.append(crewTest161)
+
+crewTest162 = CrewMaintenance("leo162", 18, 171, "segunda", "Pilot", "Available")
+crewList.append(crewTest162)
+
+crewTest163 = CrewMaintenance("leo163", 18, 172, "segunda", "Pilot", "Available")
+crewList.append(crewTest163)
+
+crewTest164 = CrewMaintenance("leo164", 18, 173, "segunda", "Pilot", "Available")
+crewList.append(crewTest164)
+
+crewTest165 = CrewMaintenance("leo165", 18, 174, "segunda", "Costumer service", "Available")
+crewList.append(crewTest165)
+
+crewTest166 = CrewMaintenance("leo166", 18, 175, "segunda", "Costumer service", "Available")
+crewList.append(crewTest166)
+
+crewTest167 = CrewMaintenance("leo167", 18, 176, "segunda", "Costumer service", "Available")
+crewList.append(crewTest167)
+
+crewTest168 = CrewMaintenance("leo168", 18, 177, "segunda", "Costumer service", "Available")
+crewList.append(crewTest168)
+
+crewTest169 = CrewMaintenance("leo169", 18, 178, "segunda", "Costumer service", "Available")
+crewList.append(crewTest169)
+
+crewTest170 = CrewMaintenance("leo170", 18, 179, "segunda", "Costumer service", "Available")
+crewList.append(crewTest170)
+
+crewTest171 = CrewMaintenance("leo171", 18, 180, "segunda", "Costumer service", "Available")
+crewList.append(crewTest171)
+
+crewTest172 = CrewMaintenance("leo172", 18, 181, "segunda", "Costumer service", "Available")
+crewList.append(crewTest172)
+
+crewTest173 = CrewMaintenance("leo173", 18, 182, "segunda", "Pilot", "Available")
+crewList.append(crewTest173)
+
+crewTest174 = CrewMaintenance("leo174", 18, 183, "segunda", "Costumer service", "Available")
+crewList.append(crewTest174)
+
+crewTest175 = CrewMaintenance("leo175", 18, 184, "segunda", "Costumer service", "Available")
+crewList.append(crewTest175)
+
+crewTest176 = CrewMaintenance("leo176", 18, 185, "segunda", "Costumer service", "Available")
+crewList.append(crewTest176)
+
+crewTest177 = CrewMaintenance("leo177", 18, 186, "segunda", "Pilot", "Available")
+crewList.append(crewTest177)
+
+crewTest178 = CrewMaintenance("leo178", 18, 187, "segunda", "Pilot", "Available")
+crewList.append(crewTest178)
+
+crewTest179 = CrewMaintenance("leo179", 18, 188, "segunda", "Costumer service", "Available")
+crewList.append(crewTest179)
+
+crewTest180 = CrewMaintenance("leo180", 18, 189, "segunda", "Pilot", "Available")
+crewList.append(crewTest180)
+
+crewTest181 = CrewMaintenance("leo181", 18, 190, "segunda", "Pilot", "Available")
+crewList.append(crewTest181)
+
+crewTest182 = CrewMaintenance("leo182", 18, 191, "segunda", "Pilot", "Available")
+crewList.append(crewTest182)
+
+crewTest183 = CrewMaintenance("leo183", 18, 192, "segunda", "Costumer service", "Available")
+crewList.append(crewTest183)
+
+crewTest184 = CrewMaintenance("leo184", 18, 193, "segunda", "Costumer service", "Available")
+crewList.append(crewTest184)
+
+crewTest185 = CrewMaintenance("leo185", 18, 194, "segunda", "Costumer service", "Available")
+crewList.append(crewTest185)
+
+crewTest186 = CrewMaintenance("leo186", 18, 195, "segunda", "Costumer service", "Available")
+crewList.append(crewTest186)
+
+crewTest187 = CrewMaintenance("leo187", 18, 196, "segunda", "Costumer service", "Available")
+crewList.append(crewTest187)
+
+crewTest188 = CrewMaintenance("leo188", 18, 197, "segunda", "Costumer service", "Available")
+crewList.append(crewTest188)
+
+crewTest189 = CrewMaintenance("leo189", 18, 198, "segunda", "Costumer service", "Available")
+crewList.append(crewTest189)
+
+crewTest190 = CrewMaintenance("leo190", 18, 199, "segunda", "Costumer service", "Available")
+crewList.append(crewTest190)
+
+crewTest191 = CrewMaintenance("leo191", 18, 200, "segunda", "Pilot", "Available")
+crewList.append(crewTest191)
+
+crewTest192 = CrewMaintenance("leo192", 18, 201, "segunda", "Costumer service", "Available")
+crewList.append(crewTest192)
+
+crewTest193 = CrewMaintenance("leo193", 18, 202, "segunda", "Costumer service", "Available")
+crewList.append(crewTest193)
+
+crewTest194 = CrewMaintenance("leo194", 18, 203, "segunda", "Costumer service", "Available")
+crewList.append(crewTest194)
+
+crewTest195 = CrewMaintenance("leo195", 18, 204, "segunda", "Pilot", "Available")
+crewList.append(crewTest195)
+
+crewTest196 = CrewMaintenance("leo196", 18, 205, "segunda", "Pilot", "Available")
+crewList.append(crewTest196)
+
+crewTest197 = CrewMaintenance("leo197", 18, 206, "segunda", "Costumer service", "Available")
+crewList.append(crewTest197)
+
+crewTest198 = CrewMaintenance("leo198", 18, 207, "segunda", "Pilot", "Available")
+crewList.append(crewTest198)
+
+crewTest199 = CrewMaintenance("leo199", 18, 208, "segunda", "Pilot", "Available")
+crewList.append(crewTest199)
+
+crewTest200 = CrewMaintenance("leo200", 18, 209, "segunda", "Pilot", "Available")
+crewList.append(crewTest200)
+
+crewTest201 = CrewMaintenance("leo201", 18, 210, "segunda", "Costumer service", "Available")
+crewList.append(crewTest201)
+
+crewTest202 = CrewMaintenance("leo202", 18, 211, "segunda", "Costumer service", "Available")
+crewList.append(crewTest202)
+
+crewTest203 = CrewMaintenance("leo203", 18, 212, "segunda", "Costumer service", "Available")
+crewList.append(crewTest203)
+
+crewTest204 = CrewMaintenance("leo204", 18, 213, "segunda", "Costumer service", "Available")
+crewList.append(crewTest204)
+
+crewTest205 = CrewMaintenance("leo205", 18, 214, "segunda", "Costumer service", "Available")
+crewList.append(crewTest205)
+
+crewTest206 = CrewMaintenance("leo206", 18, 215, "segunda", "Costumer service", "Available")
+crewList.append(crewTest206)
+
+crewTest207 = CrewMaintenance("leo207", 18, 216, "segunda", "Costumer service", "Available")
+crewList.append(crewTest207)
+
+crewTest208 = CrewMaintenance("leo208", 18, 217, "segunda", "Costumer service", "Available")
+crewList.append(crewTest208)
+
+crewTest209 = CrewMaintenance("leo209", 18, 218, "segunda", "Pilot", "Available")
+crewList.append(crewTest209)
+
+crewTest210 = CrewMaintenance("leo210", 18, 219, "segunda", "Costumer service", "Available")
+crewList.append(crewTest210)
+
+crewTest211 = CrewMaintenance("leo211", 18, 220, "segunda", "Costumer service", "Available")
+crewList.append(crewTest211)
+
+crewTest212 = CrewMaintenance("leo212", 18, 221, "segunda", "Costumer service", "Available")
+crewList.append(crewTest212)
+
+crewTest213 = CrewMaintenance("leo213", 18, 222, "segunda", "Pilot", "Available")
+crewList.append(crewTest213)
+
+crewTest214 = CrewMaintenance("leo214", 18, 223, "segunda", "Pilot", "Available")
+crewList.append(crewTest214)
+
+crewTest215 = CrewMaintenance("leo215", 18, 224, "segunda", "Costumer service", "Available")
+crewList.append(crewTest215)
+
+crewTest216 = CrewMaintenance("leo216", 18, 225, "segunda", "Pilot", "Available")
+crewList.append(crewTest216)
+
+crewTest217 = CrewMaintenance("leo217", 18, 226, "segunda", "Pilot", "Available")
+crewList.append(crewTest217)
+
+crewTest218 = CrewMaintenance("leo218", 18, 227, "segunda", "Pilot", "Available")
+crewList.append(crewTest218)
+
+crewTest219 = CrewMaintenance("leo219", 18, 228, "segunda", "Costumer service", "Available")
+crewList.append(crewTest219)
+
+crewTest220 = CrewMaintenance("leo220", 18, 229, "segunda", "Costumer service", "Available")
+crewList.append(crewTest220)
+
+crewTest221 = CrewMaintenance("leo221", 18, 230, "segunda", "Costumer service", "Available")
+crewList.append(crewTest221)
+
+crewTest222 = CrewMaintenance("leo222", 18, 231, "segunda", "Costumer service", "Available")
+crewList.append(crewTest222)
+
+crewTest223 = CrewMaintenance("leo223", 18, 232, "segunda", "Costumer service", "Available")
+crewList.append(crewTest223)
+
+crewTest224 = CrewMaintenance("leo224", 18, 233, "segunda", "Costumer service", "Available")
+crewList.append(crewTest224)
+
+crewTest225 = CrewMaintenance("leo225", 18, 234, "segunda", "Costumer service", "Available")
+crewList.append(crewTest225)
+
+crewTest226 = CrewMaintenance("leo226", 18, 235, "segunda", "Costumer service", "Available")
+crewList.append(crewTest226)
+
+crewTest227 = CrewMaintenance("leo227", 18, 236, "segunda", "Pilot", "Available")
+crewList.append(crewTest227)
+
+crewTest228 = CrewMaintenance("leo228", 18, 237, "segunda", "Costumer service", "Available")
+crewList.append(crewTest228)
+
+crewTest229 = CrewMaintenance("leo229", 18, 238, "segunda", "Costumer service", "Available")
+crewList.append(crewTest229)
+
+crewTest230 = CrewMaintenance("leo230", 18, 239, "segunda", "Costumer service", "Available")
+crewList.append(crewTest230)
+
+crewTest231 = CrewMaintenance("leo231", 18, 240, "segunda", "Pilot", "Available")
+crewList.append(crewTest231)
+
+crewTest232 = CrewMaintenance("leo232", 18, 241, "segunda", "Pilot", "Available")
+crewList.append(crewTest232)
+
+crewTest233 = CrewMaintenance("leo233", 18, 242, "segunda", "Costumer service", "Available")
+crewList.append(crewTest233)
+
+crewTest234 = CrewMaintenance("leo234", 18, 243, "segunda", "Pilot", "Available")
+crewList.append(crewTest234)
+
+crewTest235 = CrewMaintenance("leo235", 18, 244, "segunda", "Pilot", "Available")
+crewList.append(crewTest235)
+
+crewTest236 = CrewMaintenance("leo236", 18, 245, "segunda", "Pilot", "Available")
+crewList.append(crewTest236)
+
+crewTest237 = CrewMaintenance("leo237", 18, 245, "segunda", "Costumer service", "Available")
+crewList.append(crewTest237)
+
+crewTest238 = CrewMaintenance("leo238", 18, 246, "segunda", "Costumer service", "Available")
+crewList.append(crewTest238)
+
+crewTest239 = CrewMaintenance("leo239", 18, 247, "segunda", "Costumer service", "Available")
+crewList.append(crewTest239)
+
+crewTest240 = CrewMaintenance("leo240", 18, 248, "segunda", "Costumer service", "Available")
+crewList.append(crewTest240)
+
+crewTest241 = CrewMaintenance("leo241", 18, 249, "segunda", "Costumer service", "Available")
+crewList.append(crewTest241)
+
+crewTest242 = CrewMaintenance("leo242", 18, 250, "segunda", "Costumer service", "Available")
+crewList.append(crewTest242)
+
+crewTest243 = CrewMaintenance("leo243", 18, 251, "segunda", "Costumer service", "Available")
+crewList.append(crewTest243)
+
+crewTest244 = CrewMaintenance("leo244", 18, 252, "segunda", "Costumer service", "Available")
+crewList.append(crewTest244)
+
+crewTest245 = CrewMaintenance("leo245", 18, 253, "segunda", "Pilot", "Available")
+crewList.append(crewTest245)
+
+crewTest246 = CrewMaintenance("leo246", 18, 254, "segunda", "Costumer service", "Available")
+crewList.append(crewTest246)
+
+crewTest247 = CrewMaintenance("leo247", 18, 255, "segunda", "Costumer service", "Available")
+crewList.append(crewTest247)
+
+crewTest248 = CrewMaintenance("leo248", 18, 256, "segunda", "Costumer service", "Available")
+crewList.append(crewTest248)
+
+crewTest249 = CrewMaintenance("leo249", 18, 257, "segunda", "Pilot", "Available")
+crewList.append(crewTest249)
+
+crewTest250 = CrewMaintenance("leo250", 18, 258, "segunda", "Pilot", "Available")
+crewList.append(crewTest250)
+
+airportTest1 = AirportMaintenance("Tacos Airport", "Cancun", "Mexico")
 airportList.append(airportTest1)
 
-airportTest2 = AirportMaintenance("sss", "ssss", "sssss")
+airportTest2 = AirportMaintenance("Texas Airport", "Texas", "USA")
 airportList.append(airportTest2)
 
-aircraftTest = PlaneMaintenance("first", 2019, "1", "primera", 10, "Available")
+airportTest3 = AirportMaintenance("Juan SantaMaria Airport", "Alajuela", "Costa Rica")
+airportList.append(airportTest3)
+
+airportTest4 = AirportMaintenance("Bogota Airport", "Bogota", "Colombia")
+airportList.append(airportTest4)
+
+airportTest5 = AirportMaintenance("Brasilia Airport", "Brasilia", "Brasil")
+airportList.append(airportTest5)
+
+airportTest6 = AirportMaintenance("Barcelona Airport", "Cataluna", "Espana")
+airportList.append(airportTest6)
+
+airportTest7 = AirportMaintenance("Managua Airport", "Managua", "Nicaragua")
+airportList.append(airportTest7)
+
+airportTest8 = AirportMaintenance("Buenos Aires Airport", "Buenos Aires", "Argentina")
+airportList.append(airportTest8)
+
+airportTest9 = AirportMaintenance("Canada Airport", "Toronto", "Canada")
+airportList.append(airportTest9)
+
+airportTest10 = AirportMaintenance("Honduras Airport", "Tegucigalpa", "Hounduras")
+airportList.append(airportTest10)
+
+airportTest11 = AirportMaintenance("Russia Airport", "Moscow", "Russia")
+airportList.append(airportTest11)
+
+airportTest12 = AirportMaintenance("Chile Airport", "Santiago", "Chile")
+airportList.append(airportTest12)
+
+airportTest13 = AirportMaintenance("Peru Airport", "Cuzco", "Peru")
+airportList.append(airportTest13)
+
+airportTest14 = AirportMaintenance("Italy Airport", "Rome", "Italy")
+airportList.append(airportTest14)
+
+airportTest15 = AirportMaintenance("Panama Airport", "Panama City", "Panama")
+airportList.append(airportTest15)
+
+airportTest16 = AirportMaintenance("Guatemala Airport", "Guatemala City", "Guatemala")
+airportList.append(airportTest16)
+
+airportTest17 = AirportMaintenance("Uruguay Airport", "Montevideo", "Guatemala")
+airportList.append(airportTest17)
+
+airportTest18 = AirportMaintenance("Paraguay Airport", "Asuncion", "Paraguay")
+airportList.append(airportTest18)
+
+airportTest19 = AirportMaintenance("Bolivia Airport", "Sucre", "Bolivia")
+airportList.append(airportTest19)
+
+airportTest20 = AirportMaintenance("Venezuela Airport", "Caracas", "Venezuela")
+airportList.append(airportTest20)
+
+airportTest21 = AirportMaintenance("Ecuador Airport", "Quito", "Ecuador")
+airportList.append(airportTest21)
+
+airportTest22 = AirportMaintenance("Jamaica Airport", "Kingston", "Jamaica")
+airportList.append(airportTest22)
+
+airportTest23 = AirportMaintenance("Cuba Airport", "Habana", "Cuba")
+airportList.append(airportTest23)
+
+airportTest24 = AirportMaintenance("Haiti Airport", "Puerto Principe", "Haiti")
+airportList.append(airportTest24)
+
+aircraftTest = PlaneMaintenance("1", 2019, "1", "primera", 100, "Available")
 aircraftList.append(aircraftTest)
 
-aircraftTest1 = PlaneMaintenance("second", 2019, "2", "primera", 10, "Available")
+aircraftTest1 = PlaneMaintenance("2", 2019, "2", "primera", 100, "Available")
 aircraftList.append(aircraftTest1)
 
-aircraftTest2 = PlaneMaintenance("third", 2019, "3", "primera", 10, "Available")
+aircraftTest2 = PlaneMaintenance("3", 2019, "3", "primera", 100, "Available")
 aircraftList.append(aircraftTest2)
 
+aircraftTest3 = PlaneMaintenance("4", 2019, "4", "primera", 100, "Available")
+aircraftList.append(aircraftTest3)
+
+aircraftTest4 = PlaneMaintenance("5", 2019, "5", "primera", 100, "Available")
+aircraftList.append(aircraftTest4)
+
+aircraftTest5 = PlaneMaintenance("6", 2019, "6", "primera", 100, "Available")
+aircraftList.append(aircraftTest5)
+
+aircraftTest6 = PlaneMaintenance("7", 2019, "7", "primera", 100, "Available")
+aircraftList.append(aircraftTest6)
+
+aircraftTest7 = PlaneMaintenance("8", 2019, "8", "primera", 100, "Available")
+aircraftList.append(aircraftTest7)
+
+aircraftTest8 = PlaneMaintenance("9", 2019, "9", "primera", 100, "Available")
+aircraftList.append(aircraftTest8)
+
+aircraftTest9 = PlaneMaintenance("10", 2019, "10", "primera", 100, "Available")
+aircraftList.append(aircraftTest9)
+
+aircraftTest10 = PlaneMaintenance("11", 2019, "11", "primera", 100, "Available")
+aircraftList.append(aircraftTest10)
+
+aircraftTest11 = PlaneMaintenance("12", 2019, "12", "primera", 100, "Available")
+aircraftList.append(aircraftTest11)
+
+aircraftTest12 = PlaneMaintenance("13", 2019, "13", "primera", 100, "Available")
+aircraftList.append(aircraftTest12)
+
+aircraftTest13 = PlaneMaintenance("14", 2019, "14", "primera", 100, "Available")
+aircraftList.append(aircraftTest13)
+
+aircraftTest14 = PlaneMaintenance("15", 2019, "15", "primera", 100, "Available")
+aircraftList.append(aircraftTest14)
+
+aircraftTest15 = PlaneMaintenance("16", 2019, "16", "primera", 100, "Available")
+aircraftList.append(aircraftTest15)
+
+aircraftTest16 = PlaneMaintenance("17", 2019, "17", "primera", 100, "Available")
+aircraftList.append(aircraftTest16)
+
+aircraftTest17 = PlaneMaintenance("18", 2019, "18", "primera", 100, "Available")
+aircraftList.append(aircraftTest17)
+
+aircraftTest18 = PlaneMaintenance("19", 2019, "19", "primera", 100, "Available")
+aircraftList.append(aircraftTest18)
+
+aircraftTest19 = PlaneMaintenance("20", 2019, "20", "primera", 100, "Available")
+aircraftList.append(aircraftTest19)
+
+aircraftTest20 = PlaneMaintenance("21", 2019, "21", "primera", 100, "Available")
+aircraftList.append(aircraftTest20)
+
+aircraftTest21 = PlaneMaintenance("22", 2019, "22", "primera", 10, "Available")
+aircraftList.append(aircraftTest21)
+
+aircraftTest22 = PlaneMaintenance("23", 2019, "23", "primera", 100, "Available")
+aircraftList.append(aircraftTest22)
+
+aircraftTest23 = PlaneMaintenance("24", 2019, "24", "primera", 100, "Available")
+aircraftList.append(aircraftTest23)
+
+aircraftTest24 = PlaneMaintenance("25", 2019, "25", "primera", 100, "Available")
+aircraftList.append(aircraftTest24)
+
+aircraftTest25 = PlaneMaintenance("26", 2019, "26", "primera", 100, "Available")
+aircraftList.append(aircraftTest25)
+
+aircraftTest26 = PlaneMaintenance("27", 2019, "27", "segunda", 100, "Available")
+aircraftList.append(aircraftTest26)
+
+aircraftTest27 = PlaneMaintenance("28", 2019, "28", "segunda", 100, "Available")
+aircraftList.append(aircraftTest27)
+
+aircraftTest28 = PlaneMaintenance("29", 2019, "29", "segunda", 100, "Available")
+aircraftList.append(aircraftTest28)
+
+aircraftTest29 = PlaneMaintenance("30", 2019, "30", "segunda", 100, "Available")
+aircraftList.append(aircraftTest29)
+
+aircraftTest30 = PlaneMaintenance("31", 2019, "31", "segunda", 100, "Available")
+aircraftList.append(aircraftTest30)
+
+aircraftTest31 = PlaneMaintenance("32", 2019, "32", "segunda", 100, "Available")
+aircraftList.append(aircraftTest31)
+
+aircraftTest32 = PlaneMaintenance("33", 2019, "33", "segunda", 100, "Available")
+aircraftList.append(aircraftTest32)
+
+aircraftTest33 = PlaneMaintenance("34", 2019, "34", "segunda", 100, "Available")
+aircraftList.append(aircraftTest33)
+
+aircraftTest34 = PlaneMaintenance("35", 2019, "35", "segunda", 100, "Available")
+aircraftList.append(aircraftTest34)
+
+aircraftTest35 = PlaneMaintenance("36", 2019, "36", "segunda", 100, "Available")
+aircraftList.append(aircraftTest35)
+
+aircraftTest36 = PlaneMaintenance("37", 2019, "37", "segunda", 100, "Available")
+aircraftList.append(aircraftTest36)
+
+aircraftTest37 = PlaneMaintenance("38", 2019, "38", "segunda", 100, "Available")
+aircraftList.append(aircraftTest37)
+
+aircraftTest38 = PlaneMaintenance("39", 2019, "39", "segunda", 100, "Available")
+aircraftList.append(aircraftTest38)
+
+aircraftTest39 = PlaneMaintenance("40", 2019, "40", "segunda", 100, "Available")
+aircraftList.append(aircraftTest39)
+
+aircraftTest40 = PlaneMaintenance("41", 2019, "41", "segunda", 100, "Available")
+aircraftList.append(aircraftTest40)
+
+aircraftTest41 = PlaneMaintenance("42", 2019, "42", "segunda", 100, "Available")
+aircraftList.append(aircraftTest41)
+
+aircraftTest42 = PlaneMaintenance("43", 2019, "43", "segunda", 100, "Available")
+aircraftList.append(aircraftTest42)
+
+aircraftTest43 = PlaneMaintenance("44", 2019, "44", "segunda", 100, "Available")
+aircraftList.append(aircraftTest43)
+
+aircraftTest44 = PlaneMaintenance("45", 2019, "45", "segunda", 100, "Available")
+aircraftList.append(aircraftTest44)
+
+aircraftTest45 = PlaneMaintenance("46", 2019, "46", "segunda", 100, "Available")
+aircraftList.append(aircraftTest45)
+
+aircraftTest46 = PlaneMaintenance("47", 2019, "47", "segunda", 100, "Available")
+aircraftList.append(aircraftTest46)
+
+aircraftTest47 = PlaneMaintenance("48", 2019, "48", "segunda", 100, "Available")
+aircraftList.append(aircraftTest47)
+
+aircraftTest48 = PlaneMaintenance("49", 2019, "49", "segunda", 100, "Available")
+aircraftList.append(aircraftTest48)
+
+aircraftTest49 = PlaneMaintenance("50", 2019, "50", "segunda", 100, "Available")
+aircraftList.append(aircraftTest49)
 
 '------------------------------------------#Rules or Variables---------------------------------------'
 """strDate = '2/4/18'
@@ -134,12 +1330,14 @@ datetime.strftime(objDate,'%Y')"""
 
 '------------------------------------------#Fuctions---------------------------------------'
 
-#Procedure to add Users in the User object
+
+# Procedure to add Users in the User object
 def addUser(name, age, email, id, password, role):
     newUser = User(name, age, email, id, password, role)
     usersList.append(newUser)
 
-#Procedure to show the info of user
+
+# Procedure to show the info of user
 def showInfoUser():
     if usersList != []:
         for user in usersList:
@@ -149,7 +1347,8 @@ def showInfoUser():
     else:
         print("\nNo users found\n")
 
-#Procedure to verify the id is not repeated
+
+# Procedure to verify the id is not repeated
 def verifyID(id):
     for user in usersList:
         if id == user.id:
@@ -157,7 +1356,8 @@ def verifyID(id):
     else:
         return False
 
-#Procedure to verify the Email is not repeated
+
+# Procedure to verify the Email is not repeated
 def verifyEmail(email):
     for user in usersList:
         if email == user.email:
@@ -165,7 +1365,8 @@ def verifyEmail(email):
     else:
         return False
 
-#Procedure to validate the login
+
+# Procedure to validate the login
 def logIn(id, password):
     listausers = usersList
     while usersList != []:
@@ -180,12 +1381,14 @@ def logIn(id, password):
             return "\n User not found, Please Sign up\n"
     return "\n User not found, Please Sign up\n"
 
-#Procedure to add a track in the Track object
+
+# Procedure to add a track in the Track object
 def addTrack(number, status):
     newTrack = MaintenenceTracks(number, status)
     trackList.append(newTrack)
 
-#Procedure to verify the track is not repeated
+
+# Procedure to verify the track is not repeated
 def verifyTrack(number):
     for track in trackList:
         if number == track.number:
@@ -193,7 +1396,8 @@ def verifyTrack(number):
     else:
         return False
 
-#Procedure to show the tracks
+
+# Procedure to show the tracks
 def showTracks():
     if trackList != []:
         for track in trackList:
@@ -201,7 +1405,8 @@ def showTracks():
     else:
         print("\nNo tracks found\n")
 
-#Procedure to modify the track
+
+# Procedure to modify the track
 def modifyTrack(number, status):
     for track in trackList:
         if track.number == number:
@@ -210,7 +1415,8 @@ def modifyTrack(number, status):
     else:
         return "\nTrack not found\n"
 
-#Procedure to delete a Track
+
+# Procedure to delete a Track
 def deleteTrack(number):
     for track in trackList:
         if number == track.number:
@@ -219,12 +1425,14 @@ def deleteTrack(number):
     else:
         return "\nTrack no found\n"
 
-#Procedure to add a gate in the Gate object
-def addGate(number,status):
+
+# Procedure to add a gate in the Gate object
+def addGate(number, status):
     newGate = MaintenanceGates(number, status)
     gateList.append(newGate)
 
-#Procedure to verify the gate is not repeated
+
+# Procedure to verify the gate is not repeated
 def verifyGate(number):
     for gate in gateList:
         if number == gate.number:
@@ -232,7 +1440,8 @@ def verifyGate(number):
     else:
         return False
 
-#Procedure to verify the gate of the flight exist
+
+# Procedure to verify the gate of the flight exist
 def verifyGateFlight(number):
     for gate in gateListFlight:
         if number == gate.number:
@@ -240,13 +1449,15 @@ def verifyGateFlight(number):
     else:
         return False
 
-#Procedure to push in listGateFlight
+
+# Procedure to push in listGateFlight
 def pushListGateFlight(number):
     for gate in gateList:
         if number == gate.number:
             gateListFlight.append(gate)
 
-#Procedure to verify the plaen of the flight exist
+
+# Procedure to verify the plaen of the flight exist
 def verifyPlaneFlight(model):
     for aircraft in aircraftListFlight:
         if model == aircraft.model:
@@ -254,13 +1465,15 @@ def verifyPlaneFlight(model):
     else:
         return False
 
-#Procedure to push in listPlaneFlight
+
+# Procedure to push in listPlaneFlight
 def pushListPlaneFlight(model):
     for aircraft in aircraftList:
         if model == aircraft.model:
             aircraftListFlight.append(aircraft)
 
-#Procedure to show the Gate info
+
+# Procedure to show the Gate info
 def showGates():
     if gateList != []:
         for gate in gateList:
@@ -268,8 +1481,9 @@ def showGates():
     else:
         print("\nNo gates found\n")
 
-#Procedure to modify a gate
-def modifyGate(number,status):
+
+# Procedure to modify a gate
+def modifyGate(number, status):
     for gate in gateList:
         if number == gate.number:
             gate.status = status
@@ -277,7 +1491,8 @@ def modifyGate(number,status):
     else:
         return "\nGate not found\n"
 
-#Procedure to delete a gate
+
+# Procedure to delete a gate
 def deleteGate(number):
     for gate in gateList:
         if number == gate.number:
@@ -286,12 +1501,14 @@ def deleteGate(number):
     else:
         return "\nGate not found\n"
 
-#Procedure to add a airline
+
+# Procedure to add a airline
 def addAirline(name, foundationYear, type, operationCountries):
     newAirline = AirlineMaintenance(name, foundationYear, type, operationCountries)
     airlineList.append(newAirline)
 
-#Procedure to verify a airline name is unique
+
+# Procedure to verify a airline name is unique
 def verifyAirline(name):
     for airline in airlineList:
         if name == airline.name:
@@ -299,7 +1516,8 @@ def verifyAirline(name):
     else:
         return False
 
-#Procedure to show airline info
+
+# Procedure to show airline info
 def showAirlines():
     if airlineList != []:
         for airline in airlineList:
@@ -308,7 +1526,8 @@ def showAirlines():
     else:
         print("\nNo airlines found\n")
 
-#Procedure to modify a airline
+
+# Procedure to modify a airline
 def modifyAirline(name, foundationYear, type, operationCountries):
     for airline in airlineList:
         if name == airline.name:
@@ -319,7 +1538,8 @@ def modifyAirline(name, foundationYear, type, operationCountries):
     else:
         return "\nAirline not found\n"
 
-#Procedure to delete a airline
+
+# Procedure to delete a airline
 def deleteAirline(name):
     for airline in airlineList:
         if name == airline.name:
@@ -328,12 +1548,14 @@ def deleteAirline(name):
     else:
         return "\nAirline not found\n"
 
-#Procedure to add a crew
-def addCrewmember (name, age, id, airline, type,status):
+
+# Procedure to add a crew
+def addCrewmember(name, age, id, airline, type, status):
     newCrewmbember = CrewMaintenance(name, age, id, airline, type, status)
     crewList.append(newCrewmbember)
 
-#Procedure to verify the crew
+
+# Procedure to verify the crew
 def verifyCrewmember(id):
     for member in crewList:
         if id == member.id:
@@ -341,7 +1563,8 @@ def verifyCrewmember(id):
     else:
         return False
 
-#Procedure to show the crew info
+
+# Procedure to show the crew info
 def showCrew():
     if crewList != []:
         for crew in crewList:
@@ -350,7 +1573,8 @@ def showCrew():
     else:
         print("\nCrew not found\n")
 
-#Procedure to delete a crew
+
+# Procedure to delete a crew
 def deleteCrew(id):
     for crew in crewList:
         if id == crew.id:
@@ -359,8 +1583,9 @@ def deleteCrew(id):
     else:
         return "\nCrewmember not found\n"
 
-#Procedure to modify
-def modifyCrew(id,name,age,airline,type,status):
+
+# Procedure to modify
+def modifyCrew(id, name, age, airline, type, status):
     for crew in crewList:
         if id == crew.id:
             crew.age = age
@@ -373,12 +1598,14 @@ def modifyCrew(id,name,age,airline,type,status):
     else:
         return "\nCrewmember not found\n"
 
-#Procedure to add
-def addAircraft(model,creationyear,id,airline,capacity,status):
+
+# Procedure to add
+def addAircraft(model, creationyear, id, airline, capacity, status):
     newAircraft = PlaneMaintenance(model, creationyear, id, airline, capacity, status)
     aircraftList.append(newAircraft)
 
-#Procedure to verify
+
+# Procedure to verify
 def verifyAircraft(id):
     for aircraf in aircraftList:
         if id == aircraf.id:
@@ -386,7 +1613,8 @@ def verifyAircraft(id):
     else:
         return False
 
-#Procedure to show info
+
+# Procedure to show info
 def showAircraft():
     if aircraftList != []:
         for aircraft in aircraftList:
@@ -396,7 +1624,8 @@ def showAircraft():
     else:
         print("\nAircraft not found\n")
 
-#Procedure to delete
+
+# Procedure to delete
 def deleteAircraft(id):
     for aircraft in aircraftList:
         if id == aircraft.id:
@@ -406,7 +1635,7 @@ def deleteAircraft(id):
         return "\nAircraft not found\n"
 
 
-def modifyAircraft(id,model,creationyear,airline,capacity,status):
+def modifyAircraft(id, model, creationyear, airline, capacity, status):
     for aircraft in aircraftList:
         if id == aircraft.id:
             aircraft.model = model
@@ -490,10 +1719,10 @@ def dailyFlight(departureDate):
     day = timedelta(days=1)
     oneDayLater = departureDate2 + day
     pilot1 = pilotsList[i].name
-    pilot2 = pilotsList[i+1].name
+    pilot2 = pilotsList[i + 1].name
     costumersServer1 = costumersServerList[i].name
-    costumersServer2 = costumersServerList[i+1].name
-    costumersServer3 = costumersServerList[i+2].name
+    costumersServer2 = costumersServerList[i + 1].name
+    costumersServer3 = costumersServerList[i + 2].name
     while departureDate2 < oneDayLater:
         for crew in crewList:
             if crew.name == pilot1:
@@ -520,6 +1749,7 @@ def dailyFlight(departureDate):
                 crew.status = "Available"
             elif crew.name == costumersServer3:
                 crew.status = "Available"
+
 
 def aircraftUse(departureTime, timeFlight, plane):
     hour = '1'
@@ -560,7 +1790,6 @@ def automaticCrewPilots(airline):
         return False
 
 
-
 def automaticCrewCostumerService(airline):
     costumersServerList.clear()
     for crew in crewList:
@@ -573,13 +1802,13 @@ def automaticCrewCostumerService(airline):
 def getPilots():
     i = 0
     if pilotsList != []:
-            x = "Names: {0} {1}".format(pilotsList[i].name, pilotsList[i+1].name)
-            for a in crewList:
-                if a.name == pilotsList[i].name:
-                    a.status = "In service"
-                elif a.name == pilotsList[i+1].name:
-                    a.status = "In service"
-            return x
+        x = "Names: {0} {1}".format(pilotsList[i].name, pilotsList[i + 1].name)
+        for a in crewList:
+            if a.name == pilotsList[i].name:
+                a.status = "In service"
+            elif a.name == pilotsList[i + 1].name:
+                a.status = "In service"
+        return x
     else:
         return False
 
@@ -587,23 +1816,23 @@ def getPilots():
 def getCostumersServer():
     i = 0
     if costumersServerList != []:
-            for a in crewList:
-                if a.name == costumersServerList[i].name:
-                    a.status = "In service"
-                elif a.name == costumersServerList[i+1].name:
-                    a.status = "In service"
-                elif a.name == costumersServerList[i+2].name:
-                    a.status = "In service"
-            return costumersServerList[i].name + ", " + costumersServerList[i+1].name\
-                   + " and " + costumersServerList[i+2].name
+        for a in crewList:
+            if a.name == costumersServerList[i].name:
+                a.status = "In service"
+            elif a.name == costumersServerList[i + 1].name:
+                a.status = "In service"
+            elif a.name == costumersServerList[i + 2].name:
+                a.status = "In service"
+        return costumersServerList[i].name + ", " + costumersServerList[i + 1].name \
+               + " and " + costumersServerList[i + 2].name
     else:
         return False
 
 
 def addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport, plane, gate, track,
-              crewPilot, crewCustomerService, price):
+              crewPilot, crewCustomerService, price, layoverAirport, type):
     newFlight = FlightMaintenance(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
-                                  plane, gate, track, crewPilot, crewCustomerService, price)
+                                  plane, gate, track, crewPilot, crewCustomerService, price, layoverAirport, type)
     flightList.append(newFlight)
 
 
@@ -634,12 +1863,15 @@ def showFlights():
                   "\nGate:", flight.gate,
                   "\nTrack:", flight.track,
                   "\nCrewPilots:", flight.crewPilot,
-                  "\nCrewCustomerService:", flight.crewCustomerService)
+                  "\nCrewCustomerService:", flight.crewCustomerService,
+                  "\nPrice of the flight:", flight.price,
+                  "\nLayover Airport:", flight.layover,
+                  "\nType of Flight:", flight.type)
     else:
         print("\nFlights not found\n")
 
 
-def deleteFlight (departureDate, departureTime, gate, plane):
+def deleteFlight(departureDate, departureTime, gate, plane):
     i = 0
     for flight in flightList:
         if flight.departureDate == departureDate and flight.departureTime == departureTime:
@@ -671,7 +1903,8 @@ def deleteFlight (departureDate, departureTime, gate, plane):
         return "\nFlight not found\n"
 
 
-def modifyFlight(departureDate,departureTime,departureDate2,departureTime2,timeFlight,departureAirport,arrivalAirport):
+def modifyFlight(departureDate, departureTime, departureDate2, departureTime2, timeFlight, departureAirport,
+                 arrivalAirport):
     for flight in flightList:
         if flight.departureDate == departureDate and flight.departureTime == departureTime:
             flight.departureDate = departureDate2
@@ -682,6 +1915,7 @@ def modifyFlight(departureDate,departureTime,departureDate2,departureTime2,timeF
             return "\nSuccesful modification\n"
     else:
         return "\nFlight not found\n"
+
 
 def firstReport(date1, date2):
     datetime.strptime(date1, '%d/%m/%Y')
@@ -702,27 +1936,35 @@ def firstReport(date1, date2):
                           "\nGate:", flight.gate,
                           "\nTrack:", flight.track,
                           "\nCrewPilots:", flight.crewPilot,
-                          "\nCrewCustomerService:", flight.crewCustomerService)
+                          "\nCrewCustomerService:", flight.crewCustomerService,
+                          "\nPrice of the flight:", flight.price,
+                          "\nLayover Airport:", flight.layover,
+                          "\nType of Flight:", flight.type)
     else:
         print("No flights were found between those dates")
 
-def secondReport(gate):#This function looks for the number of flights that have a specific door
+
+def secondReport(gate):  # This function looks for the number of flights that have a specific door
     for flight in flightList:
         if flight.gate == gate:
             print("\nInfo Flight\n"
-                 "\nAirline:", flight.airline,
-                 "\nDeparture Date:", flight.departureDate,
-                 "\nDeparture Time:", flight.departureTime,
-                 "\nTime of flight:", flight.timeFlight,
-                 "\nDeparture Airport:", flight.departureAirport,
-                 "\nArrival Airport:", flight.arrivalAirport,
-                 "\nAircraft:", flight.plane,
-                 "\nGate:", flight.gate,
-                 "\nTrack:", flight.track,
-                 "\nCrewPilots:", flight.crewPilot,
-                 "\nCrewCustomerService:", flight.crewCustomerService)
+                  "\nAirline:", flight.airline,
+                  "\nDeparture Date:", flight.departureDate,
+                  "\nDeparture Time:", flight.departureTime,
+                  "\nTime of flight:", flight.timeFlight,
+                  "\nDeparture Airport:", flight.departureAirport,
+                  "\nArrival Airport:", flight.arrivalAirport,
+                  "\nAircraft:", flight.plane,
+                  "\nGate:", flight.gate,
+                  "\nTrack:", flight.track,
+                  "\nCrewPilots:", flight.crewPilot,
+                  "\nCrewCustomerService:", flight.crewCustomerService,
+                  "\nPrice of the flight:", flight.price,
+                  "\nLayover Airport:", flight.layover,
+                  "\nType of Flight:", flight.type)
     else:
-       print("\nNot boarding gates found\n")
+        print("\nNot boarding gates found\n")
+
 
 def thirdReport():
     i = 0
@@ -733,6 +1975,7 @@ def thirdReport():
                 cont += 1
         print("Name:", airportList[i].name, "Cuantity: ", cont)
         i += 1
+
 
 def fourthReport():
     cont = 0
@@ -750,6 +1993,7 @@ def fourthReport():
         if crew.type == "Costumer service":
             print(crew.name, cont)
 
+
 def verifyDates(firstDate, secondDate):
     firstDate = datetime.strptime(firstDate, '%d/%m/%Y')
     secondDate = datetime.strptime(secondDate, '%d/%m/%Y')
@@ -757,6 +2001,8 @@ def verifyDates(firstDate, secondDate):
         return True
     else:
         return False
+
+
 '------------------------------------------#Menus---------------------------------------'
 
 
@@ -844,6 +2090,19 @@ def crewStatusMenu():
         print("Invalid option")
         return crewStatusMenu()
 
+def flightType():
+    print("Select a flight type.\n"
+          "1)Only Departure.\n"
+          "2)Round Trip .\n")
+    option = input("Enter the option of type:")
+    if option == "1":
+        return "Only Departure"
+
+    elif option == "2":
+        return "Round Trip"
+    else:
+        print("Invalid option")
+        return flightType()
 
 def crewAirlineMenu():
     i = 0
@@ -853,6 +2112,7 @@ def crewAirlineMenu():
         x += 1
         i += 1
 
+
 def airportMenu():
     i = 0
     x = 1
@@ -860,6 +2120,7 @@ def airportMenu():
         print(x, ")", airportList[i].name)
         x += 1
         i += 1
+
 
 def aircraftAirlineMenu():
     i = 0
@@ -885,6 +2146,20 @@ def aircraftStatusMenu():
         print("Invalid option")
         return aircraftStatusMenu()
 
+def decisionMenu():
+    print("Select if the flight has layover.\n"
+          "1)Yes.\n"
+          "2)No.\n")
+    option = input("Enter the option:")
+    if option == "1":
+        return "Yes"
+
+    elif option == "2":
+        return "No"
+
+    else:
+        print("Invalid option")
+        return decisionMenu()
 
 def maintenanceTracks(role):
     if role == 1:
@@ -973,10 +2248,10 @@ def maintenanceGates(role):
             while i <= x:
                 number = input("Enter number of the gate:")
                 if verifyGate(number) == True:
-                    while verifyGate(number)== True:
+                    while verifyGate(number) == True:
                         print("This gate already exist, try again")
                         number = input("Enter number of the gate")
-                        if verifyGate(number)== False:
+                        if verifyGate(number) == False:
                             break
                 status = gateStatusMenu()
                 addGate(number, status)
@@ -1276,7 +2551,7 @@ def planeMaintenance(role):
                 except ValueError:
                     print("Oops!  That was no valid number.  Try again...")
             status = aircraftStatusMenu()
-            print(modifyAircraft(id, model, creationYear, airline, capacity,status))
+            print(modifyAircraft(id, model, creationYear, airline, capacity, status))
 
         elif option == "4":
             showAircraft()
@@ -1387,7 +2662,7 @@ def airportMaintenance(role):
 
 def flightMaintenance(role):
     if role == 1:
-        if trackList != [] and gateList != [] and airlineList != [] and crewList != [] and airportList != []\
+        if trackList != [] and gateList != [] and airlineList != [] and crewList != [] and airportList != [] \
                 and aircraftList != []:
             role = 1
             print("Maintenance of Flight.\n",
@@ -1430,7 +2705,8 @@ def flightMaintenance(role):
                         print("\n You have not entered a correct time, try again")
                 while True:
                     try:
-                        timeFlight = input('\n Enter the time of flight ==> Example: "2:30" ==> Its two and a half hours')
+                        timeFlight = input(
+                            '\n Enter the time of flight ==> Example: "2:30" ==> Its two and a half hours')
                         datetime.strptime(timeFlight, '%H:%M')
                         break
                     except:
@@ -1440,7 +2716,8 @@ def flightMaintenance(role):
                 if verifyAirport(departureAirport) == False:
                     while verifyAirport(departureAirport) == False:
                         print("Airport doesn't exist, try again")
-                        departureAirport = input("Enter the name of the airport which it belongs for the departure airport:")
+                        departureAirport = input(
+                            "Enter the name of the airport which it belongs for the departure airport:")
                         if verifyAirport(departureAirport) == True:
                             break
                 airportMenu()
@@ -1448,7 +2725,8 @@ def flightMaintenance(role):
                 if verifyAirport(arrivalAirport) == False:
                     while verifyAirport(arrivalAirport) == False:
                         print("Airport doesn't exist, try again")
-                        arrivalAirport = input("Enter the name of the airport which it belongs for the arrival airport:")
+                        arrivalAirport = input(
+                            "Enter the name of the airport which it belongs for the arrival airport:")
                         if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
                             break
                 if automaticPlane() != False:
@@ -1466,19 +2744,50 @@ def flightMaintenance(role):
                 else:
                     print("No tracks available, try later")
                     flightMaintenance(role)
+
+                decision = decisionMenu()
+                if decision == "Yes":
+                    airportMenu()
+                    layoverAirport = input("Enter the name of the airport of the layover:")
+                    if verifyAirport(layoverAirport) == False:
+                        while verifyAirport(layoverAirport) == False:
+                            print("Airport doesn't exist, try again")
+                            layoverAirport = input(
+                                "Enter the name of the airport of the layover:")
+                            if verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
+                                    layoverAirport != departureAirport:
+                                break
+                            else:
+                                print("This Airport it's in use")
+                                while verifyAirport(layoverAirport) == False:
+                                    print("Airport doesn't exist, try again")
+                                    layoverAirport = input(
+                                        "Enter the name of the airport of the layover:")
+                                    if verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
+                                            layoverAirport != departureAirport:
+                                        break
+
+                    elif verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
+                                    layoverAirport != departureAirport:
+                        print("Hola")
+
+                else:
+                    layoverAirport = ""
+
                 pushListGateFlight(gate)
                 pushListPlaneFlight(plane)
                 automaticCrewPilots(airline)
                 automaticCrewCostumerService(airline)
-                price = int(input("Enter the price of the flight below"))
-                if airline != None and departureDate != None and departureTime != None and timeFlight != None and\
-                        departureAirport != None and arrivalAirport != None and plane != None and gate != None and\
-                        track != None and price != None:
+                price = int(input("Enter the price of the flight below:"))
+                type = flightType()
+                if airline != None and departureDate != None and departureTime != None and timeFlight != None and \
+                        departureAirport != None and arrivalAirport != None and plane != None and gate != None and \
+                        track != None and price != None and layoverAirport!= None:
                     x = getPilots()
                     y = getCostumersServer()
                     if x != False and y != False:
                         addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
-                                  plane, gate, track, x, y, price)
+                                  plane, gate, track, x, y, price, layoverAirport, type)
                         modifyStatusGate(gate, departureTime)
                         dailyFlight(departureDate)
                         if aircraftUse(departureTime, timeFlight, plane) == True:
@@ -1537,7 +2846,8 @@ def flightMaintenance(role):
                     except:
                         print("\n You have not entered a correct date")
                 airportMenu()
-                departureairport = input("Enter the name of the new airport which it belongs for the departure airport:")
+                departureairport = input(
+                    "Enter the name of the new airport which it belongs for the departure airport:")
                 if verifyAirport(departureairport) == False:
                     while verifyAirport(departureairport) == False:
                         print("Airport doesn't exist, try again")
@@ -1546,14 +2856,17 @@ def flightMaintenance(role):
                         if verifyAirport(departureairport) == True:
                             break
                 airportMenu()
-                arrivalairport = input("Enter the correct name of the new airport which it belongs for the arrival airport:")
+                arrivalairport = input(
+                    "Enter the correct name of the new airport which it belongs for the arrival airport:")
                 if verifyAirport(arrivalairport) == False:
                     while verifyAirport(arrivalairport) == False:
                         print("Airport doesn't exist, try again")
-                        arrivalairport = input("Enter the correct name of the airport which it belongs for the arrival airport:")
+                        arrivalairport = input(
+                            "Enter the correct name of the airport which it belongs for the arrival airport:")
                         if verifyAirport(arrivalairport) == True and arrivalairport != departureairport:
                             break
-                print(modifyFlight(departuredate, departuretime,departuredate2, departuretime2, timeflight, departureairport, arrivalairport))
+                print(modifyFlight(departuredate, departuretime, departuredate2, departuretime2, timeflight,
+                                   departureairport, arrivalairport))
 
             elif option == "4":
                 showFlights()
@@ -1623,6 +2936,7 @@ def flightMaintenance(role):
             print("Invalid option")
         flightMaintenance(role)
 
+
 def reports(role):
     if role == 1:
         if trackList != [] and gateList != [] and airlineList != [] and crewList != [] and airportList != [] \
@@ -1654,7 +2968,7 @@ def reports(role):
                     except:
                         print("\n You have not entered a correct date, try again")
                 if verifyDates(firstDate, secondDate) == False:
-                    while verifyDates(firstDate, secondDate)== False:
+                    while verifyDates(firstDate, secondDate) == False:
                         print("Incorrect dates, try again")
                         while True:
                             try:
@@ -1669,7 +2983,7 @@ def reports(role):
                             try:
                                 secondDate = input(
                                     '\n Enter the second date,remember that the second date must be greater '
-                                    'than the first' )
+                                    'than the first')
                                 datetime.strptime(secondDate, '%d/%m/%Y')
                                 break
                             except:
@@ -1836,8 +3150,12 @@ def reports(role):
             print("Invalid option")
         reports(role)
 
+
 def flights(role):
-    return
+    if role == 3:
+        for flight in flightList:
+            print(flight)
+
 
 def passengerMenu(role):
     if role == 3:
@@ -1854,6 +3172,8 @@ def passengerMenu(role):
         else:
             print("Invalid option")
         passengerMenu(role)
+
+
 def mainMenu(role):
     if role == 1:
         role = 1
@@ -1900,10 +3220,10 @@ def mainMenu(role):
         mainMenu(role)
     elif role == 2:
         print("\nYou are in guest mode, Only read\n"
-                "\nAero-TEC\n",
-                "1)Flights.\n",
-                "2)Reports.\n",
-                "3)Log out\n")
+              "\nAero-TEC\n",
+              "1)Flights.\n",
+              "2)Reports.\n",
+              "3)Log out\n")
         option = input("Enter the action you want to do:")
 
         if option == "1":
@@ -1913,7 +3233,7 @@ def mainMenu(role):
             reports(role)
 
         elif option == "3":
-             loginMenu()
+            loginMenu()
 
         else:
             print("Invalid option")
@@ -1934,7 +3254,7 @@ def mainMenu(role):
         option = input("Enter the action you want to do:")
 
         if option == "1":
-            maintenanceTracks(role)
+            flights(role)
 
         elif option == "2":
             maintenanceGates(role)
@@ -1964,12 +3284,11 @@ def mainMenu(role):
         mainMenu(role)
 
 
-
 def loginMenu():
     print("Aero-TEC\n",
           "1)Log in.\n",
           "2)Sign up.\n",
-          "3)Show Info.\n" )
+          "3)Exit.\n")
     option = input("Enter the action you want to do:")
 
     if option == "1":
@@ -2023,7 +3342,8 @@ def loginMenu():
         addUser(name, age, email, id, password, role)
 
     elif option == "3":
-        return
+        save(flightList)
+        sys.exit()
     else:
         print("Invalid option")
     loginMenu()
@@ -2035,4 +3355,3 @@ def start():
     loginMenu()
 
 start()
-

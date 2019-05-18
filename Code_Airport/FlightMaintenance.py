@@ -1,6 +1,6 @@
 class FlightMaintenance:
     def __init__(self, airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
-                 plane, gate, track, crewPilot, crewCustomerService, price):
+                 plane, gate, track, crewPilot, crewCustomerService, price, layover, type):
         self.airline = airline
         self.departureDate = departureDate
         self.departureTime = departureTime
@@ -13,3 +13,5 @@ class FlightMaintenance:
         self.crewPilot = crewPilot
         self.crewCustomerService = crewCustomerService
         self.price = price
+        self.layover = layover
+        self.type = type
