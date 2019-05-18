@@ -33,7 +33,7 @@ listgates = []
 
 
 
-"""#Data to inject
+#Data to inject
 userTest = User("lester", 18, "lestertb", "123", "111", 1)
 usersList.append(userTest)
 
@@ -120,7 +120,7 @@ aircraftTest1 = PlaneMaintenance("second", 2019, "2", "primera", 10, "Available"
 aircraftList.append(aircraftTest1)
 
 aircraftTest2 = PlaneMaintenance("third", 2019, "3", "primera", 10, "Available")
-aircraftList.append(aircraftTest2)"""
+aircraftList.append(aircraftTest2)
 
 
 '------------------------------------------#Rules or Variables---------------------------------------'
@@ -552,16 +552,22 @@ def automaticTrack():
 
 
 def automaticCrewPilots(airline):
+    pilotsList.clear()
     for crew in crewList:
         if crew.airline == airline and crew.status == "Available" and crew.type == "Pilot":
             pilotsList.append(crew)
+    else:
+        return False
 
 
 
 def automaticCrewCostumerService(airline):
+    costumersServerList.clear()
     for crew in crewList:
         if crew.airline == airline and crew.status == "Available" and crew.type == "Costumer service":
             costumersServerList.append(crew)
+    else:
+        return False
 
 
 def getPilots():
@@ -1485,10 +1491,10 @@ def flightMaintenance(role):
                 else:
                     print("\nMissing data can not create the flight")
                     flightMaintenance(role)
-                pilotsList = []
-                costumersServerList = []
-                gateListFlight = []
-                aircraftListFlight = []
+                pilotsList.clear()
+                costumersServerList.clear()
+                gateListFlight.clear()
+                aircraftListFlight.clear()
             elif option == "2":
                 showFlights()
 
@@ -2017,7 +2023,7 @@ def loginMenu():
         addUser(name, age, email, id, password, role)
 
     elif option == "3":
-        showInfoUser()
+        return
     else:
         print("Invalid option")
     loginMenu()
