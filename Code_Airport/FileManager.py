@@ -5,7 +5,7 @@ def save(flightList):
         text += flight.airline + "$" + str(flight.departureDate) + "$" + str(flight.departureTime) + "$" + \
                 str(flight.timeFlight) + "$" + flight.departureAirport + "$" + flight.arrivalAirport + "$" +\
                 flight.plane + "$" + flight.gate + "$" + flight.track + "$" + flight.crewPilot + "$" + \
-                flight.crewCostumerService + "$" + flight.price + "$" + "$\n"
+                flight.crewCostumerService + "$" + str(flight.price) + "$" + "$\n"
 
     try:
         file = open("Flights.txt", "w")
