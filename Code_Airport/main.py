@@ -2727,6 +2727,17 @@ def flightMaintenance(role):
                         print("Airport doesn't exist, try again")
                         arrivalAirport = input(
                             "Enter the name of the airport which it belongs for the arrival airport:")
+                        while arrivalAirport == departureAirport:
+                            print("Arrival and Departure are the same, try again")
+                            arrivalAirport = input(
+                                "Enter the name of the airport which it belongs for the arrival airport:")
+                            if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                                break
+                else:
+                    while arrivalAirport == departureAirport or verifyAirport(arrivalAirport) == False :
+                        print("Arrival and Departure are the same, try again")
+                        arrivalAirport = input(
+                            "Enter the name of the airport which it belongs for the arrival airport:")
                         if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
                             break
                 if automaticPlane() != False:
@@ -2744,7 +2755,6 @@ def flightMaintenance(role):
                 else:
                     print("No tracks available, try later")
                     flightMaintenance(role)
-
                 decision = decisionMenu()
                 if decision == "Yes":
                     airportMenu()
@@ -2754,23 +2764,21 @@ def flightMaintenance(role):
                             print("Airport doesn't exist, try again")
                             layoverAirport = input(
                                 "Enter the name of the airport of the layover:")
+                            while layoverAirport == arrivalAirport or layoverAirport == departureAirport:
+                                print("Layover Airport coincide with Departure or Arrive")
+                                layoverAirport = input(
+                                    "Enter the name of the airport of the layover:")
+                                if verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
+                                        layoverAirport != departureAirport:
+                                    break
+                    else:
+                        while layoverAirport == arrivalAirport or layoverAirport == departureAirport or verifyAirport(layoverAirport) == False:
+                            print("Layover Airport coincide with Departure or Arrive")
+                            layoverAirport = input(
+                                "Enter the name of the airport of the layover:")
                             if verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
                                     layoverAirport != departureAirport:
                                 break
-                            else:
-                                print("This Airport it's in use")
-                                while verifyAirport(layoverAirport) == False:
-                                    print("Airport doesn't exist, try again")
-                                    layoverAirport = input(
-                                        "Enter the name of the airport of the layover:")
-                                    if verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
-                                            layoverAirport != departureAirport:
-                                        break
-
-                    elif verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
-                                    layoverAirport != departureAirport:
-                        print("Hola")
-
                 else:
                     layoverAirport = ""
 
