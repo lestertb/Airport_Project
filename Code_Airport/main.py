@@ -9,6 +9,7 @@ from crewMaintenance import *
 from PlaneMaintenance import *
 from AirportMaintenance import *
 from FileManager import *
+from Travel import *
 from collections import Counter
 import random
 import sys
@@ -2081,6 +2082,29 @@ def verifyDates(firstDate, secondDate):
         return False
 
 
+def showSearchFlights(typeFlights, departureAirport, arrivalAirport):
+    contFlights = 1
+    if typeFlights == 1:
+        for flight in flightList:
+            contFlights = contFlights + 1
+            if flight.departureAirport == departureAirport and flight.arrivalAirport == arrivalAirport:
+                print("\nInfo Flight\n" + "#:" + contFlights,
+                      "\nAirline:", flight.airline,
+                      "\nDeparture Date:", flight.departureDate,
+                      "\nDeparture Time:", flight.departureTime,
+                      "\nTime of flight:", flight.timeFlight,
+                      "\nDeparture Airport:", flight.departureAirport,
+                      "\nArrival Airport:", flight.arrivalAirport,
+                      "\nAircraft:", flight.plane,
+                      "\nGate:", flight.gate,
+                      "\nTrack:", flight.track,
+                      "\nCrewPilots:", flight.crewPilot,
+                      "\nCrewCustomerService:", flight.crewCustomerService,
+                      "\nPrice of the flight:", flight.price)
+    else:
+        return
+
+
 '------------------------------------------#Menus---------------------------------------'
 
 
@@ -3189,16 +3213,97 @@ def flights(role):
             print(flight)
 
 
+def searchFlightsMenu(role):
+    if role == 3:
+        role = 3
+        typeFlights = 0
+        print("\nYou are in passenger mode\n"
+              "\nAero-TEC\n",
+              "1)One way flights.\n",
+              "2)Roundtrip flights.\n",
+              "3)Back.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            typeFlights = 1
+            airportMenu()
+            departureAirport = input("Enter the name of the airport which it belongs for the departure airport:")
+            if verifyAirport(departureAirport) == False:
+                while verifyAirport(departureAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    departureAirport = input(
+                        "Enter the name of the airport which it belongs for the departure airport:")
+                    if verifyAirport(departureAirport) == True:
+                        break
+            airportMenu()
+            arrivalAirport = input("Enter the name of the airport which it belongs for the arrival airport:")
+            if verifyAirport(arrivalAirport) == False:
+                while verifyAirport(arrivalAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the airport which it belongs for the arrival airport:")
+                    while arrivalAirport == departureAirport:
+                        print("Arrival and Departure are the same, try again")
+                        arrivalAirport = input(
+                            "Enter the name of the airport which it belongs for the arrival airport:")
+                        if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                            break
+            else:
+                while arrivalAirport == departureAirport or verifyAirport(arrivalAirport) == False:
+                    print("Arrival and Departure are the same, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the airport which it belongs for the arrival airport:")
+                    if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                        break
+            showSearchFlights(typeFlights, departureAirport, arrivalAirport)
+        elif option == "2":
+            typeFlights = 2
+            airportMenu()
+            departureAirport = input("Enter the name of the airport which it belongs for the departure airport:")
+            if verifyAirport(departureAirport) == False:
+                while verifyAirport(departureAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    departureAirport = input(
+                        "Enter the name of the airport which it belongs for the departure airport:")
+                    if verifyAirport(departureAirport) == True:
+                        break
+            airportMenu()
+            arrivalAirport = input("Enter the name of the airport which it belongs for the arrival airport:")
+            if verifyAirport(arrivalAirport) == False:
+                while verifyAirport(arrivalAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the airport which it belongs for the arrival airport:")
+                    while arrivalAirport == departureAirport:
+                        print("Arrival and Departure are the same, try again")
+                        arrivalAirport = input(
+                            "Enter the name of the airport which it belongs for the arrival airport:")
+                        if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                            break
+            else:
+                while arrivalAirport == departureAirport or verifyAirport(arrivalAirport) == False:
+                    print("Arrival and Departure are the same, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the airport which it belongs for the arrival airport:")
+                    if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                        break
+            showSearchFlights(typeFlights, departureAirport, arrivalAirport)
+        elif option == "3":
+            passengerMenu(role)
+        else:
+            print("Invalid option")
+        searchFlightsMenu(role)
+
+
 def passengerMenu(role):
     if role == 3:
         role = 3
         print("\nYou are in passenger mode\n"
               "\nAero-TEC\n",
-              "1)Flights.\n",
+              "1)Search for flights.\n",
               "2)Log out.\n")
         option = input("Enter the action you want to do:")
         if option == "1":
-            flights(role)
+            searchFlightsMenu(role)
         elif option == "2":
             loginMenu()
         else:
