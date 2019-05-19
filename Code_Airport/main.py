@@ -31,6 +31,8 @@ gateListFlight = []
 aircraftListFlight = []
 listDates = []
 listgates = []
+flightListFilter = []
+travelList = []
 
 # Data to inject
 userTest = User("lester", 18, "lestertb", "123", "111", 1)
@@ -2082,13 +2084,63 @@ def verifyDates(firstDate, secondDate):
         return False
 
 
-def showSearchFlights(typeFlights, departureAirport, arrivalAirport):
-    contFlights = 1
-    if typeFlights == 1:
-        for flight in flightList:
-            contFlights = contFlights + 1
-            if flight.departureAirport == departureAirport and flight.arrivalAirport == arrivalAirport:
-                print("\nInfo Flight\n" + "#:" + contFlights,
+def filterByTime():
+    contFlights = 0
+    times = []
+    for flight in flightListFilter:
+        times.append(flight.timeFlight)
+    times.sort()
+    for time in times:
+        for flight in flightListFilter:
+            if flight.timeFlight == time:
+                contFlights = contFlights + 1
+                print("\nInfo Flight" + "#:" + str(contFlights),
+                      "\nAirline:", flight.airline,
+                      "\nDeparture Date:", flight.departureDate,
+                      "\nDeparture Time:", flight.departureTime,
+                      "\nTime of flight:", flight.timeFlight,
+                      "\nDeparture Airport:", flight.departureAirport,
+                      "\nArrival Airport:", flight.arrivalAirport,
+                      "\nAircraft:", flight.plane,
+                      "\nGate:", flight.gate,
+                      "\nTrack:", flight.track,
+                      "\nCrewPilots:", flight.crewPilot,
+                      "\nCrewCustomerService:", flight.crewCustomerService,
+                      "\nPrice of the flight:", flight.price)
+
+
+def filterByPrice():
+    contFlights = 0
+    prices = []
+    for flight in flightListFilter:
+        prices.append(flight.price)
+    prices.sort()
+    for price in prices:
+        for flight in flightListFilter:
+            if flight.price == price:
+                contFlights = contFlights + 1
+                print("\nInfo Flight" + "#:" + str(contFlights),
+                      "\nAirline:", flight.airline,
+                      "\nDeparture Date:", flight.departureDate,
+                      "\nDeparture Time:", flight.departureTime,
+                      "\nTime of flight:", flight.timeFlight,
+                      "\nDeparture Airport:", flight.departureAirport,
+                      "\nArrival Airport:", flight.arrivalAirport,
+                      "\nAircraft:", flight.plane,
+                      "\nGate:", flight.gate,
+                      "\nTrack:", flight.track,
+                      "\nCrewPilots:", flight.crewPilot,
+                      "\nCrewCustomerService:", flight.crewCustomerService,
+                      "\nPrice of the flight:", flight.price)
+
+
+def filterByDate(decisionFilter, departureDate):
+    contFlights = 0
+    if decisionFilter == 1:
+        for flight in flightListFilter:
+            if flight.departureDate == departureDate:
+                contFlights = contFlights + 1
+                print("\nInfo Flight" + "#:" + str(contFlights),
                       "\nAirline:", flight.airline,
                       "\nDeparture Date:", flight.departureDate,
                       "\nDeparture Time:", flight.departureTime,
@@ -2102,8 +2154,114 @@ def showSearchFlights(typeFlights, departureAirport, arrivalAirport):
                       "\nCrewCustomerService:", flight.crewCustomerService,
                       "\nPrice of the flight:", flight.price)
     else:
-        return
+        print("There are no flights on that date")
 
+
+def showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport):
+    contFlights = 0
+    roundTripDeparture = ""
+    roundTripArrival = ""
+    roundTripFlighsList = []
+    if typeFlights == 1:
+        for flight in flightList:
+            if flight.departureAirport == departureAirport and flight.arrivalAirport == arrivalAirport:
+                contFlights = contFlights + 1
+                flightListFilter.append(flight)
+                print("\nInfo Flight" + "#:" + str(contFlights),
+                      "\nAirline:", flight.airline,
+                      "\nDeparture Date:", flight.departureDate,
+                      "\nDeparture Time:", flight.departureTime,
+                      "\nTime of flight:", flight.timeFlight,
+                      "\nDeparture Airport:", flight.departureAirport,
+                      "\nArrival Airport:", flight.arrivalAirport,
+                      "\nAircraft:", flight.plane,
+                      "\nGate:", flight.gate,
+                      "\nTrack:", flight.track,
+                      "\nCrewPilots:", flight.crewPilot,
+                      "\nCrewCustomerService:", flight.crewCustomerService,
+                      "\nPrice of the flight:", flight.price)
+    elif typeFlights == 2:
+        for flight in flightList:
+            if flight.departureAirport == departureAirport and flight.arrivalAirport == arrivalAirport:
+                roundTripDeparture = flight.departureAirport
+                roundTripArrival = flight.arrivalAirport
+                roundTripFlighsList.append(flight)
+                flightListFilter.append(flight)
+            elif flight.arrivalAirport == roundTripDeparture and flight.departureAirport == roundTripArrival:
+                roundTripFlighsList.append(flight)
+                flightListFilter.append(flight)
+                for flight in roundTripFlighsList:
+                    contFlights = contFlights + 1
+                    print("\nInfo Flight" + "#:" + str(contFlights),
+                          "\nAirline:", flight.airline,
+                          "\nDeparture Date:", flight.departureDate,
+                          "\nDeparture Time:", flight.departureTime,
+                          "\nTime of flight:", flight.timeFlight,
+                          "\nDeparture Airport:", flight.departureAirport,
+                          "\nArrival Airport:", flight.arrivalAirport,
+                          "\nAircraft:", flight.plane,
+                          "\nGate:", flight.gate,
+                          "\nTrack:", flight.track,
+                          "\nCrewPilots:", flight.crewPilot,
+                          "\nCrewCustomerService:", flight.crewCustomerService,
+                          "\nPrice of the flight:", flight.price)
+        else:
+            print("The return flight was not found")
+
+
+def showFilterFlighs():
+    contFlights = 0
+    for flight in flightListFilter:
+        contFlights = contFlights + 1
+        print("\nInfo Flight" + "#:" + str(contFlights),
+              "\nAirline:", flight.airline,
+              "\nDeparture Date:", flight.departureDate,
+              "\nDeparture Time:", flight.departureTime,
+              "\nTime of flight:", flight.timeFlight,
+              "\nDeparture Airport:", flight.departureAirport,
+              "\nArrival Airport:", flight.arrivalAirport,
+              "\nAircraft:", flight.plane,
+              "\nGate:", flight.gate,
+              "\nTrack:", flight.track,
+              "\nCrewPilots:", flight.crewPilot,
+              "\nCrewCustomerService:", flight.crewCustomerService,
+              "\nPrice of the flight:", flight.price)
+
+
+
+def createTravel(departureAirport, arrivalAirport, gate, passenger):
+    waitTime = '1'
+    waitTime = datetime.strptime(waitTime, '%H')
+    departure = departureAirport
+    arrival = arrivalAirport
+    flightTravel = []
+    gate1 = gate
+    layover = ""
+    for flight3 in flightList:
+        if flight3.departureAirport == departure and flight3.arrivalAirport == arrival and flight3.gate == gate1:
+            Travel.addFlight(flight3)
+            flightTravel.append(flight3)
+    for flight1 in flightTravel:
+        for flight2 in flightList:
+            if flight1.arrivalAirport == flight2.arrivalAirport:
+                flightTravel.append(flight2)
+                layover = flight2.arrivalAirport
+    namePassenger = passenger
+    newTravel = Travel(departure, arrival, layover, waitTime, namePassenger)
+    travelList.append(newTravel)
+
+
+def showInfoTravel():
+    for travel in travelList:
+        print("\nInfo Travel",
+              "\nDeparture:", travel.departure,
+              "\nArrival:", travel.arrival,
+              "\nLayover:", travel.layover,
+              "\nWait Time:", travel.waitTime,
+              "\nTime Flight:", travel.timeFlight,
+              "\nPrice:", travel.price,
+              "\nPassenger:", travel.passenger,
+              "\nFlights:", travel.showFlights())
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -3213,6 +3371,115 @@ def flights(role):
             print(flight)
 
 
+def decisionFilterPrices():
+    print("\nDo you want to order by price?\n"
+          "1)Yes.\n",
+          "2)No.\n")
+    option = input("Enter the action you want to do:")
+    if option == "1":
+        return 1
+    elif option == "2":
+        return 2
+    else:
+        print("Invalid option")
+    decisionFilterPrices()
+
+
+def decisionFilterTimes():
+    print("\nDo you want to order by time of flight?\n"
+          "1)Yes.\n",
+          "2)No.\n")
+    option = input("Enter the action you want to do:")
+    if option == "1":
+        return 1
+    elif option == "2":
+        return 2
+    else:
+        print("Invalid option")
+    decisionFilterTimes()
+
+
+
+def decisionFilterDates():
+    print("\nDo you want to filter by date?\n"
+          "1)Yes.\n",
+          "2)No.\n")
+    option = input("Enter the action you want to do:")
+    if option == "1":
+        return 1
+    elif option == "2":
+        return 2
+    else:
+        print("Invalid option")
+    decisionFilterDates()
+
+
+def travelDecision():
+    print("\nDo you want create a travel?\n"
+          "1)Yes.\n",
+          "2)No.\n")
+    option = input("Enter the action you want to do:")
+    if option == "1":
+        return 1
+    elif option == "2":
+        return 2
+    else:
+        print("Invalid option")
+    travelDecision()
+
+
+def travelMenu(role):
+    if role == 3:
+        role = 3
+        print("\nCreation of Travel\n"
+              "1)Start with the creation of the flight.\n",
+              "2)Return Main Menu.\n")
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            print("These are the flights with which you have made filters")
+            showFilterFlighs()
+            print("We need some information about the flight you want to take, we will find the best option")
+            departureAirport = input("Enter the name of the departure airport:")
+            if verifyAirport(departureAirport) == False:
+                while verifyAirport(departureAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    departureAirport = input(
+                        "Enter the name of the departure airport:")
+                    if verifyAirport(departureAirport) == True:
+                        break
+            airportMenu()
+            arrivalAirport = input("Enter the name of the arrival airport:")
+            if verifyAirport(arrivalAirport) == False:
+                while verifyAirport(arrivalAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the arrival airport:")
+                    while arrivalAirport == departureAirport:
+                        print("Arrival and Departure are the same, try again")
+                        arrivalAirport = input(
+                            "Enter the name of the arrival airport:")
+                        if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                            break
+            else:
+                while arrivalAirport == departureAirport or verifyAirport(arrivalAirport) == False:
+                    print("Arrival and Departure are the same, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the arrival airport:")
+                    if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                        break
+            gate = input("Enter the number of gate")
+            passengerName = input("Enter your name")
+            createTravel(departureAirport, arrivalAirport, gate, passengerName)
+            showInfoTravel()
+
+        elif option == "2":
+            return 2
+        else:
+            print("Invalid option")
+        travelDecision()
+
+
+
 def searchFlightsMenu(role):
     if role == 3:
         role = 3
@@ -3225,6 +3492,10 @@ def searchFlightsMenu(role):
         option = input("Enter the action you want to do:")
         if option == "1":
             typeFlights = 1
+            decisionFilterDate = 0
+            decisionFilterPrice = 0
+            decisionFilterTime = 0
+            departureDate = ""
             airportMenu()
             departureAirport = input("Enter the name of the airport which it belongs for the departure airport:")
             if verifyAirport(departureAirport) == False:
@@ -3254,9 +3525,41 @@ def searchFlightsMenu(role):
                         "Enter the name of the airport which it belongs for the arrival airport:")
                     if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
                         break
-            showSearchFlights(typeFlights, departureAirport, arrivalAirport)
+            showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            decisionFilterDate = decisionFilterDates()
+            if decisionFilterDate == 1:
+                while True:
+                    try:
+                        departureDate = input('\n Enter the departure date ==> Example: "10/01/2000"')
+                        datetime.strptime(departureDate, '%d/%m/%Y')
+                        break
+                    except:
+                        print("\n You have not entered a correct date, try again")
+                filterByDate(decisionFilterDate, departureDate)
+            else:
+                showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            decisionFilterPrice = decisionFilterPrices()
+            if decisionFilterPrice == 1:
+                filterByPrice()
+            else:
+                showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            decisionFilterTime = decisionFilterTimes()
+            if decisionFilterTime == 1:
+                filterByTime()
+            else:
+                showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            Vtravel = travelDecision()
+            if Vtravel == 1:
+                travelMenu(role)
+            else:
+                flightListFilter.clear()
+                searchFlightsMenu(role)
         elif option == "2":
             typeFlights = 2
+            decisionFilterDate = 0
+            decisionFilterPrice = 0
+            decisionFilterTime = 0
+            departureDate = ""
             airportMenu()
             departureAirport = input("Enter the name of the airport which it belongs for the departure airport:")
             if verifyAirport(departureAirport) == False:
@@ -3286,7 +3589,35 @@ def searchFlightsMenu(role):
                         "Enter the name of the airport which it belongs for the arrival airport:")
                     if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
                         break
-            showSearchFlights(typeFlights, departureAirport, arrivalAirport)
+            showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            decisionFilterDate = decisionFilterDates()
+            if decisionFilterDate == 1:
+                while True:
+                    try:
+                        departureDate = input('\n Enter the departure date ==> Example: "10/01/2000"')
+                        datetime.strptime(departureDate, '%d/%m/%Y')
+                        break
+                    except:
+                        print("\n You have not entered a correct date, try again")
+                filterByDate(decisionFilterDate, departureDate)
+            else:
+                showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            decisionFilterPrice = decisionFilterPrices()
+            if decisionFilterPrice == 1:
+                filterByPrice()
+            else:
+                showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            decisionFilterTime = decisionFilterTimes()
+            if decisionFilterTime == 1:
+                filterByTime()
+            else:
+                showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport)
+            Vtravel = travelDecision()
+            if Vtravel == 1:
+                travelMenu(role)
+            else:
+                flightListFilter.clear()
+                searchFlightsMenu(role)
         elif option == "3":
             passengerMenu(role)
         else:
