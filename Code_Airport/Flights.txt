@@ -1,0 +1,50 @@
+primera$18/10/2019$10:30$2:30$Juan SantaMaria Airport$Texas Airport$1$9$10$Names: leo1 leo2$leo4, leo5 and leo6$2000$$
+primera$18/10/2019$12:55$1:30$Juan SantaMaria Airport$Tacos Airport$2$10$10$Names: leo3 leo12$leo7, leo8 and leo9$1500$$
+primera$18/10/2019$3:45$1:30$Tacos Airport$Texas Airport$3$11$10$Names: leo16 leo17$leo10, leo11 and leo13$500$$
+primera$19/10/2019$10:00$1:00$Juan SantaMaria Airport$Panama Airport$4$12$10$Names: leo19 leo20$leo14, leo15 and leo18$500$$
+primera$19/10/2019$12:55$1:00$Panama Airport$Juan SantaMaria Airport$4$13$10$Names: leo21 leo30$leo22, leo23 and leo24$500$$
+primera$20/10/2019$9:20$1:00$Canada Airport$Tacos Airport$4$14$10$Names: leo34 leo35$leo25, leo26 and leo27$600$$
+primera$20/10/2019$12:30$1:25$Canada Airport$Texas Airport$4$15$10$Names: leo37 leo38$leo28, leo29 and leo31$450$$
+primera$20/10/2019$3:45$1:30$Texas Airport$Tacos Airport$5$16$10$Names: leo39 leo48$leo32, leo33 and leo36$150$$
+primera$21/10/2019$6:00$1:30$Juan SantaMaria Airport$Managua Airport$6$17$10$Names: leo52 leo53$leo40, leo41 and leo42$500$$
+primera$21/10/2019$12:35$1:30$Managua Airport$Juan SantaMaria Airport$7$18$10$Names: leo55 leo56$leo43, leo44 and leo45$500$$
+primera$22/10/2019$7:30$1:30$Ecuador Airport$Uruguay Airport$8$19$10$Names: leo57 leo66$leo46, leo47 and leo49$500$$
+primera$22/10/2019$10:30$1:00$Ecuador Airport$Buenos Aires Airport$9$20$10$Names: leo70 leo71$leo50, leo51 and leo54$250$$
+primera$22/10/2019$12:55$1:25$Buenos Aires Airport$Uruguay Airport$9$21$10$Names: leo73 leo74$leo58, leo59 and leo60$250$$
+primera$24/10/2109$10:30$2:30$Managua Airport$Tacos Airport$10$22$10$Names: leo75 leo84$leo61, leo62 and leo63$670$$
+primera$24/10/2019$3:45$1:55$Managua Airport$Honduras Airport$11$23$10$Names: leo88 leo89$leo64, leo65 and leo67$335$$
+primera$24/10/2019$6:45$1:30$Honduras Airport$Tacos Airport$12$24$10$Names: leo91 leo92$leo68, leo69 and leo72$335$$
+primera$25/10/2019$10:30$2:30$Uruguay Airport$Paraguay Airport$13$25$10$Names: leo93 leo102$leo76, leo77 and leo78$600$$
+primera$26/10/2019$6:00$1:30$Venezuela Airport$Cuba Airport$14$26$10$Names: leo106 leo107$leo79, leo80 and leo81$200$$
+primera$26/10/2019$8:00$1:00$Venezuela Airport$Haiti Airport$15$27$10$Names: leo109 leo110$leo82, leo83 and leo85$100$$
+primera$26/10/2019$10:30$1:00$Haiti Airport$Cuba Airport$15$28$10$Names: leo119 leo123$leo86, leo87 and leo90$100$$
+primera$27/10/2019$10:30$2:20$Jamaica Airport$Juan SantaMaria Airport$15$29$10$Names: leo124 leo251$leo94, leo95 and leo96$500$$
+primera$27/10/2019$3:45$2:20$Juan SantaMaria Airport$Jamaica Airport$16$30$10$Names: leo252 leo253$leo97, leo98 and leo99$500$$
+primera$28/10/2019$7:30$2:30$Tacos Airport$Chile Airport$17$31$10$Names: leo254 leo255$leo100, leo101 and leo103$1000$$
+primera$28/10/2019$8:30$1:35$Tacos Airport$Panama Airport$18$32$10$Names: leo256 leo257$leo104, leo105 and leo108$500$$
+primera$28/10/2019$10:30$1:45$Panama Airport$Chile Airport$19$33$10$Names: leo258 leo259$leo111, leo112 and leo113$500$$
+segunda$19/11/2019$10:30$2:30$Ecuador Airport$Jamaica Airport$20$34$10$Names: leo126 leo127$leo129, leo130 and leo131$1200$$
+segunda$19/11/2019$2:30$2:30$Jamaica Airport$Ecuador Airport$21$35$10$Names: leo128 leo137$leo132, leo133 and leo134$1200$$
+segunda$20/11/2019$10:30$2:10$Brasilia Airport$Peru Airport$22$36$10$Names: leo141 leo142$leo135, leo136 and leo138$780$$
+segunda$21/11/2019$7:30$6:30$Juan SantaMaria Airport$Italy Airport$23$37$10$Names: leo144 leo145$leo139, leo140 and leo143$3000$$
+segunda$21/11/2019$11:30$6:00$Juan SantaMaria Airport$Barcelona Airport$24$38$10$Names: leo146 leo155$leo147, leo148 and leo148$2500$$
+segunda$21/11/2019$3:40$1:45$Barcelona Airport$Italy Airport$25$39$10$Names: leo159 leo160$leo150, leo151 and leo152$500$$
+segunda$22/11/2019$7:30$1:50$Barcelona Airport$Russia Airport$26$40$10$Names: leo162 leo163$leo153, leo154 and leo156$500$$
+segunda$22/11/2019$10:30$10:00$Juan SantaMaria Airport$Russia Airport$27$41$10$Names: leo164 leo173$leo157, leo158 and leo161$4000$$
+segunda$22/11/2019$8:45$10:00$Russia Airport$Juan SantaMaria Airport$28$42$10$Names: leo177 leo178$leo165, leo166 and leo167$4000$$
+segunda$23/11/2019$6:00$2:00$Juan SantaMaria Airport$Bolivia Airport$29$43$10$Names: leo180 leo181$leo168, leo169 and leo170$1000$$
+segunda$23/11/2019$10:00$1:00$Juan SantaMaria Airport$Peru Airport$30$44$10$Names: leo182 leo191$leo171, leo172 and leo174$500$$
+segunda$23/11/2019$10:30$1:45$Peru Airport$Bolivia Airport$30$45$10$Names: leo195 leo196$leo175, leo176 and leo179$500$$
+segunda$24/11/2019$10:30$7:00$Russia Airport$Texas Airport$31$46$10$Names: leo198 leo199$leo183, leo184 and leo185$5000$$
+segunda$24/11/2019$5:45$7:00$Texas Airport$Russia Airport$32$47$10$Names: leo200 leo209$leo186, leo187 and leo188$5000$$
+segunda$25/11/2019$10:30$1:30$Bogota Airport$Managua Airport$33$48$10$Names: leo213 leo214$leo189, leo190 and leo192$750$$
+segunda$25/11/2019$11:35$1:25$Haiti Airport$Brasilia Airport$34$49$10$Names: leo216 leo217$leo193, leo194 and leo197$850$$
+segunda$25/11/2019$4:45$1:25$Haiti Airport$Bogota Airport$35$50$10$Names: leo218 leo227$leo201, leo202 and leo203$425$$
+segunda$25/11/2019$8:00$1:50$Bogota Airport$Brasilia Airport$36$51$10$Names: leo231 leo232$leo204, leo205 and leo206$425$$
+segunda$26/11/2019$10:30$2:20$Guatemala Airport$Italy Airport$37$52$10$Names: leo234 leo235$leo207, leo208 and leo210$3500$$
+segunda$26/11/2019$5:45$5:00$Italy Airport$Guatemala Airport$38$53$10$Names: leo236 leo245$leo211, leo212 and leo215$3500$$
+segunda$27/11/2019$10:30$1:25$Juan SantaMaria Airport$Cuba Airport$39$54$10$Names: leo249 leo250$leo219, leo220 and leo221$500$$
+segunda$28/11/2019$10:30$2:00$Peru Airport$Ecuador Airport$40$55$10$Names: leo270 leo271$leo222, leo223 and leo224$1000$$
+segunda$28/11/2019$2:45$1:00$Peru Airport$Chile Airport$41$56$10$Names: leo272 leo273$leo225, leo226 and leo228$500$$
+segunda$28/11/2019$5:45$1:00$Chile Airport$Ecuador Airport$41$57$10$Names: leo274 leo275$leo229, leo230 and leo233$500$$
+segunda$29/11/2019$10:30$2:30$Juan SantaMaria Airport$Uruguay Airport$41$58$10$Names: leo276 leo277$leo237, leo238 and leo239$1000$$

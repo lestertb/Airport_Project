@@ -722,6 +722,42 @@ crewList.append(crewTest124)
 crewTest125 = CrewMaintenance("leo125", 18, 134, "primera", "Costumer service", "Available")
 crewList.append(crewTest125)
 
+crewTest251 = CrewMaintenance("leo251", 18, 251, "primera", "Pilot", "Available")
+crewList.append(crewTest251)
+
+crewTest252 = CrewMaintenance("leo252", 18, 252, "primera", "Pilot", "Available")
+crewList.append(crewTest252)
+
+crewTest253 = CrewMaintenance("leo253", 18, 253, "primera", "Pilot", "Available")
+crewList.append(crewTest253)
+
+crewTest254 = CrewMaintenance("leo254", 18, 254, "primera", "Pilot", "Available")
+crewList.append(crewTest254)
+
+crewTest255 = CrewMaintenance("leo255", 18, 255, "primera", "Pilot", "Available")
+crewList.append(crewTest255)
+
+crewTest256 = CrewMaintenance("leo256", 18, 256, "primera", "Pilot", "Available")
+crewList.append(crewTest256)
+
+crewTest257 = CrewMaintenance("leo257", 18, 257, "primera", "Pilot", "Available")
+crewList.append(crewTest257)
+
+crewTest258 = CrewMaintenance("leo258", 18, 258, "primera", "Pilot", "Available")
+crewList.append(crewTest258)
+
+crewTest259 = CrewMaintenance("leo259", 18, 259, "primera", "Pilot", "Available")
+crewList.append(crewTest259)
+
+crewTest260 = CrewMaintenance("leo260", 18, 260, "primera", "Pilot", "Available")
+crewList.append(crewTest260)
+
+crewTest261 = CrewMaintenance("leo261", 18, 261, "primera", "Pilot", "Available")
+crewList.append(crewTest261)
+
+crewTest262 = CrewMaintenance("leo262", 18, 262, "primera", "Pilot", "Available")
+crewList.append(crewTest262)
+
 crewTest126 = CrewMaintenance("leo126", 18, 135, "segunda", "Pilot", "Available")
 crewList.append(crewTest126)
 
@@ -1096,6 +1132,54 @@ crewList.append(crewTest249)
 
 crewTest250 = CrewMaintenance("leo250", 18, 258, "segunda", "Pilot", "Available")
 crewList.append(crewTest250)
+
+crewTest249 = CrewMaintenance("leo249", 18, 257, "segunda", "Pilot", "Available")
+crewList.append(crewTest249)
+
+crewTest250 = CrewMaintenance("leo250", 18, 258, "segunda", "Pilot", "Available")
+crewList.append(crewTest250)
+
+crewTest270 = CrewMaintenance("leo270", 18, 270, "segunda", "Pilot", "Available")
+crewList.append(crewTest270)
+
+crewTest271 = CrewMaintenance("leo271", 18, 271, "segunda", "Pilot", "Available")
+crewList.append(crewTest271)
+
+crewTest272 = CrewMaintenance("leo272", 18, 272, "segunda", "Pilot", "Available")
+crewList.append(crewTest272)
+
+crewTest273 = CrewMaintenance("leo273", 18, 273, "segunda", "Pilot", "Available")
+crewList.append(crewTest273)
+
+crewTest274 = CrewMaintenance("leo274", 18, 274, "segunda", "Pilot", "Available")
+crewList.append(crewTest274)
+
+crewTest275 = CrewMaintenance("leo275", 18, 275, "segunda", "Pilot", "Available")
+crewList.append(crewTest275)
+
+crewTest276 = CrewMaintenance("leo276", 18, 276, "segunda", "Pilot", "Available")
+crewList.append(crewTest276)
+
+crewTest277 = CrewMaintenance("leo277", 18, 277, "segunda", "Pilot", "Available")
+crewList.append(crewTest277)
+
+crewTest278 = CrewMaintenance("leo278", 18, 278, "segunda", "Pilot", "Available")
+crewList.append(crewTest278)
+
+crewTest279 = CrewMaintenance("leo279", 18, 279, "segunda", "Pilot", "Available")
+crewList.append(crewTest279)
+
+crewTest280 = CrewMaintenance("leo280", 18, 280, "segunda", "Pilot", "Available")
+crewList.append(crewTest280)
+
+crewTest281 = CrewMaintenance("leo281", 18, 281, "segunda", "Pilot", "Available")
+crewList.append(crewTest281)
+
+crewTest282 = CrewMaintenance("leo282", 18, 282, "segunda", "Pilot", "Available")
+crewList.append(crewTest282)
+
+crewTest283 = CrewMaintenance("leo283", 18, 283, "segunda", "Pilot", "Available")
+crewList.append(crewTest283)
 
 airportTest1 = AirportMaintenance("Tacos Airport", "Cancun", "Mexico")
 airportList.append(airportTest1)
@@ -1830,9 +1914,9 @@ def getCostumersServer():
 
 
 def addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport, plane, gate, track,
-              crewPilot, crewCustomerService, price, layoverAirport, type):
+              crewPilot, crewCustomerService, price):
     newFlight = FlightMaintenance(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
-                                  plane, gate, track, crewPilot, crewCustomerService, price, layoverAirport, type)
+                                  plane, gate, track, crewPilot, crewCustomerService, price)
     flightList.append(newFlight)
 
 
@@ -1864,9 +1948,7 @@ def showFlights():
                   "\nTrack:", flight.track,
                   "\nCrewPilots:", flight.crewPilot,
                   "\nCrewCustomerService:", flight.crewCustomerService,
-                  "\nPrice of the flight:", flight.price,
-                  "\nLayover Airport:", flight.layover,
-                  "\nType of Flight:", flight.type)
+                  "\nPrice of the flight:", flight.price)
     else:
         print("\nFlights not found\n")
 
@@ -1937,9 +2019,7 @@ def firstReport(date1, date2):
                           "\nTrack:", flight.track,
                           "\nCrewPilots:", flight.crewPilot,
                           "\nCrewCustomerService:", flight.crewCustomerService,
-                          "\nPrice of the flight:", flight.price,
-                          "\nLayover Airport:", flight.layover,
-                          "\nType of Flight:", flight.type)
+                          "\nPrice of the flight:", flight.price)
     else:
         print("No flights were found between those dates")
 
@@ -1959,9 +2039,7 @@ def secondReport(gate):  # This function looks for the number of flights that ha
                   "\nTrack:", flight.track,
                   "\nCrewPilots:", flight.crewPilot,
                   "\nCrewCustomerService:", flight.crewCustomerService,
-                  "\nPrice of the flight:", flight.price,
-                  "\nLayover Airport:", flight.layover,
-                  "\nType of Flight:", flight.type)
+                  "\nPrice of the flight:", flight.price)
     else:
         print("\nNot boarding gates found\n")
 
@@ -2090,20 +2168,6 @@ def crewStatusMenu():
         print("Invalid option")
         return crewStatusMenu()
 
-def flightType():
-    print("Select a flight type.\n"
-          "1)Only Departure.\n"
-          "2)Round Trip .\n")
-    option = input("Enter the option of type:")
-    if option == "1":
-        return "Only Departure"
-
-    elif option == "2":
-        return "Round Trip"
-    else:
-        print("Invalid option")
-        return flightType()
-
 def crewAirlineMenu():
     i = 0
     x = 1
@@ -2146,20 +2210,7 @@ def aircraftStatusMenu():
         print("Invalid option")
         return aircraftStatusMenu()
 
-def decisionMenu():
-    print("Select if the flight has layover.\n"
-          "1)Yes.\n"
-          "2)No.\n")
-    option = input("Enter the option:")
-    if option == "1":
-        return "Yes"
 
-    elif option == "2":
-        return "No"
-
-    else:
-        print("Invalid option")
-        return decisionMenu()
 
 def maintenanceTracks(role):
     if role == 1:
@@ -2734,7 +2785,7 @@ def flightMaintenance(role):
                             if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
                                 break
                 else:
-                    while arrivalAirport == departureAirport or verifyAirport(arrivalAirport) == False :
+                    while arrivalAirport == departureAirport or verifyAirport(arrivalAirport) == False:
                         print("Arrival and Departure are the same, try again")
                         arrivalAirport = input(
                             "Enter the name of the airport which it belongs for the arrival airport:")
@@ -2755,47 +2806,20 @@ def flightMaintenance(role):
                 else:
                     print("No tracks available, try later")
                     flightMaintenance(role)
-                decision = decisionMenu()
-                if decision == "Yes":
-                    airportMenu()
-                    layoverAirport = input("Enter the name of the airport of the layover:")
-                    if verifyAirport(layoverAirport) == False:
-                        while verifyAirport(layoverAirport) == False:
-                            print("Airport doesn't exist, try again")
-                            layoverAirport = input(
-                                "Enter the name of the airport of the layover:")
-                            while layoverAirport == arrivalAirport or layoverAirport == departureAirport:
-                                print("Layover Airport coincide with Departure or Arrive")
-                                layoverAirport = input(
-                                    "Enter the name of the airport of the layover:")
-                                if verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
-                                        layoverAirport != departureAirport:
-                                    break
-                    else:
-                        while layoverAirport == arrivalAirport or layoverAirport == departureAirport or verifyAirport(layoverAirport) == False:
-                            print("Layover Airport coincide with Departure or Arrive")
-                            layoverAirport = input(
-                                "Enter the name of the airport of the layover:")
-                            if verifyAirport(layoverAirport) == True and layoverAirport != arrivalAirport and \
-                                    layoverAirport != departureAirport:
-                                break
-                else:
-                    layoverAirport = ""
 
                 pushListGateFlight(gate)
                 pushListPlaneFlight(plane)
                 automaticCrewPilots(airline)
                 automaticCrewCostumerService(airline)
-                price = int(input("Enter the price of the flight below:"))
-                type = flightType()
+                price = int(input("Enter the price of the flight:"))
                 if airline != None and departureDate != None and departureTime != None and timeFlight != None and \
                         departureAirport != None and arrivalAirport != None and plane != None and gate != None and \
-                        track != None and price != None and layoverAirport!= None:
+                        track != None and price != None:
                     x = getPilots()
                     y = getCostumersServer()
                     if x != False and y != False:
                         addFlight(airline, departureDate, departureTime, timeFlight, departureAirport, arrivalAirport,
-                                  plane, gate, track, x, y, price, layoverAirport, type)
+                                  plane, gate, track, x, y, price)
                         modifyStatusGate(gate, departureTime)
                         dailyFlight(departureDate)
                         if aircraftUse(departureTime, timeFlight, plane) == True:
@@ -3361,5 +3385,6 @@ def start():
     global flightList
     flightList = charge()
     loginMenu()
+
 
 start()
