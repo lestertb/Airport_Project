@@ -18,8 +18,8 @@ primera$25/10/2019$10:30$2:30$Uruguay Airport$Paraguay Airport$13$25$10$Names: l
 primera$26/10/2019$6:00$1:30$Venezuela Airport$Cuba Airport$14$26$10$Names: leo106 leo107$leo79, leo80 and leo81$200$$
 primera$26/10/2019$8:00$1:00$Venezuela Airport$Haiti Airport$15$27$10$Names: leo109 leo110$leo82, leo83 and leo85$100$$
 primera$26/10/2019$10:30$1:00$Haiti Airport$Cuba Airport$15$28$10$Names: leo119 leo123$leo86, leo87 and leo90$100$$
-primera$27/10/2019$10:30$2:20$Jamaica Airport$Juan SantaMaria Airport$15$29$10$Names: leo124 leo251$leo94, leo95 and leo96$500$$
-primera$27/10/2019$3:45$2:20$Juan SantaMaria Airport$Jamaica Airport$16$30$10$Names: leo252 leo253$leo97, leo98 and leo99$500$$
+primera$27/10/2019$10:30$2:20$Juan SantaMaria Airport$Jamaica Airport$15$29$10$Names: leo124 leo251$leo94, leo95 and leo96$500$$
+primera$28/10/2019$3:45$2:20$Juan SantaMaria Airport$Jamaica Airport$16$30$10$Names: leo252 leo253$leo97, leo98 and leo99$500$$
 primera$28/10/2019$7:30$2:30$Tacos Airport$Chile Airport$17$31$10$Names: leo254 leo255$leo100, leo101 and leo103$1000$$
 primera$28/10/2019$8:30$1:35$Tacos Airport$Panama Airport$18$32$10$Names: leo256 leo257$leo104, leo105 and leo108$500$$
 primera$28/10/2019$10:30$1:45$Panama Airport$Chile Airport$19$33$10$Names: leo258 leo259$leo111, leo112 and leo113$500$$
@@ -47,4 +47,4 @@ segunda$27/11/2019$10:30$1:25$Juan SantaMaria Airport$Cuba Airport$39$54$10$Name
 segunda$28/11/2019$10:30$2:00$Peru Airport$Ecuador Airport$40$55$10$Names: leo270 leo271$leo222, leo223 and leo224$1000$$
 segunda$28/11/2019$2:45$1:00$Peru Airport$Chile Airport$41$56$10$Names: leo272 leo273$leo225, leo226 and leo228$500$$
 segunda$28/11/2019$5:45$1:00$Chile Airport$Ecuador Airport$41$57$10$Names: leo274 leo275$leo229, leo230 and leo233$500$$
-segunda$29/11/2019$10:30$2:30$Juan SantaMaria Airport$Uruguay Airport$41$58$10$Names: leo276 leo277$leo237, leo238 and leo239$1000$$
+segunda$29/11/2019$10:30$2:30$Juan SantaMaria Airport$Texas Airport$41$58$10$Names: leo276 leo277$leo237, leo238 and leo239$1000$$
