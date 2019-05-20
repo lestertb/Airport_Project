@@ -2230,7 +2230,6 @@ def showFilterFlighs():
               "\nPrice of the flight:", flight.price)
 
 
-
 def createTravel(departureAirport, arrivalAirport, gate, passenger):
     waitTime = '1'
     waitTime = datetime.strptime(waitTime, '%H')
@@ -2241,7 +2240,7 @@ def createTravel(departureAirport, arrivalAirport, gate, passenger):
     layover = ""
     for flight3 in flightList:
         if flight3.departureAirport == departure and flight3.arrivalAirport == arrival and flight3.gate == gate1:
-            Travel.addFlight(flight3)
+            Travel.addFlight(flight3, )
             flightTravel.append(flight3)
     for flight1 in flightTravel:
         for flight2 in flightList:
@@ -2275,6 +2274,33 @@ def addTravel(passenger):
             newRecord = Record(passenger)
             Record.addTravel1(travel)
             recordList.append(newRecord)
+            saveRecord(recordList)
+
+
+def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
+    listDeparture = []
+    listReturn = []
+    listaprueba = []
+    days = day
+    date1 = firstDate
+    date2 = secondDate
+    date1Modify = datetime.strptime(date1, '%d/%m/%Y')
+    result = date1Modify + timedelta(days=days)
+    result2 = date1Modify - timedelta(days=days)
+    date2Modify = datetime.strptime(date2, '%d/%m/%Y')
+    result3 = date2Modify + timedelta(days=days)
+    result4 = date2Modify - timedelta(days=days)
+
+
+    for flight in flightList:
+        if flight.departureAirport == departureAirport and flight.arrivalAirport == arrivalAirport:
+            listaprueba.append(flight)
+            date = datetime.strptime(flight.departureDate, '%d/%m/%Y')
+            if result2 < date and date < result:
+                listDeparture.append(flight)
+            if result4 < date and date < result3:
+                listReturn.append(flight)
+
 
 
 '------------------------------------------#Menus---------------------------------------'
@@ -2364,6 +2390,7 @@ def crewStatusMenu():
         print("Invalid option")
         return crewStatusMenu()
 
+
 def crewAirlineMenu():
     i = 0
     x = 1
@@ -2405,7 +2432,6 @@ def aircraftStatusMenu():
     else:
         print("Invalid option")
         return aircraftStatusMenu()
-
 
 
 def maintenanceTracks(role):
@@ -3413,7 +3439,6 @@ def decisionFilterTimes():
     decisionFilterTimes()
 
 
-
 def decisionFilterDates():
     print("\nDo you want to filter by date?\n"
           "1)Yes.\n",
@@ -3492,7 +3517,6 @@ def travelMenu(role):
         else:
             print("Invalid option")
         travelDecision()
-
 
 
 def searchFlightsMenu(role):
@@ -3640,17 +3664,116 @@ def searchFlightsMenu(role):
         searchFlightsMenu(role)
 
 
+def smartSearchMenu(role):
+    if role == 3:
+        role = 3
+        print("\nSmart Search of flights\n",
+              "1)Smart Search\n",
+              "2)Log Out\n")
+
+        option = input("Enter the action you want to do:")
+        if option == "1":
+            airportMenu()
+            departureAirport = input("Enter the name of the airport which it belongs for the departure airport:")
+            if verifyAirport(departureAirport) == False:
+                while verifyAirport(departureAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    departureAirport = input(
+                        "Enter the name of the airport which it belongs for the departure airport:")
+                    if verifyAirport(departureAirport) == True:
+                        break
+            airportMenu()
+            arrivalAirport = input("Enter the name of the airport which it belongs for the arrival airport:")
+            if verifyAirport(arrivalAirport) == False:
+                while verifyAirport(arrivalAirport) == False:
+                    print("Airport doesn't exist, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the airport which it belongs for the arrival airport:")
+                    while arrivalAirport == departureAirport:
+                        print("Arrival and Departure are the same, try again")
+                        arrivalAirport = input(
+                            "Enter the name of the airport which it belongs for the arrival airport:")
+                        if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                            break
+            else:
+                while arrivalAirport == departureAirport or verifyAirport(arrivalAirport) == False:
+                    print("Arrival and Departure are the same, try again")
+                    arrivalAirport = input(
+                        "Enter the name of the airport which it belongs for the arrival airport:")
+                    if verifyAirport(arrivalAirport) == True and arrivalAirport != departureAirport:
+                        break
+            while True:
+                try:
+                    firstDate = input('\n Enter the first date,remember that the first date must be less than the '
+                                      'second:')
+                    datetime.strptime(firstDate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date, try again")
+            while True:
+                try:
+                    secondDate = input('\n Enter the second date,remember that the second date must be greater '
+                                       'than the first')
+                    datetime.strptime(secondDate, '%d/%m/%Y')
+                    break
+                except:
+                    print("\n You have not entered a correct date, try again")
+            if verifyDates(firstDate, secondDate) == False:
+                while verifyDates(firstDate, secondDate) == False:
+                    print("Incorrect dates, try again")
+                    while True:
+                        try:
+                            firstDate = input(
+                                '\n Enter the first date,remember that the first date must be less than the '
+                                'second:')
+                            datetime.strptime(firstDate, '%d/%m/%Y')
+                            break
+                        except:
+                            print("\n You have not entered a correct date, try again")
+                    while True:
+                        try:
+                            secondDate = input(
+                                '\n Enter the second date,remember that the second date must be greater '
+                                'than the first')
+                            datetime.strptime(secondDate, '%d/%m/%Y')
+                            break
+                        except:
+                            print("\n You have not entered a correct date, try again")
+                    if verifyDates(firstDate, secondDate) == True:
+                        break
+            while True:
+                try:
+                    day = int(input("Enter the range of days you want to search the flight:"))
+                    break
+                except:
+                    print("\n You have not entered a correct date, try again")
+
+            smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day)
+
+        elif option == "2":
+            passengerMenu(role)
+
+        else:
+            print("Invalid option")
+        smartSearchMenu(role)
+
+
 def passengerMenu(role):
     if role == 3:
         role = 3
         print("\nYou are in passenger mode\n"
               "\nAero-TEC\n",
               "1)Search for flights.\n",
-              "2)Log out.\n")
+              "2)Smart Search.\n"
+              "3)Log out.\n")
         option = input("Enter the action you want to do:")
         if option == "1":
             searchFlightsMenu(role)
+
         elif option == "2":
+            smartSearchMenu(role)
+
+        elif option == "3":
             loginMenu()
         else:
             print("Invalid option")
@@ -3836,6 +3959,8 @@ def start():
     global flightList
     flightList = charge()
     loginMenu()
+    global recordList
+    recordList = charge1()
 
 
 start()

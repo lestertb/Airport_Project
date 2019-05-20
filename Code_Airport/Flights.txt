@@ -48,3 +48,4 @@ segunda$28/11/2019$10:30$2:00$Peru Airport$Ecuador Airport$40$55$10$Names: leo27
 segunda$28/11/2019$2:45$1:00$Peru Airport$Chile Airport$41$56$10$Names: leo272 leo273$leo225, leo226 and leo228$500$$
 segunda$28/11/2019$5:45$1:00$Chile Airport$Ecuador Airport$41$57$10$Names: leo274 leo275$leo229, leo230 and leo233$500$$
 segunda$29/11/2019$10:30$2:30$Juan SantaMaria Airport$Texas Airport$41$58$10$Names: leo276 leo277$leo237, leo238 and leo239$1000$$
+primera$05/11/2019$3:45$2:20$Juan SantaMaria Airport$Jamaica Airport$16$30$10$Names: leo345 leo300$leo490, leo491 and leo492$500$$

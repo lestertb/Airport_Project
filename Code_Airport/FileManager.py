@@ -1,4 +1,5 @@
 from FlightMaintenance import *
+from Record import *
 def save(flightList):
     text = " "
     for flight in flightList:
@@ -27,5 +28,33 @@ def charge():
     except:
         print("Error trying to download")
     return result
+
+def saveRecord(recordList):
+    text = " "
+    for flight in recordList:
+        text += flight.passenger +"$\n"
+
+    try:
+        file = open("Record.txt", "w")
+        file.write(text)
+        file.close()
+    except:
+        print("Error trying to download")
+
+def charge1():
+    result2 = []
+    try:
+        file = open("Record.txt", "r")
+        for line in file.readlines():
+            data = line.split("$")
+            newRecord = Record(data[1])
+            result2.append(newRecord)
+        file.close()
+    except:
+        print("Error trying to download")
+    return result2
+
+
+
 
 
