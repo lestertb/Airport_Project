@@ -2059,7 +2059,7 @@ def thirdReport():
         print("Name:", airportList[i].name, "Cuantity: ", cont)
         i += 1
 
-
+#Report
 def fourthReport():
     cont = 0
     cont2 = 0
@@ -2076,7 +2076,7 @@ def fourthReport():
         if crew.type == "Costumer service":
             print(crew.name, cont)
 
-
+#Filter by dates
 def verifyDates(firstDate, secondDate):
     firstDate = datetime.strptime(firstDate, '%d/%m/%Y')
     secondDate = datetime.strptime(secondDate, '%d/%m/%Y')
@@ -2085,7 +2085,7 @@ def verifyDates(firstDate, secondDate):
     else:
         return False
 
-
+#Filter by time
 def filterByTime():
     contFlights = 0
     times = []
@@ -2110,7 +2110,7 @@ def filterByTime():
                       "\nCrewCustomerService:", flight.crewCustomerService,
                       "\nPrice of the flight:", flight.price)
 
-
+#Filter by prices
 def filterByPrice():
     contFlights = 0
     prices = []
@@ -2135,7 +2135,7 @@ def filterByPrice():
                       "\nCrewCustomerService:", flight.crewCustomerService,
                       "\nPrice of the flight:", flight.price)
 
-
+#Filter by dates
 def filterByDate(decisionFilter, departureDate):
     contFlights = 0
     if decisionFilter == 1:
@@ -2158,7 +2158,7 @@ def filterByDate(decisionFilter, departureDate):
     else:
         print("There are no flights on that date")
 
-
+#Show filter
 def showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport):
     contFlights = 0
     roundTripDeparture = ""
@@ -2210,7 +2210,7 @@ def showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport):
         else:
             print("The return flight was not found")
 
-
+#Filter of flights
 def showFilterFlighs():
     contFlights = 0
     for flight in flightListFilter:
@@ -2229,7 +2229,7 @@ def showFilterFlighs():
               "\nCrewCustomerService:", flight.crewCustomerService,
               "\nPrice of the flight:", flight.price)
 
-
+#Create Travel
 def createTravel(departureAirport, arrivalAirport, gate, passenger):
     waitTime = '1'
     waitTime = datetime.strptime(waitTime, '%H')
@@ -2254,7 +2254,7 @@ def createTravel(departureAirport, arrivalAirport, gate, passenger):
     print(Travel.calculateTimeFlight())
     Travel.showFlights()
 
-
+#Show info of Travel
 def showInfoTravel():
     for travel in travelList:
         print("\nInfo Travel",
@@ -2267,7 +2267,7 @@ def showInfoTravel():
               "\nPassenger:", travel.passenger,
               "\nFlights:", travel.showFlights())
 
-
+#Add Travel
 def addTravel(passenger):
     for travel in travelList:
         if travel.passenger == passenger:
@@ -2276,7 +2276,7 @@ def addTravel(passenger):
             recordList.append(newRecord)
             saveRecord(recordList)
 
-
+#Smart Searching for flights
 def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
     listDeparture = []
     listReturn = []
@@ -2340,6 +2340,21 @@ def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
                       "\nCrewCustomerService:", flight.crewCustomerService,
                       "\nPrice of the flight:", flight.price)
 
+#Matrix of flights
+def matrixFlights(departureAirport, arrivalAirport):
+    i = 1
+    j = 2
+    matrix = []
+    dates = []
+    for flight in flightList:
+        if flight.departureAirport == departureAirport and flight.arrivalAirport == arrivalAirport:
+            dates.append("Date:" + flight.departureTime + "Price:" + flight.price)
+    for x in range(i):
+        matrix.append([0] * j)
+    for x in range(i):
+        for y in range(j):
+            matrix[x][y] = dates
+    print(matrix)
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -3785,8 +3800,8 @@ def smartSearchMenu(role):
                     break
                 except:
                     print("\n You have not entered a correct date, try again")
-
             smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day)
+            matrixFlights(departureAirport, arrivalAirport)
 
         elif option == "2":
             passengerMenu(role)
