@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b35115b-00e8-4a9e-824c-a4680bdf68d9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Record.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Travel.py" beforeDir="false" afterPath="$PROJECT_DIR$/Travel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -17,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="2250" column="32" lean-forward="true" selection-start-line="2250" selection-start-column="32" selection-end-line="2250" selection-end-column="32" />
+            <state relative-caret-position="153">
+              <caret line="2269" lean-forward="true" selection-start-line="2269" selection-end-line="2269" />
               <folding>
                 <element signature="e#98#146#0" expanded="true" />
               </folding>
@@ -27,10 +28,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Record.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Travel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="442">
+              <caret line="26" column="25" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="26" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -108,6 +118,7 @@
         <option value="$PROJECT_DIR$/FlightMaintenance.py" />
         <option value="$PROJECT_DIR$/Travels.py" />
         <option value="$PROJECT_DIR$/Travel.py" />
+        <option value="$PROJECT_DIR$/Record.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -123,7 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,11 +150,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/copias-proyectos python/PycharmProjects/semana7" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2118474" />
   </component>
@@ -209,6 +220,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14508928" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -345,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlightMaintenance.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -359,17 +364,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Travel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="442">
+          <caret line="26" column="25" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Record.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="2250" column="32" lean-forward="true" selection-start-line="2250" selection-start-column="32" selection-end-line="2250" selection-end-column="32" />
+        <state relative-caret-position="153">
+          <caret line="2269" lean-forward="true" selection-start-line="2269" selection-end-line="2269" />
           <folding>
             <element signature="e#98#146#0" expanded="true" />
           </folding>

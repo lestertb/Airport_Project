@@ -10,6 +10,7 @@ from PlaneMaintenance import *
 from AirportMaintenance import *
 from FileManager import *
 from Travel import *
+from Record import *
 from collections import Counter
 import random
 import sys
@@ -33,6 +34,7 @@ listDates = []
 listgates = []
 flightListFilter = []
 travelList = []
+recordList = []
 
 # Data to inject
 userTest = User("lester", 18, "lestertb", "123", "111", 1)
@@ -2249,6 +2251,9 @@ def createTravel(departureAirport, arrivalAirport, gate, passenger):
     namePassenger = passenger
     newTravel = Travel(departure, arrival, layover, waitTime, namePassenger)
     travelList.append(newTravel)
+    print(Travel.calculatePrice())
+    print(Travel.calculateTimeFlight())
+    Travel.showFlights()
 
 
 def showInfoTravel():
@@ -2262,6 +2267,15 @@ def showInfoTravel():
               "\nPrice:", travel.price,
               "\nPassenger:", travel.passenger,
               "\nFlights:", travel.showFlights())
+
+
+def addTravel(passenger):
+    for travel in travelList:
+        if travel.passenger == passenger:
+            newRecord = Record(passenger)
+            Record.addTravel1(travel)
+            recordList.append(newRecord)
+
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -3471,6 +3485,7 @@ def travelMenu(role):
             passengerName = input("Enter your name")
             createTravel(departureAirport, arrivalAirport, gate, passengerName)
             showInfoTravel()
+            addTravel(passengerName)
 
         elif option == "2":
             return 2

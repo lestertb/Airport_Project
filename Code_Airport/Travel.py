@@ -9,16 +9,18 @@ class Travel:
         self.passenger = passenger
         self.flights = []
 
-    def addFlight(self,flight):
+    def addFlight(self, flight):
         self.flights.append(flight)
 
     def calculatePrice(self):
         for v in self.flights:
             self.price = v.price + v.price
+        return self.price
 
     def calculateTimeFlight(self):
         for v in self.flights:
             self.timeFlight = v.timeFlight + v.timeFlight
+        return self.timeFlight
 
     def showFlights(self):
         for flight in self.flights:
