@@ -2281,6 +2281,8 @@ def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
     listDeparture = []
     listReturn = []
     listaprueba = []
+    pricesDeparture = []
+    pricesReturn = []
     days = day
     date1 = firstDate
     date2 = secondDate
@@ -2290,8 +2292,6 @@ def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
     date2Modify = datetime.strptime(date2, '%d/%m/%Y')
     result3 = date2Modify + timedelta(days=days)
     result4 = date2Modify - timedelta(days=days)
-
-
     for flight in flightList:
         if flight.departureAirport == departureAirport and flight.arrivalAirport == arrivalAirport:
             listaprueba.append(flight)
@@ -2301,6 +2301,44 @@ def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
             if result4 < date and date < result3:
                 listReturn.append(flight)
 
+    for flight in listDeparture:
+        pricesDeparture.append(flight.price)
+    pricesDeparture.sort()
+    for price in pricesDeparture:
+        for flight in listDeparture:
+            if flight.price == price:
+                print("\nInfo Flight Departure",
+                      "\nAirline:", flight.airline,
+                      "\nDeparture Date:", flight.departureDate,
+                      "\nDeparture Time:", flight.departureTime,
+                      "\nTime of flight:", flight.timeFlight,
+                      "\nDeparture Airport:", flight.departureAirport,
+                      "\nArrival Airport:", flight.arrivalAirport,
+                      "\nAircraft:", flight.plane,
+                      "\nGate:", flight.gate,
+                      "\nTrack:", flight.track,
+                      "\nCrewPilots:", flight.crewPilot,
+                      "\nCrewCustomerService:", flight.crewCustomerService,
+                      "\nPrice of the flight:", flight.price)
+    for flight in listReturn:
+        pricesReturn.append(flight.price)
+    pricesReturn.sort()
+    for price in pricesReturn:
+        for flight in listDeparture:
+            if flight.price == price:
+                print("\nInfo Flight Departure",
+                      "\nAirline:", flight.airline,
+                      "\nDeparture Date:", flight.departureDate,
+                      "\nDeparture Time:", flight.departureTime,
+                      "\nTime of flight:", flight.timeFlight,
+                      "\nDeparture Airport:", flight.departureAirport,
+                      "\nArrival Airport:", flight.arrivalAirport,
+                      "\nAircraft:", flight.plane,
+                      "\nGate:", flight.gate,
+                      "\nTrack:", flight.track,
+                      "\nCrewPilots:", flight.crewPilot,
+                      "\nCrewCustomerService:", flight.crewCustomerService,
+                      "\nPrice of the flight:", flight.price)
 
 
 '------------------------------------------#Menus---------------------------------------'
