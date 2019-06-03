@@ -14,9 +14,16 @@ from Record import *
 from collections import Counter
 import random
 import sys
+'''import tkinter
+from tkinter import *'''
 
 '------------------------------------------#Lists---------------------------------------'
-
+'''v0 = Tk()  # hace la variable a una ventana
+v1 = Toplevel(v0)  # crea una ventana hija
+v1.protocol("WM_DELETE_WINDOW", "onexit")
+v0.protocol("WM_DELETE_WINDOW", "onexit")
+v0.resizable(0,0)
+v1.resizable(0,0)'''
 # Declaration of global lists
 usersList = []
 trackList = []
@@ -2059,7 +2066,8 @@ def thirdReport():
         print("Name:", airportList[i].name, "Cuantity: ", cont)
         i += 1
 
-#Report
+
+# Report
 def fourthReport():
     cont = 0
     cont2 = 0
@@ -2076,7 +2084,8 @@ def fourthReport():
         if crew.type == "Costumer service":
             print(crew.name, cont)
 
-#Filter by dates
+
+# Filter by dates
 def verifyDates(firstDate, secondDate):
     firstDate = datetime.strptime(firstDate, '%d/%m/%Y')
     secondDate = datetime.strptime(secondDate, '%d/%m/%Y')
@@ -2085,7 +2094,8 @@ def verifyDates(firstDate, secondDate):
     else:
         return False
 
-#Filter by time
+
+# Filter by time
 def filterByTime():
     contFlights = 0
     times = []
@@ -2110,7 +2120,8 @@ def filterByTime():
                       "\nCrewCustomerService:", flight.crewCustomerService,
                       "\nPrice of the flight:", flight.price)
 
-#Filter by prices
+
+# Filter by prices
 def filterByPrice():
     contFlights = 0
     prices = []
@@ -2135,7 +2146,8 @@ def filterByPrice():
                       "\nCrewCustomerService:", flight.crewCustomerService,
                       "\nPrice of the flight:", flight.price)
 
-#Filter by dates
+
+# Filter by dates
 def filterByDate(decisionFilter, departureDate):
     contFlights = 0
     if decisionFilter == 1:
@@ -2158,7 +2170,8 @@ def filterByDate(decisionFilter, departureDate):
     else:
         print("There are no flights on that date")
 
-#Show filter
+
+# Show filter
 def showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport):
     contFlights = 0
     roundTripDeparture = ""
@@ -2210,7 +2223,8 @@ def showSearchFlightsAirport(typeFlights, departureAirport, arrivalAirport):
         else:
             print("The return flight was not found")
 
-#Filter of flights
+
+# Filter of flights
 def showFilterFlighs():
     contFlights = 0
     for flight in flightListFilter:
@@ -2229,7 +2243,8 @@ def showFilterFlighs():
               "\nCrewCustomerService:", flight.crewCustomerService,
               "\nPrice of the flight:", flight.price)
 
-#Create Travel
+
+# Create Travel
 def createTravel(departureAirport, arrivalAirport, gate, passenger):
     waitTime = '1'
     waitTime = datetime.strptime(waitTime, '%H')
@@ -2240,7 +2255,7 @@ def createTravel(departureAirport, arrivalAirport, gate, passenger):
     layover = ""
     for flight3 in flightList:
         if flight3.departureAirport == departure and flight3.arrivalAirport == arrival and flight3.gate == gate1:
-            Travel.addFlight(flight3, )
+            flight3.addFlight(flight3)
             flightTravel.append(flight3)
     for flight1 in flightTravel:
         for flight2 in flightList:
@@ -2250,11 +2265,12 @@ def createTravel(departureAirport, arrivalAirport, gate, passenger):
     namePassenger = passenger
     newTravel = Travel(departure, arrival, layover, waitTime, namePassenger)
     travelList.append(newTravel)
-    print(Travel.calculatePrice())
-    print(Travel.calculateTimeFlight())
-    Travel.showFlights()
+    print(flight2.calculatePrice())
+    print(flight2.calculateTimeFlight())
+    flight2.showFlights()
 
-#Show info of Travel
+
+# Show info of Travel
 def showInfoTravel():
     for travel in travelList:
         print("\nInfo Travel",
@@ -2267,16 +2283,18 @@ def showInfoTravel():
               "\nPassenger:", travel.passenger,
               "\nFlights:", travel.showFlights())
 
-#Add Travel
+
+# Add Travel
 def addTravel(passenger):
     for travel in travelList:
         if travel.passenger == passenger:
             newRecord = Record(passenger)
-            Record.addTravel1(travel)
+            travel.addTravel1(travel)
             recordList.append(newRecord)
             saveRecord(recordList)
 
-#Smart Searching for flights
+
+# Smart Searching for flights
 def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
     listDeparture = []
     listReturn = []
@@ -2340,7 +2358,8 @@ def smartSearch(departureAirport, arrivalAirport, firstDate, secondDate, day):
                       "\nCrewCustomerService:", flight.crewCustomerService,
                       "\nPrice of the flight:", flight.price)
 
-#Matrix of flights
+
+# Matrix of flights
 def matrixFlights(departureAirport, arrivalAirport):
     i = 1
     j = 2
@@ -2355,6 +2374,7 @@ def matrixFlights(departureAirport, arrivalAirport):
         for y in range(j):
             matrix[x][y] = dates
     print(matrix)
+
 
 '------------------------------------------#Menus---------------------------------------'
 
@@ -3817,7 +3837,7 @@ def passengerMenu(role):
         print("\nYou are in passenger mode\n"
               "\nAero-TEC\n",
               "1)Search for flights.\n",
-              "2)Smart Search.\n"
+              "2)Smart Search.\n",
               "3)Log out.\n")
         option = input("Enter the action you want to do:")
         if option == "1":
@@ -4008,10 +4028,67 @@ def loginMenu():
     loginMenu()
 
 
+'''def mostrar(ventana):
+    ventana.deiconify()
+
+
+def ocultar(ventana):
+    ventana.withdraw()
+
+
+def ejecutar(f):
+    v0.after(200, f)
+
+
+def imprimir(texto):
+    print(texto)
+
+
+v0.config(bg="white")  # Le da color al fondo
+
+v0.geometry("750x750")
+v1.geometry("750x750")
+
+b1 = Button(v0, text="ABRIR VENTANA V1", command=lambda:
+ejecutar(mostrar(v1)) or imprimir("hola"))
+
+b1.grid(row=1, column=1)
+b2 = Button(v0, text="OCULTAR VENTANA V1", command=lambda:
+ejecutar(ocultar(v1)))
+b6=Button(v0, text="Exit", command=lambda:
+ejecutar(ocultar(v0)))
+
+b6.grid(row=1, column=8)
+
+b2.grid(row=1, column=2)
+
+b3 = Button(v1, text="SALIR", command=lambda:
+ejecutar(ocultar(v0)))
+
+b3.grid(row=1, column=6)
+b4 = Button(v1, text="Login", command=lambda:
+ejecutar(mostrar(v0)) or imprimir("hola"))
+b4.grid(row=1, column=6)
+
+b5 = Button(v1, text="Exit", command=lambda:
+ejecutar(ocultar(v1)))
+b5.grid(row=5,column=6)
+
+mitexto=StringVar()
+label1=Label(v0,textvar=mitexto)
+#escribir=raw_input("")
+#mitexto.set(escribir)
+
+
+v1.withdraw()  # Oculta la ventana v1
+
+v0.mainloop()'''  # Es el evento que llama al inicio de nuestro programa. Siempre lo lleva la ventana principal.
+
+
 def start():
     global flightList
     flightList = charge()
-    loginMenu()
+    #loginMenu()
     global recordList
     recordList = charge1()
 

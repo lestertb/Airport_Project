@@ -13,7 +13,7 @@ def save(flightList):
         file.write(text)
         file.close()
     except:
-        print("Error trying to download")
+        print("Error trying to download ")
 
 def charge():
     result = []
@@ -32,7 +32,9 @@ def charge():
 def saveRecord(recordList):
     text = " "
     for flight in recordList:
-        text += flight.passenger +"$\n"
+        for travel in flight.travels:
+            text += flight.passenger +"$" + travel.timeFlight+ "$" + travel.departure+ "$" + travel.waitTime+\
+                    "$" + travel.arrival+"$\n"
 
     try:
         file = open("Record.txt", "w")
@@ -47,7 +49,7 @@ def charge1():
         file = open("Record.txt", "r")
         for line in file.readlines():
             data = line.split("$")
-            newRecord = Record(data[1])
+            newRecord = Record(data[0])
             result2.append(newRecord)
         file.close()
     except:
