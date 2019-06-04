@@ -13,14 +13,20 @@ class Travel:
         self.flights.append(flight)
 
     def calculatePrice(self):
-        for v in self.flights:
-            self.price = v.price + v.price
-        return self.price
+        total = 0
+        i = 1
+        while i < len(self.flights):
+            total = self.flights[0].price + "+" + self.flights[1].price
+            i = i + 1
+        return total
 
     def calculateTimeFlight(self):
-        for v in self.flights:
-            self.timeFlight = v.timeFlight + v.timeFlight
-        return self.timeFlight
+        total = 0
+        i = 1
+        while i < len(self.flights):
+            total = self.flights[0].timeFlight + "+" + self.flights[1].timeFlight
+            i = i + 1
+        return total
 
     def showFlights(self):
         for flight in self.flights:

@@ -2244,44 +2244,36 @@ def showFilterFlighs():
               "\nPrice of the flight:", flight.price)
 
 
-# Create Travel
-def createTravel(departureAirport, arrivalAirport, gate, passenger):
-    waitTime = '1'
-    waitTime = datetime.strptime(waitTime, '%H')
-    departure = departureAirport
-    arrival = arrivalAirport
-    flightTravel = []
-    gate1 = gate
-    layover = ""
-    for flight3 in flightList:
-        if flight3.departureAirport == departure and flight3.arrivalAirport == arrival and flight3.gate == gate1:
-            flight3.addFlight(flight3)
-            flightTravel.append(flight3)
-    for flight1 in flightTravel:
-        for flight2 in flightList:
-            if flight1.arrivalAirport == flight2.arrivalAirport:
-                flightTravel.append(flight2)
-                layover = flight2.arrivalAirport
-    namePassenger = passenger
-    newTravel = Travel(departure, arrival, layover, waitTime, namePassenger)
-    travelList.append(newTravel)
-    print(flight2.calculatePrice())
-    print(flight2.calculateTimeFlight())
-    flight2.showFlights()
+def optionMenuTravel(passenger):
+    print("Do you want to see all travel info?.\n"
+          "1)Yes.\n"
+          "2)No.\n")
+    option = input("Enter the option:")
+    if option == "1":
+        showInfoTravel(passenger)
+
+    elif option == "2":
+        passengerMenu(3)
+
+    else:
+        print("Invalid option")
+        return trackStatusMenu()
+
 
 
 # Show info of Travel
-def showInfoTravel():
+def showInfoTravel(passenger):
     for travel in travelList:
-        print("\nInfo Travel",
-              "\nDeparture:", travel.departure,
-              "\nArrival:", travel.arrival,
-              "\nLayover:", travel.layover,
-              "\nWait Time:", travel.waitTime,
-              "\nTime Flight:", travel.timeFlight,
-              "\nPrice:", travel.price,
-              "\nPassenger:", travel.passenger,
-              "\nFlights:", travel.showFlights())
+        if travel.passenger == passenger:
+            print("\nInfo Travel",
+                  "\nDeparture:", travel.departure,
+                  "\nArrival:", travel.arrival,
+                  "\nLayover:", travel.layover,
+                  "\nWait Time:", travel.waitTime,
+                  "\nTime Flight:", travel.calculateTimeFlight(),
+                  "\nPrice:", travel.calculatePrice(),
+                  "\nPassenger:", travel.passenger)
+    passengerMenu(3)
 
 
 # Add Travel
@@ -2292,6 +2284,41 @@ def addTravel(passenger):
             travel.addTravel1(travel)
             recordList.append(newRecord)
             saveRecord(recordList)
+
+
+# Create Travel
+def createTravel(departureAirport, arrivalAirport, gate, passenger):
+    waitTime = '1'
+    waitTime = datetime.strptime(waitTime, '%H')
+    departure = departureAirport
+    arrival = arrivalAirport
+    flightTravel = []
+    gate1 = gate
+    layover = "Travel without layover"
+    for flight3 in flightList:
+        if flight3.departureAirport == departure and flight3.arrivalAirport == arrival and flight3.gate == gate1:
+            flightTravel.append(flight3)
+    for x in flightTravel:
+        print("Info of your Flights:",
+              "\nAirline:", x.airline,
+              "\nDeparture Date:", x.departureDate,
+              "\nDeparture Airport:", x.departureAirport,
+              "\nArrival Airport:", x.arrivalAirport,
+              "\nAircraft:", x.plane,
+              "\nGate:", x.gate,
+              "\nTrack:", x.track,
+              "\nCrewPilots:", x.crewPilot,
+              "\nCrewCustomerService:", x.crewCustomerService)
+    namePassenger = passenger
+    newTravel = Travel(departure, arrival, layover, waitTime, namePassenger)
+    travelList.append(newTravel)
+    for travel in travelList:
+        if travel.passenger == namePassenger:
+            for flight4 in flightTravel:
+                travel.flights.append(flight4)
+    print("Travel created with success")
+    optionMenuTravel(passenger)
+
 
 
 # Smart Searching for flights
@@ -3582,8 +3609,6 @@ def travelMenu(role):
             gate = input("Enter the number of gate")
             passengerName = input("Enter your name")
             createTravel(departureAirport, arrivalAirport, gate, passengerName)
-            showInfoTravel()
-            addTravel(passengerName)
 
         elif option == "2":
             return 2
@@ -4088,7 +4113,7 @@ v0.mainloop()'''  # Es el evento que llama al inicio de nuestro programa. Siempr
 def start():
     global flightList
     flightList = charge()
-    #loginMenu()
+    loginMenu()
     global recordList
     recordList = charge1()
 
