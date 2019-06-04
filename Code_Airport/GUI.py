@@ -12,6 +12,11 @@ def login2():
         return
 
 
+def destroy():
+    saveRecord(recordList)
+    root.destroy()
+
+
 def choose():
     root.withdraw()
     window1 = Toplevel(bg="#D2F1A9", width=550, height=400)
@@ -40,7 +45,7 @@ def choose():
     buttonT = Button(window1, text="Create Trip", bg="lightgreen", font=20, command=create)
     buttonT.place(rely=0, relx=0.5, relwidth=0.5, relheight=0.9)
 
-    buttonW = Button(window1, text="Return", bg="lightblue", font=20, command=v2)
+    buttonW = Button(window1, text="Return", bg="grey", font=20, command=v2)
     buttonW.place(rely=0.9, relx=0, relwidth=1, relheight=0.1)
 
 
@@ -59,22 +64,22 @@ def windowSearch():
         window.destroy()
         windowSearch()
 
-    fr2 = Frame(window, bg="white")
+    fr2 = Frame(window, bg="lightblue")
     fr2.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.8)
 
-    label2 = Label(fr2, text="Flight Searching", bg="white", font=("Arial", 20))
+    label2 = Label(fr2, text="Flight Searching", bg="lightblue", font=("Arial", 20))
     label2.pack()
 
-    departureLabel = Label(fr2, text="Departure Airport: ", bg="white", font=("Arial", 14))
+    departureLabel = Label(fr2, text="Departure Airport: ", bg="lightblue", font=("Arial", 14))
     departureLabel.place(rely=0.20)
 
-    arrivalLabel = Label(fr2, text="Arrival Airport: ", bg="white", font=("Arial", 14))
+    arrivalLabel = Label(fr2, text="Arrival Airport: ", bg="lightblue", font=("Arial", 14))
     arrivalLabel.place(rely=0.40)
 
-    dat = Label(fr2, text="Insert the date: ", bg="white", font=("Arial", 14))
+    dat = Label(fr2, text="Insert the date: ", bg="lightblue", font=("Arial", 14))
     dat.place(rely=0.60)
 
-    wayLabel = Label(fr2, text="Search only: ", bg="white", font=("Arial", 14))
+    wayLabel = Label(fr2, text="Search only: ", bg="lightblue", font=("Arial", 14))
     wayLabel.place(rely=0.80)
 
     way = ttk.Combobox(fr2, values=["one way", "round trip"])
@@ -97,8 +102,6 @@ def windowSearch():
                                              "Haiti Airport", "Guatemala Airport", "Chile Airport", "Cuba Airport",
                                              "Bolivia Airport"])
     arrivalCombo.place(rely=0.40, relx=0.5, relwidth=0.45)
-
-
 
     dayEntry = Entry(fr2)
     dayEntry.place(rely=0.6, relx=0.5, relwidth=0.1)
@@ -192,13 +195,13 @@ def windowSearch():
                                "The price is:", Flight.price, "\n")
             num = num + 1
 
-        button2 = Button(window, text="Return", bg="lightgrey", command=v3)
+        button2 = Button(window, text="Return", bg="grey", command=v3)
         button2.place(rely=0.9, relx=0, relwidth=1, relheight=0.1)
 
-    button = Button(window, text="Search", bg="lightgrey", command=jmm2)
+    button = Button(window, text="Search", bg="grey", command=jmm2)
     button.place(rely=0.88, relx=0.57, relwidth=0.1, relheight=0.09)
 
-    button2 = Button(window, text="Return", bg="lightgrey", command=v2)
+    button2 = Button(window, text="Return", bg="grey", command=v2)
     button2.place(rely=0.88, relx=0.33, relwidth=0.1, relheight=0.09)
 
 
@@ -217,16 +220,16 @@ def createFlight2():
         choose()
         window2.destroy()
 
-    fr3 = Frame(window2, bg="white")
+    fr3 = Frame(window2, bg="lightblue")
     fr3.place(relx=0.05, rely=0.05, relwidth=0.9, relheight=0.8)
 
-    label2 = Label(fr3, text="Create", bg="white", font=("Arial", 20))
+    label2 = Label(fr3, text="Create", bg="lightblue", font=("Arial", 20))
     label2.pack()
 
-    departureLabel = Label(fr3, text="Airport departure: ", bg="white", font=("Arial", 14))
+    departureLabel = Label(fr3, text="Airport departure: ", bg="lightblue", font=("Arial", 14))
     departureLabel.place(rely=0.20)
 
-    arrivalLabel = Label(fr3, text="Airport arrival: ", bg="white", font=("Arial", 14))
+    arrivalLabel = Label(fr3, text="Airport arrival: ", bg="lightblue", font=("Arial", 14))
     arrivalLabel.place(rely=0.30)
     departureCombo = ttk.Combobox(fr3, values=["Juan SantaMaria Airport", "Jamaica Airport", "Panama Airport",
                                                "Tacos Airport", "Bogota Airport", "Canada Airport", "Texas Airport"
@@ -245,19 +248,13 @@ def createFlight2():
                                              "Haiti Airport", "Guatemala Airport", "Chile Airport", "Cuba Airport",
                                              "Bolivia Airport"])
     arrivalCombo.place(rely=0.32, relx=0.5, relwidth=0.45)
-
-    scaleLabel = Label(fr3, text="Scale(1 for yes or 0 for no): ", bg="white", font=("Arial", 14))
-    scaleLabel.place(rely=0.40)
-    scaleCombo = ttk.Combobox(fr3, values=[1, 0])
-    scaleCombo.place(rely=0.42, relx=0.5, relwidth=0.45)
-
-    duration = Label(fr3, text="Insert the duration of the trip\n(4 = 4:00h): ", bg="white", font=("Arial", 14))
+    duration = Label(fr3, text="Insert the duration:", bg="lightblue", font=("Arial", 14))
     duration.place(rely=0.52)
 
     hourEntry = Entry(fr3)
     hourEntry.place(rely=0.56, relx=0.6, relwidth=0.344)
 
-    name1 = Label(fr3, text="Insert the name of the passenger: ", bg="white", font=("Arial", 14))
+    name1 = Label(fr3, text="Insert your name: ", bg="lightblue", font=("Arial", 14))
     name1.place(rely=0.70)
 
     entryName = Entry(fr3)
@@ -267,48 +264,42 @@ def createFlight2():
         departure = departureCombo.get()
         arrival = arrivalCombo.get()
         departureT = (hourEntry.get() + ":00")
-
         passenger = entryName.get()
-
         scale = ""
         duration = "1"
-        duration = datetime.strptime(duration, '%H')
+        duration1 = datetime.strptime(duration, '%H')
         flights = []
-        var = ""
-
+        # var = ""
+        var = True
         for Flight in flightList:
             if departure == Flight.departureAirport and arrival == Flight.arrivalAirport:
                 x = Flight.departureTime
                 datetime.strptime(x, '%H:%M')
                 datetime.strptime(departureT, '%H:%M')
-                print(departureT, x)
                 if departureT == x:
-                    #print(departureT, x)
                     flights.append(
-                        "Airline:" + Flight.airline + " -DepartureDate: " + Flight.departureDate + " -DepartureTime: " + Flight.departureTime + " -Duration: " + Flight.timeFlight
-                        + " -DepartureAirport: " + Flight.departureAirport + " -ArrivalAirport: " + Flight.arrivalAirport + " -Airplane: " + Flight.plane + " -Gate: " + Flight.gate
-                        + " -Track: " + Flight.track + " -Pilots: " + Flight.crewPilot + " -CostumersCrew: " + Flight.crewCustomerServicestumer
-                        + " -Price: " + Flight.price)
-
-                    duration = Flight.timeFlight
-                    var = True
+                        "Airline:" + Flight.airline + " -DepartureDate: " + Flight.departureDate + " -DepartureTime: "
+                        + Flight.departureTime + " -Duration: " + Flight.timeFlight + " -DepartureAirport: " +
+                        Flight.departureAirport + " -ArrivalAirport: " + Flight.arrivalAirport + " -Airplane: " +
+                        Flight.plane + " -Gate: " + Flight.gate + " -Track: " + Flight.track + " -Pilots: " +
+                        Flight.crewPilot + " -CostumersCrew: " + Flight.crewCustomerServicestumer + " -Price: " +
+                        Flight.price)
+                    duration1 = Flight.timeFlight
 
         if var == True:
-            newTravel = Travel(departure, arrival, scale, duration, passenger)
+            newTravel = Travel(departure, arrival, scale, duration1, passenger)
             travelList.append(newTravel)
-            recordList.appende(newTravel)
-
+            recordList.append(newTravel)
         else:
             print("error")
 
     def final():
         createTravel()
-        saveRecord(recordList)
 
-    button4 = Button(window2, text="Create", bg="lightgrey", command=final)
+    button4 = Button(window2, text="Create", bg="grey", command=final)
     button4.place(rely=0.90, relx=0.57, relwidth=0.2, relheight=0.09)
 
-    button5 = Button(window2, text="Return", bg="lightgrey", command=v6)
+    button5 = Button(window2, text="Return", bg="grey", command=v6)
     button5.place(rely=0.90, relx=0.30, relwidth=0.2, relheight=0.09)
 
 
@@ -327,27 +318,27 @@ canvas.pack()
 fr = Frame(root, bg="white")
 fr.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.8)
 
-fr.config(bg="white")
+fr.config(bg="lightblue")
 
-label = Label(fr, text="Login", bg="white", font=("Arial", 20))
+label = Label(fr, text="Login", bg="lightblue", font=("Arial", 20))
 label.pack()
 
-labelID = Label(fr, text="Insert yout ID: ", bg="white", font=("Arial", 14))
+labelID = Label(fr, text="Insert yout ID: ", bg="lightblue", font=("Arial", 14))
 labelID.place(rely=0.20)
 
-passwordLabel = Label(fr, text="Insert your password: ", bg="white", font=("Arial", 14))
+passwordLabel = Label(fr, text="Insert your password: ", bg="lightblue", font=("Arial", 14))
 passwordLabel.place(rely=0.40)
 
-entryID = Entry(fr, font=12)
+entryID = Entry(fr, font=10)
 entryID.place(rely=0.20, relx=0.5, relwidth=0.45)
 
-entryPassword = Entry(fr, font=12)
+entryPassword = Entry(fr, font=10)
 entryPassword.place(rely=0.40, relx=0.5, relwidth=0.45)
 
-button = Button(fr, text="Log In", bg="lightgrey", command=login2)
+button = Button(fr, text="Log In", bg="grey", command=login2)
 button.place(rely=0.90, relx=0.57, relwidth=0.2, relheight=0.09)
 
-button2 = Button(fr, text="Quit", bg="lightgrey", command=root.destroy)
+button2 = Button(fr, text="Quit", bg="grey", command=destroy)
 button2.place(rely=0.90, relx=0.33, relwidth=0.2, relheight=0.09)
 
 root.mainloop()

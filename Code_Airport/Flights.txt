@@ -1,4 +1,4 @@
-primera$18/10/2019$10:30$2:30$Juan SantaMaria Airport$Texas Airport$1$9$10$Names: leo1 leo2$leo4, leo5 and leo6$2000$$
+       primera$18/10/2019$10:30$2:30$Juan SantaMaria Airport$Texas Airport$1$9$10$Names: leo1 leo2$leo4, leo5 and leo6$2000$$
 primera$18/10/2019$12:55$1:30$Juan SantaMaria Airport$Tacos Airport$2$10$10$Names: leo3 leo12$leo7, leo8 and leo9$1500$$
 primera$18/10/2019$3:45$1:30$Tacos Airport$Texas Airport$3$11$10$Names: leo16 leo17$leo10, leo11 and leo13$500$$
 primera$19/10/2019$10:00$1:00$Juan SantaMaria Airport$Panama Airport$4$12$10$Names: leo19 leo20$leo14, leo15 and leo18$500$$

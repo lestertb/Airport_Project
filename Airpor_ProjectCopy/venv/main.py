@@ -3366,6 +3366,7 @@ def loginMenu():
 def start():
     global flightList
     flightList = charge()
+
     loginMenu()
 
 

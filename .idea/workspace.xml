@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da678e89-325c-4f28-a161-d47e59e403ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Code_Airport/GUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code_Airport/plane.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Airpor_ProjectCopy/venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Airpor_ProjectCopy/venv/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code_Airport/FileManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code_Airport/FileManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code_Airport/Travel.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code_Airport/Travel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code_Airport/Flights.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Code_Airport/Flights.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code_Airport/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code_Airport/GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code_Airport/Record.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Code_Airport/Record.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code_Airport/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code_Airport/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code_Airport/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="2270" lean-forward="true" selection-start-line="2270" selection-end-line="2270" />
+            <state relative-caret-position="373">
+              <caret line="4121" lean-forward="true" selection-start-line="4121" selection-end-line="4121" />
               <folding>
                 <element signature="e#98#146#0" expanded="true" />
               </folding>
@@ -33,15 +33,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Code_Airport/plane.ico">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/Code_Airport/Record.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code_Airport/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="306" lean-forward="true" selection-start-line="306" selection-end-line="306" />
+            <state relative-caret-position="1811">
+              <caret line="303" lean-forward="true" selection-start-line="303" selection-end-line="303" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -52,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code_Airport/Travel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="51">
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -67,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Code_Airport/FileManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+            <state relative-caret-position="701">
+              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -82,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code_Airport/Flights.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="442">
+              <caret line="26" column="81" lean-forward="true" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -91,17 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code_Airport/Record.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Code_Airport/TrackMaintenance.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+            <state relative-caret-position="34">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -136,15 +131,17 @@
         <option value="$PROJECT_DIR$/Code_Airport/FlightMaintenance.py" />
         <option value="$PROJECT_DIR$/Code_Airport/Flights.txt" />
         <option value="$PROJECT_DIR$/Code_Airport/Travel.py" />
-        <option value="$PROJECT_DIR$/Code_Airport/main.py" />
-        <option value="$PROJECT_DIR$/Code_Airport/GUI.py" />
+        <option value="$PROJECT_DIR$/Airpor_ProjectCopy/venv/main.py" />
+        <option value="$PROJECT_DIR$/Code_Airport/Record.txt" />
         <option value="$PROJECT_DIR$/Code_Airport/FileManager.py" />
+        <option value="$PROJECT_DIR$/Code_Airport/GUI.py" />
+        <option value="$PROJECT_DIR$/Code_Airport/main.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-15" />
-    <option name="width" value="1948" />
+    <option name="width" value="1950" />
     <option name="height" value="2075" />
   </component>
   <component name="ProjectView">
@@ -267,10 +264,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5021398" side_tool="true" weight="0.42013422" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4978602" weight="0.41980198" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4978602" visible="true" weight="0.14653465" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32956153" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32909605" />
@@ -278,7 +274,7 @@
       <window_info anchor="bottom" id="Python Console" order="3" weight="0.32956153" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.30508474" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.22316384" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -334,24 +330,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code_Airport/Flights.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Code_Airport/plane.ico">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code_Airport/FlightMaintenance.py">
+    <entry file="file://$PROJECT_DIR$/Code_Airport/TrackMaintenance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code_Airport/Travel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        <state relative-caret-position="51">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -362,27 +347,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code_Airport/TrackMaintenance.py">
+    <entry file="file://$PROJECT_DIR$/Airpor_ProjectCopy/venv/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        <state relative-caret-position="446">
+          <caret line="3368" column="4" selection-start-line="3368" selection-start-column="4" selection-end-line="3368" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code_Airport/plane.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Code_Airport/Record.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="34">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code_Airport/Travel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code_Airport/FlightMaintenance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code_Airport/Flights.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" lean-forward="true" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code_Airport/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="4121" lean-forward="true" selection-start-line="4121" selection-end-line="4121" />
+          <folding>
+            <element signature="e#98#146#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code_Airport/Record.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Code_Airport/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="306" lean-forward="true" selection-start-line="306" selection-end-line="306" />
+        <state relative-caret-position="1811">
+          <caret line="303" lean-forward="true" selection-start-line="303" selection-end-line="303" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -391,20 +411,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Code_Airport/FileManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        <state relative-caret-position="701">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code_Airport/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="2270" lean-forward="true" selection-start-line="2270" selection-end-line="2270" />
-          <folding>
-            <element signature="e#98#146#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -32,10 +32,9 @@ def charge():
 def saveRecord(recordList):
     text = " "
     for flight in recordList:
-        for travel in flight.travels:
-            text += flight.passenger +"$" + travel.timeFlight+ "$" + travel.departure+ "$" + travel.waitTime+\
-                    "$" + travel.arrival+"$\n"
-
+        for travel in flight.flights:
+            text += flight.passenger +"$" + str(travel.timeFlight)+ "$" + str(travel.departureAirport)+ "$" +\
+                    str(flight.waitTime)+"$" + str(travel.arrivalAirport)+"$\n"
     try:
         file = open("Record.txt", "w")
         file.write(text)
@@ -49,7 +48,7 @@ def charge1():
         file = open("Record.txt", "r")
         for line in file.readlines():
             data = line.split("$")
-            newRecord = Record(data[0])
+            newRecord = Travel(data[0],data[1],data[2],data[3],data[4])
             result2.append(newRecord)
         file.close()
     except:

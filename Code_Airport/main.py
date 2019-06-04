@@ -14,6 +14,7 @@ from Record import *
 from collections import Counter
 import random
 import sys
+
 '''import tkinter
 from tkinter import *'''
 
@@ -2260,7 +2261,6 @@ def optionMenuTravel(passenger):
         return trackStatusMenu()
 
 
-
 # Show info of Travel
 def showInfoTravel(passenger):
     for travel in travelList:
@@ -2283,7 +2283,6 @@ def addTravel(passenger):
             newRecord = Record(passenger)
             travel.addTravel1(travel)
             recordList.append(newRecord)
-            saveRecord(recordList)
 
 
 # Create Travel
@@ -2312,13 +2311,13 @@ def createTravel(departureAirport, arrivalAirport, gate, passenger):
     namePassenger = passenger
     newTravel = Travel(departure, arrival, layover, waitTime, namePassenger)
     travelList.append(newTravel)
+    recordList.append(newTravel)
     for travel in travelList:
         if travel.passenger == namePassenger:
             for flight4 in flightTravel:
                 travel.flights.append(flight4)
     print("Travel created with success")
     optionMenuTravel(passenger)
-
 
 
 # Smart Searching for flights
@@ -4047,6 +4046,7 @@ def loginMenu():
 
     elif option == "3":
         save(flightList)
+        saveRecord(recordList)
         sys.exit()
     else:
         print("Invalid option")
@@ -4113,9 +4113,9 @@ v0.mainloop()'''  # Es el evento que llama al inicio de nuestro programa. Siempr
 def start():
     global flightList
     flightList = charge()
-    loginMenu()
     global recordList
     recordList = charge1()
+    loginMenu()
 
 
 start()
